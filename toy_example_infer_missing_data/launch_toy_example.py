@@ -2,13 +2,13 @@ import os
 import sys
 
 # Variables pour les fichiers et paramètres
-parameters_file = "../src/parameters.txt"
-genotypes_file = "../data/genotypes_altered.csv"
-output_genotypes_file = "../data/imputed_genotypes.csv"
+parameters_file = "../parameters/parameters_3_1.txt"
+genotypes_file = "../data/Dataset_6/alt_5/genotypes_alteres.csv"
+output_genotypes_file = "../data/Dataset_6/alt_5/k_1/imputed_genotypes.csv"
 
 # Nom de l'exécutable et code source
-executable = "../src/infer_missing_data"
-source_file = "../src/infer_missing_data.cpp"
+executable = "../src/infer_missing_data/infer_missing_data"
+source_file = "../src/infer_missing_data/infer_missing_data.cpp"
 
 # Compilation de l'exécutable
 compile_cmd = f"g++ -o {executable} {source_file} -std=c++11"
