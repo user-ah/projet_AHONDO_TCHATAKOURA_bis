@@ -1,3 +1,26 @@
+/*
+    File: haplotypeReader.h
+
+    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+
+    Description:
+    This header file defines a function to read haplotypes from a CSV file and store them in a vector. 
+    Each pair of haplotypes corresponds to two consecutive lines in the file.
+
+    Key Features:
+    - Reads haplotypes from a CSV file, where each row represents a haplotype.
+    - Each pair of haplotypes is stored as a pair of vectors of integers.
+    - Assumes the file uses a comma as the delimiter between alleles.
+
+    Output:
+    - Returns a vector of pairs of haplotypes, each represented as a vector of integers.
+
+    Preconditions:
+    - The input file must be a valid CSV file containing pairs of haplotypes.
+    - Each pair of consecutive rows in the file represents one haplotype pair.
+
+*/
+
 #include <vector>
 #include <string>
 #include <fstream>
@@ -6,22 +29,22 @@
 #include <stdexcept>
 
 /**
- * Lecture des haplotypes à partir d'un fichier CSV et stockage dans un vecteur.
- * Chaque paire d'haplotypes correspond à deux lignes consécutives dans le fichier.
+ * Reads haplotypes from a CSV file and stores them in a vector.
+ * Each pair of haplotypes corresponds to two consecutive lines in the file.
  *
- * @param filename Nom du fichier CSV contenant les haplotypes
- * @return Vecteur de paires d'haplotypes (chacun étant un vecteur d'entiers)
+ * @param filename The CSV file containing the haplotypes.
+ * @return A vector of haplotype pairs (each is a vector of integers).
  */
 inline std::vector<std::pair<std::vector<int>, std::vector<int>>> readHaplotypes(const std::string& filename) {
     std::vector<std::pair<std::vector<int>, std::vector<int>>> haplotypes;
     std::ifstream file(filename);
     if (!file) {
-        std::cerr << "Erreur : Impossible d'ouvrir le fichier " << filename << std::endl;
+        std::cerr << "Error: Unable to open file " << filename << std::endl;
         exit(EXIT_FAILURE);
     }
 
     std::string line;
-    char delimiter = ','; // Supposons que le séparateur est une virgule
+    char delimiter = ','; 
     std::vector<int> haplo1, haplo2;
 
     while (std::getline(file, line)) {
@@ -29,17 +52,17 @@ inline std::vector<std::pair<std::vector<int>, std::vector<int>>> readHaplotypes
         std::istringstream stream(line);
         std::string alleleStr;
 
-        // Lire chaque valeur entière séparée par des virgules
+        
         while (std::getline(stream, alleleStr, delimiter)) {
             haplo.push_back(std::stoi(alleleStr));
         }
 
         if (haplo1.empty()) {
-            haplo1 = haplo; // Premier haplotype de la paire
+            haplo1 = haplo; 
         } else {
-            haplo2 = haplo; // Deuxième haplotype de la paire
-            haplotypes.emplace_back(haplo1, haplo2); // Stocker la paire
-            haplo1.clear(); // Réinitialiser pour la prochaine paire
+            haplo2 = haplo; 
+            haplotypes.emplace_back(haplo1, haplo2); 
+            haplo1.clear(); 
         }
     }
 

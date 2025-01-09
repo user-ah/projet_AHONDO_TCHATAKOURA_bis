@@ -1,3 +1,26 @@
+/*
+    File: generateHaplotypes.h
+
+    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+
+    Description:
+    This header file defines functions to generate possible haplotype pairs for a given genotype. 
+    The functions also filter out unique haplotypes based on the input genotypes. It includes 
+    a backtracking approach to generate haplotype pairs and ensures no duplicates in the final result.
+
+    Key Features:
+    - Generates all possible haplotype pairs for a given genotype.
+    - Filters out unique haplotypes across all individuals.
+    - Utilizes a recursive backtracking method for generating haplotype pairs.
+
+    Output:
+    - Returns a list of unique haplotypes.
+
+    Preconditions:
+    - The input genotypes are provided as a vector of integer vectors, where each vector represents 
+      the genotype of an individual.
+*/
+
 #ifndef GENERATE_HAPLOTYPES_H
 #define GENERATE_HAPLOTYPES_H
 
@@ -6,12 +29,10 @@
 #include <set>
 #include <functional>
 
-// Type alias pour simplifier
 using Haplotype = std::vector<int>;
 using HaploPair = std::pair<Haplotype, Haplotype>;
 using HaploList = std::vector<HaploPair>;
 
-// Générer toutes les paires d'haplotypes possibles pour un génotype donné
 inline HaploList generateHaplotypePairs(const std::vector<int>& genotype) {
     HaploList result;
     std::function<void(size_t, Haplotype, Haplotype)> backtrack =
@@ -41,6 +62,7 @@ inline HaploList generateHaplotypePairs(const std::vector<int>& genotype) {
     backtrack(0, {}, {});
     return result;
 }
+
 inline std::vector<std::vector<int>> generateAndFilterUniqueHaplotypes(const std::vector<std::vector<int>>& genotypes) {
     std::set<Haplotype> allUniqueHaplotypes;
 

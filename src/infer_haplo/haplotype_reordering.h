@@ -1,3 +1,27 @@
+/*
+    File: haplotypeReordering.h
+
+    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+
+    Description:
+    This header file defines a function to reorder haplotypes to match the order of genotypes 
+    and write them to a file. The function takes a list of genotypes and a mapping from genotypes 
+    to haplotypes, and writes the ordered haplotypes to the specified output file.
+
+    Key Features:
+    - Reorders haplotypes to match the order of genotypes.
+    - Writes the ordered haplotypes to a CSV file.
+    - Handles cases where no matching haplotype is found for a genotype by outputting an error message.
+
+    Output:
+    - Writes the ordered haplotypes to the specified file.
+
+    Preconditions:
+    - The input `genotypes` is a list of genotypes, and `genotypeToHaplotypes` is a map that 
+      associates each genotype with a corresponding pair of haplotypes.
+    - The output file (`haplotypesFile`) must be writable.
+*/
+
 #ifndef HAPLOTYPE_REORDERING_H
 #define HAPLOTYPE_REORDERING_H
 
@@ -9,13 +33,12 @@
 #include "vector_hash.h"
 
 /**
- * Réorganise les haplotypes pour correspondre à l'ordre des génotypes et les écrit dans un fichier.
+ * Reorders haplotypes to match the order of genotypes and writes them to a file.
  *
- * @param genotypes Liste des génotypes.
- * @param genotypeToHaplotypes Map associant chaque génotype à sa paire d'haplotypes.
- * @param haplotypesFile Nom du fichier de sortie pour les haplotypes réorganisés.
+ * @param genotypes List of genotypes.
+ * @param genotypeToHaplotypes Map associating each genotype with its corresponding haplotype pair.
+ * @param haplotypesFile Output file name for the reordered haplotypes.
  */
-
 inline void reorganizeHaplotypesAndWriteToFile(
     const std::vector<std::vector<int>>& genotypes,
     const std::unordered_map<std::vector<int>, std::pair<std::vector<int>, std::vector<int>>, VectorHash>& genotypeToHaplotypes,
@@ -27,7 +50,7 @@ inline void reorganizeHaplotypesAndWriteToFile(
         if (genotypeToHaplotypes.find(genotype) != genotypeToHaplotypes.end()) {
             orderedHaplotypes.push_back(genotypeToHaplotypes.at(genotype));
         } else {
-            std::cerr << "Erreur : Aucun haplotype trouvé pour le génotype suivant : ";
+            std::cerr << "Error: No haplotype found for the following genotype: ";
             for (int allele : genotype) std::cerr << allele << " ";
             std::cerr << std::endl;
         }
@@ -49,7 +72,7 @@ inline void reorganizeHaplotypesAndWriteToFile(
         }
         haploFile.close();
     } else {
-        std::cerr << "Erreur : Impossible d'écrire dans le fichier des haplotypes " << haplotypesFile << std::endl;
+        std::cerr << "Error: Unable to write to haplotype file " << haplotypesFile << std::endl;
     }
 }
 

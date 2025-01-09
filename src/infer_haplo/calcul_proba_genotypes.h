@@ -1,3 +1,26 @@
+/*
+    File: calcul_proba_genotypes.h
+
+    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+
+    Description:
+    This header file defines a function to calculate the probabilities of genotypes 
+    based on the frequencies of haplotypes. The function iterates over a list of genotypes 
+    and calculates their probabilities by considering all possible pairs of haplotypes 
+    that could give rise to the genotype. The calculation incorporates the frequencies 
+    of the haplotypes involved.
+
+    Key Features:
+    - Calculates genotype probabilities using haplotype frequencies.
+    - Handles genotype and haplotype data represented as vectors of integers.
+    - Uses a hash map to store the haplotype frequencies and genotype probabilities.
+
+    Output: Updates the `probabilities` map with calculated probabilities for each genotype.
+
+    Preconditions:
+    - The input `genotypes` and `haplotypes` must be non-empty and correctly formatted.
+    - The `frequencies` map should contain valid data for all haplotypes involved.
+*/
 #ifndef CALCUL_PROBA_GENOTYPES_H
 #define CALCUL_PROBA_GENOTYPES_H
 
@@ -6,6 +29,7 @@
 #include <iostream>
 #include "vector_hash.h"
 #include "explain_genotype.h"
+
 /**
  * Calcule les probabilités des génotypes en fonction des fréquences des haplotypes.
  *
@@ -40,4 +64,4 @@ inline void calcul_proba_genotypes(
     }
 }
 
-#endif // CALCUL_PROBA_GENOTYPES_H
+#endif 

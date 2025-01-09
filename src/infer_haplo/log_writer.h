@@ -1,3 +1,27 @@
+/*
+    File: log_writer.h
+
+    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+
+    Description:
+    This header file defines a function to write log information to a specified log file. 
+    The function records details such as the number of individuals, loci, EM iterations, execution time,
+    and several statistics related to the genotypes and haplotypes.
+
+    Key Features:
+    - Records important information into a log file for analysis and debugging.
+    - Provides details on the number of individuals, loci, and distinct haplotypes.
+    - Records execution time and other relevant statistics.
+
+    Output:
+    - Writes the log data to a file, as specified by the `log_file` parameter.
+    - Provides feedback on the success or failure of writing to the log file.
+
+    Preconditions:
+    - The `log_file` parameter must be a valid file path.
+    - The `frequencies`, `genotypes`, and `haplotypes` data must be properly prepared before calling the function.
+*/
+
 #ifndef LOG_WRITER_H
 #define LOG_WRITER_H
 
@@ -6,17 +30,17 @@
 #include <iostream>
 
 /**
- * Écrit les informations de log dans un fichier.
+ * Writes log information to a file.
  *
- * @param log_file Le chemin vers le fichier de log.
- * @param n_ind Nombre d'individus.
- * @param n_loci Nombre de loci.
- * @param nb_iterations Nombre d'itérations EM utilisées.
- * @param executionTime Durée totale d'exécution (en secondes).
- * @param countTwos Nombre total de "2" dans le fichier des génotypes.
- * @param n_distinct_ground_truth Nombre d'haplotypes distincts dans la référence.
- * @param n_distinct_inferred Nombre d'haplotypes distincts dans les inférences.
- * @param averageDistance Distance moyenne de Hamming (normalisée).
+ * @param log_file The path to the log file.
+ * @param n_ind Number of individuals.
+ * @param n_loci Number of loci.
+ * @param nb_iterations Number of EM iterations used.
+ * @param executionTime Total execution time (in seconds).
+ * @param countTwos Total count of "2"s in the genotypes file.
+ * @param n_distinct_ground_truth Number of distinct haplotypes in the reference set.
+ * @param n_distinct_inferred Number of distinct haplotypes in the inferred dataset.
+ * @param averageDistance Average normalized Hamming distance.
  */
 inline void writeLog(const std::string& log_file,
                      int n_ind,
@@ -29,18 +53,18 @@ inline void writeLog(const std::string& log_file,
                      double averageDistance) {
     std::ofstream log(log_file);
     if (log.is_open()) {
-        log << "Nombre d'individus (n_ind) : " << n_ind << "\n";
-        log << "Nombre de loci (n_loci) : " << n_loci << "\n";
-        log << "Nombre d'itérations utilisées : " << nb_iterations << "\n";
-        log << "Durée d'exécution : " << executionTime << " secondes\n";
-        log << "Nombre total de `2` dans le fichier des génotypes : " << countTwos << "\n";
-        log << "Nombre d'haplotypes distincts (ground truth) : " << n_distinct_ground_truth << "\n";
-        log << "Nombre d'haplotypes distincts (inférés) : " << n_distinct_inferred << "\n";
-        log << "Distance moyenne de Hamming (normalisée) : " << averageDistance << "\n";
+        log << "Number of individuals (n_ind): " << n_ind << "\n";
+        log << "Number of loci (n_loci): " << n_loci << "\n";
+        log << "Number of iterations used: " << nb_iterations << "\n";
+        log << "Execution time: " << executionTime << " seconds\n";
+        log << "Total count of `2`s in the genotypes file: " << countTwos << "\n";
+        log << "Number of distinct haplotypes (ground truth): " << n_distinct_ground_truth << "\n";
+        log << "Number of distinct haplotypes (inferred): " << n_distinct_inferred << "\n";
+        log << "Average normalized Hamming distance: " << averageDistance << "\n";
         log.close();
-        std::cout << "Log écrit dans : " << log_file << std::endl;
+        std::cout << "Log written to: " << log_file << std::endl;
     } else {
-        std::cerr << "Erreur : Impossible d'ouvrir le fichier de log : " << log_file << std::endl;
+        std::cerr << "Error: Unable to open the log file: " << log_file << std::endl;
     }
 }
 

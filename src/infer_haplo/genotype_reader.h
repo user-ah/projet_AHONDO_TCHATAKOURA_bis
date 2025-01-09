@@ -1,3 +1,28 @@
+/*
+    File: genotypeReader.h
+
+    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+
+    Description:
+    This header file defines a function to read genotypes from a CSV file. 
+    The function extracts the genotypes, the number of individuals, and the number of loci from the input file. 
+    It handles errors such as invalid or out-of-range values in the CSV file and ensures the data conforms to expected dimensions.
+
+    Key Features:
+    - Reads genotypes from a CSV file into a vector of vectors.
+    - Handles errors in the input file, including invalid values and inconsistent row sizes.
+    - Extracts the number of individuals (rows) and loci (columns) from the CSV.
+
+    Output:
+    - Populates the `genotypes` vector with the genotypic data.
+    - Updates the `n_ind` and `n_loci` with the number of individuals and loci, respectively.
+
+    Preconditions:
+    - The input file must be a valid CSV file containing genotypic data.
+    - Each row must represent a genotype, and each column corresponds to a locus.
+
+*/
+
 #ifndef GENOTYPE_READER_H
 #define GENOTYPE_READER_H
 
@@ -9,12 +34,12 @@
 #include <stdexcept>
 
 /**
- * @brief Lit un fichier de génotypes CSV et extrait les génotypes, le nombre d'individus et de loci.
+ * @brief Reads a CSV genotype file and extracts genotypes, number of individuals, and loci.
  * 
- * @param filename Nom du fichier CSV contenant les génotypes.
- * @param genotypes Vecteur de vecteurs où chaque vecteur représente un génotype.
- * @param n_ind Référence pour stocker le nombre d'individus (lignes).
- * @param n_loci Référence pour stocker le nombre de loci (colonnes).
+ * @param filename The CSV file name containing the genotypes.
+ * @param genotypes A vector of vectors where each vector represents a genotype.
+ * @param n_ind Reference to store the number of individuals (rows).
+ * @param n_loci Reference to store the number of loci (columns).
  */
 inline void readGenotypes(const std::string& filename, 
                           std::vector<std::vector<int>>& genotypes, 
@@ -22,7 +47,7 @@ inline void readGenotypes(const std::string& filename,
     std::ifstream file(filename);
 
     if (!file) {
-        std::cerr << "Erreur : Impossible d'ouvrir le fichier " << filename << std::endl;
+        std::cerr << "Error: Unable to open file " << filename << std::endl;
         exit(EXIT_FAILURE);
     }
 
@@ -39,14 +64,14 @@ inline void readGenotypes(const std::string& filename,
             try {
                 genotype.push_back(std::stoi(value));
             } catch (const std::invalid_argument& e) {
-                std::cerr << "Erreur : Valeur non valide '" << value 
-                          << "' dans le fichier " << filename 
-                          << ", ligne " << n_ind + 1 << "." << std::endl;
+                std::cerr << "Error: Invalid value '" << value 
+                          << "' in file " << filename 
+                          << ", line " << n_ind + 1 << "." << std::endl;
                 exit(EXIT_FAILURE);
             } catch (const std::out_of_range& e) {
-                std::cerr << "Erreur : Valeur hors limites '" << value 
-                          << "' dans le fichier " << filename 
-                          << ", ligne " << n_ind + 1 << "." << std::endl;
+                std::cerr << "Error: Out-of-range value '" << value 
+                          << "' in file " << filename 
+                          << ", line " << n_ind + 1 << "." << std::endl;
                 exit(EXIT_FAILURE);
             }
         }
@@ -54,9 +79,9 @@ inline void readGenotypes(const std::string& filename,
         if (n_loci == 0) {
             n_loci = genotype.size(); 
         } else if (genotype.size() != n_loci) {
-            std::cerr << "Erreur : Ligne " << n_ind + 1 
-                      << " du fichier " << filename 
-                      << " ne correspond pas au nombre attendu de loci (" << n_loci << ")." << std::endl;
+            std::cerr << "Error: Line " << n_ind + 1 
+                      << " in file " << filename 
+                      << " does not match the expected number of loci (" << n_loci << ")." << std::endl;
             exit(EXIT_FAILURE);
         }
 
@@ -67,4 +92,4 @@ inline void readGenotypes(const std::string& filename,
     file.close();
 }
 
-#endif 
+#endif

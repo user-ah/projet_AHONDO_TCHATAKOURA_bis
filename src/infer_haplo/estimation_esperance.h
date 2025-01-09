@@ -1,3 +1,26 @@
+/*
+    File: estimationEsperance.h
+
+    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+
+    Description:
+    This header file defines a function to calculate the log-likelihood from the genotype probabilities. 
+    The function computes the log-likelihood based on the given frequencies of haplotypes and the 
+    genotypes. It sums the log of genotype probabilities over all provided genotypes.
+
+    Key Features:
+    - Calculates the log-likelihood from genotype and haplotype probabilities.
+    - Supports a vector-based representation of genotypes and haplotypes.
+    - Uses logarithmic scaling to compute the log-likelihood.
+
+    Output:
+    - Returns the log-likelihood value of the provided genotypes based on the haplotype frequencies.
+
+    Preconditions:
+    - The input genotype matrix must be provided as a vector of vectors of integers.
+    - The haplotype frequency map must be provided, with frequencies corresponding to each haplotype.
+*/
+
 #ifndef ESTIMATION_ESPERANCE_H
 #define ESTIMATION_ESPERANCE_H
 
@@ -8,17 +31,6 @@
 #include "vector_hash.h"
 #include "explain_genotype.h"
 
-
-
-
-/**
- * Calcule le log-likelihood à partir des probabilités des génotypes.
- *
- * @param genotypes Liste des génotypes.
- * @param haplotypes Liste des haplotypes possibles.
- * @param frequencies Fréquences des haplotypes actuelles.
- * @return Log-likelihood.
- */
 inline double estimation_esperance(
     const std::vector<std::vector<int>>& genotypes,
     const std::vector<std::vector<int>>& haplotypes,
@@ -49,4 +61,4 @@ inline double estimation_esperance(
     return loglikelihood;
 }
 
-#endif // ESTIMATION_ESPERANCE_H
+#endif 

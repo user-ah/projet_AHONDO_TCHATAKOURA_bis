@@ -1,3 +1,27 @@
+/*
+    File: maximisation.h
+
+    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+
+    Description:
+    This header file defines a function to update the frequencies of haplotypes based on the genotypes and their probabilities. 
+    The maximization step of an Expectation-Maximization (EM) algorithm is implemented here, where the frequencies of haplotypes are adjusted according to the observed data.
+
+    Key Features:
+    - Updates haplotype frequencies based on genotype-probability pairs.
+    - Iterates over all possible haplotype pairs to calculate their contributions.
+    - Modifies the `frequencies` map to reflect the updated haplotype frequencies.
+
+    Output:
+    - The function updates the `frequencies` map to reflect the newly calculated haplotype frequencies.
+
+    Preconditions:
+    - The `genotypes` and `haplotypes` vectors must contain valid sequences.
+    - The `probabilities` map must contain valid genotype probabilities.
+    - The `frequencies` map must contain the current haplotype frequencies.
+    - The `n_ind` parameter must represent the total number of individuals.
+*/
+
 #ifndef MAXIMISATION_H
 #define MAXIMISATION_H
 

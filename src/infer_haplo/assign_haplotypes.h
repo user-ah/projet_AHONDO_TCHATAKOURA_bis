@@ -1,3 +1,28 @@
+/*
+    File: assign_haplotypes_bis.h
+
+    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+
+    Description:
+    This header file defines a function to assign haplotypes to genotypes based on the product of haplotype frequencies. 
+    The function identifies the best pair of haplotypes that explains each genotype using a scoring mechanism, and 
+    writes the associated haplotypes to an output file.
+
+    Key Features:
+    - Maps genotypes to their best haplotype pairs using a frequency-based scoring system.
+    - Checks if a pair of haplotypes explains a genotype using an external function.
+    - Outputs the assigned haplotypes to a CSV file.
+
+    Output: 
+    - A map associating each genotype with a pair of haplotypes.
+    - A CSV file containing the haplotypes used.
+
+    Preconditions:
+    - The input genotypes and haplotypes must be valid and formatted correctly.
+    - The `explainGenotype` function must be implemented to verify genotype explanation.
+    - The output file path must be writable.
+    
+*/
 #ifndef ASSIGN_HAPLOTYPES_BIS_H
 #define ASSIGN_HAPLOTYPES_BIS_H
 
@@ -11,28 +36,23 @@
 #include "explain_genotype.h"
 
 /**
- * Assigne les haplotypes aux génotypes en fonction du produit des fréquences.
+ * Assign haplotypes to genotypes based on the product of haplotype frequencies.
  *
- * @param genotypes Liste des génotypes à expliquer.
- * @param sortedHaplotypes Liste triée des haplotypes avec leurs fréquences.
- * @param outputFilename Nom du fichier où écrire les haplotypes utilisés.
- * @return Une carte associant chaque génotype à une paire d’haplotypes.
+ * @param genotypes List of genotypes to explain.
+ * @param sortedHaplotypes Sorted list of haplotypes with their frequencies.
+ * @param outputFilename Name of the file to write the assigned haplotypes.
+ * @return A map associating each genotype with a pair of haplotypes.
  */
 inline std::unordered_map<std::vector<int>, std::pair<std::vector<int>, std::vector<int>>, VectorHash>
 assignHaplotypesOptimized(
     const std::vector<std::vector<int>>& genotypes,
     const std::vector<std::pair<std::vector<int>, double>>& sortedHaplotypes,
     const std::string& outputFilename) {
-
-    // Stocker les associations génotypes -> paires d'haplotypes
     std::unordered_map<std::vector<int>, std::pair<std::vector<int>, std::vector<int>>, VectorHash> genotypeToHaplotypes;
-
-    // Pour chaque génotype
     for (const auto& genotype : genotypes) {
         double maxScore = -1.0;
         std::pair<std::vector<int>, std::vector<int>> bestPair;
 
-        // Parcourir toutes les paires d'haplotypes
         for (size_t i = 0; i < sortedHaplotypes.size(); ++i) {
             const auto& haplo1 = sortedHaplotypes[i].first;
             double freq1 = sortedHaplotypes[i].second;
@@ -41,11 +61,9 @@ assignHaplotypesOptimized(
                 const auto& haplo2 = sortedHaplotypes[j].first;
                 double freq2 = sortedHaplotypes[j].second;
 
-                // Vérifier si la paire (haplo1, haplo2) explique le génotype
                 if (explainGenotype(haplo1, haplo2, genotype)) {
                     double score = freq1 * freq2;
 
-                    // Mise à jour si on trouve une meilleure paire
                     if (score > maxScore) {
                         maxScore = score;
                         bestPair = {haplo1, haplo2};
@@ -54,7 +72,6 @@ assignHaplotypesOptimized(
             }
         }
 
-        // Vérification finale
         if (maxScore > -1.0) {
             genotypeToHaplotypes[genotype] = bestPair;
         } else {
@@ -64,7 +81,6 @@ assignHaplotypesOptimized(
         }
     }
 
-    // Écrire les haplotypes associés dans un fichier CSV
 std::ofstream outFile(outputFilename);
 if (outFile) {
     for (const auto& [genotype, haplos] : genotypeToHaplotypes) {
@@ -91,4 +107,4 @@ if (outFile) {
 
     return genotypeToHaplotypes;
 }
-#endif // ASSIGN_HAPLOTYPES_SEQUENTIAL_H
+#endif 
