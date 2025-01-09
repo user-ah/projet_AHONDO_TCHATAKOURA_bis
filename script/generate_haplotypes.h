@@ -1,3 +1,29 @@
+/*
+    File: generate_haplotypes.h
+
+    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+
+    Description:
+    This header file defines the function `generate_haplotypes`, which generates random haplotypes 
+    for a given population of individuals. The function creates a set of distinct haplotypes, then 
+    pairs them randomly to generate haplotypes for each individual.
+
+    Key Functionality:
+    - First, the function generates `n_distinct_haplo` distinct haplotypes, each having `n_loci` loci, 
+      with each locus being randomly assigned a value of 0 or 1.
+    - Then, it randomly selects pairs of haplotypes from the distinct haplotypes and assigns them to individuals.
+
+    Parameters:
+    - `n_ind`: The number of individuals (i.e., the number of haplotype pairs to generate).
+    - `n_loci`: The number of loci (genetic markers) in each haplotype.
+    - `n_distinct_haplo`: The number of distinct haplotypes to generate.
+
+    Output:
+    - Returns a 2D vector representing the haplotypes for all individuals. Each individual has two 
+      associated haplotypes.
+*/
+
+
 #ifndef GENERATE_HAPLOTYPES_H
 #define GENERATE_HAPLOTYPES_H
 
@@ -7,18 +33,16 @@
 inline std::vector<std::vector<int>> generate_haplotypes(int n_ind, int n_loci, int n_distinct_haplo) {
     std::vector<std::vector<int>> distinct_haplotypes;
 
-    // Generate random distinct haplotypes
     for (int i = 0; i < n_distinct_haplo; ++i) {
         std::vector<int> haplotype;
         for (int j = 0; j < n_loci; ++j) {
-            haplotype.push_back(rand() % 2);  // 0 or 1 randomly
+            haplotype.push_back(rand() % 2);
         }
         distinct_haplotypes.push_back(haplotype);
     }
 
     std::vector<std::vector<int>> haplotypes;
 
-    // Generate haplotype pairs
     for (int i = 0; i < n_ind; ++i) {
         int haplo1_idx = rand() % n_distinct_haplo;
         int haplo2_idx = rand() % n_distinct_haplo;
