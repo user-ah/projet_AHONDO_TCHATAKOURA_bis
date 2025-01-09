@@ -1,3 +1,26 @@
+/*
+    File: read_genotypes_knn.h
+
+    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+
+    Description:
+    This header file defines a function to read genotype data from a CSV file. The data is read into a 2D vector, where each row
+    represents a genotype and each column represents a locus. Missing values are represented by "NA" in the input file and are 
+    stored as `-1` in the vector.
+
+    Key Features:
+    - Reads genotype data from a CSV file.
+    - Handles missing values represented by "NA" and stores them as `-1`.
+    - Catches and reports errors in case of invalid or out-of-range values in the input file.
+
+    Output:
+    - The function modifies the `genotypes` vector by adding the data from the CSV file.
+
+    Preconditions:
+    - The input CSV file should contain genotypes, with each genotype on a new line and loci separated by commas.
+    - Missing values should be represented by "NA".
+*/
+
 #ifndef READ_GENOTYPES_KNN_H
 #define READ_GENOTYPES_KNN_H
 
@@ -11,7 +34,7 @@
 inline bool readGenotypes(const std::string &genotypes_file, std::vector<std::vector<int>> &genotypes) {
     std::ifstream file(genotypes_file);
     if (!file.is_open()) {
-        std::cerr << "Erreur : Impossible d'ouvrir " << genotypes_file << std::endl;
+        std::cerr << "Error: Unable to open " << genotypes_file << std::endl;
         return false;
     }
 
@@ -21,24 +44,24 @@ inline bool readGenotypes(const std::string &genotypes_file, std::vector<std::ve
         std::stringstream ss(line);
         std::string cell;
 
-        // Lire chaque cellule séparée par une virgule
+        
         while (std::getline(ss, cell, ',')) {
             try {
-                if (cell == "NA") {  // Valeur manquante
+                if (cell == "NA") {  
                     row.push_back(-1);
                 } else {
-                    row.push_back(std::stoi(cell));  // Convertir la cellule en entier
+                    row.push_back(std::stoi(cell)); 
                 }
             } catch (const std::invalid_argument &e) {
-                std::cerr << "Erreur : Cellule invalide '" << cell << "' dans le fichier " << genotypes_file << std::endl;
+                std::cerr << "Error: Invalid cell '" << cell << "' in file " << genotypes_file << std::endl;
                 return false;
             } catch (const std::out_of_range &e) {
-                std::cerr << "Erreur : Valeur hors plage dans la cellule '" << cell << "' dans le fichier " << genotypes_file << std::endl;
+                std::cerr << "Error: Out of range value in cell '" << cell << "' in file " << genotypes_file << std::endl;
                 return false;
             }
         }
 
-        // Ajouter la ligne lue aux génotypes
+        
         genotypes.push_back(row);
     }
 

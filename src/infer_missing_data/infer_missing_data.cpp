@@ -1,3 +1,28 @@
+/*
+    File: infer_missing_data.cpp
+
+    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+
+    Description:
+    This file implements the main function for a genotype imputation program. The program reads parameters from a file, 
+    reads genotype data from a CSV file, imputes missing values in the genotypes using a k-nearest neighbors (KNN) approach, 
+    and writes the imputed genotype data to an output CSV file.
+
+    Key Features:
+    - Reads parameters, including the value of `k` (number of neighbors), from a file.
+    - Reads genotype data (with potential missing values) from a CSV file.
+    - Imputes missing genotype values using KNN imputation, where the `k` closest genotypes are used to determine the imputed values.
+    - Writes the imputed genotype data to an output CSV file.
+
+    Output:
+    - The imputed genotype data is saved in a CSV file specified by the user.
+
+    Preconditions:
+    - The `parameters.txt` file must contain a valid `k` value.
+    - The `genotypes.csv` file must contain genotype data, with missing values represented by `-1`.
+    - The output file path must be provided to save the imputed genotypes.
+*/
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,29 +41,29 @@ int main(int argc, char *argv[]) {
     std::string genotypes_file = argv[2];
     std::string output_file = argv[3];
 
-    // Lire les paramètres
+    
     int k = 0;
     if (!readParameters(parameters_file, k)) {
         return 1;
     }
-    std::cout << "Valeur de k : " << k << std::endl;
+    std::cout << "Value of k: " << k << std::endl;
 
-    // Lire les génotypes
+    
     std::vector<std::vector<int>> genotypes;
     if (!readGenotypes(genotypes_file, genotypes)) {
         return 1;
     }
 
-    // Imputer les données manquantes pour chaque ligne
+    
     for (auto &row : genotypes) {
         imputeMissingData(row, genotypes, k);
     }
 
-    // Enregistrer le fichier avec les données imputées
+    
     if (!writeGenotypes(output_file, genotypes)) {
         return 1;
     }
 
-    std::cout << "Imputation terminée. Fichier enregistré : " << output_file << std::endl;
+    std::cout << "Imputation completed. File saved as: " << output_file << std::endl;
     return 0;
 }
