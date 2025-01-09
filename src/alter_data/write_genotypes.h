@@ -1,3 +1,24 @@
+/*
+    File: write_genotypes.h
+
+    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+
+    Description:
+    This header file defines a function to write genotype data to a specified output file. 
+    The function formats the genotype matrix, replacing missing values (-1) with "NA", 
+    and saves the data in a space-separated format.
+
+    Key Features:
+    - Writes a 2D vector of genotypes to a file.
+    - Handles missing data by writing "NA" for values marked as -1.
+    - Ensures the output format is consistent with a space-separated structure.
+
+    Output: A text file containing the genotype matrix in a space-separated format.
+
+    Preconditions:
+    - The output file must be writable.
+    - The genotype matrix must be properly formatted with integers or -1 for missing values.
+*/
 #ifndef WRITE_GENOTYPES_H
 #define WRITE_GENOTYPES_H
 

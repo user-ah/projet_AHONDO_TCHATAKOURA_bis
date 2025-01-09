@@ -1,3 +1,24 @@
+/*
+    File: read_parameters.h
+
+    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+
+    Description:
+    This header file defines a function to read simulation parameters from a text file. 
+    Specifically, it extracts the percentage of missing data (percent_miss) specified 
+    in the file and assigns it to a variable.
+
+    Key Features:
+    - Parses a text file to find a specific parameter (`percent_miss`).
+    - Extracts the value associated with the parameter and converts it to a float.
+    - Handles errors if the file cannot be opened or the parameter is missing.
+
+    Output: A float value representing the percentage of missing data.
+
+    Preconditions:
+    - The input file must include a line specifying `percent_miss` in the format: `percent_miss=<value>`.
+*/
+
 #ifndef READ_PARAMETERS_H
 #define READ_PARAMETERS_H
 
