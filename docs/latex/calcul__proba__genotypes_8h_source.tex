@@ -1,0 +1,44 @@
+\doxysection{calcul\+\_\+proba\+\_\+genotypes.\+h}
+\hypertarget{calcul__proba__genotypes_8h_source}{}\label{calcul__proba__genotypes_8h_source}\index{src/infer\_haplo/calcul\_proba\_genotypes.h@{src/infer\_haplo/calcul\_proba\_genotypes.h}}
+\mbox{\hyperlink{calcul__proba__genotypes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#ifndef\ CALCUL\_PROBA\_GENOTYPES\_H}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ CALCUL\_PROBA\_GENOTYPES\_H}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__hash_8h}{vector\_hash.h}}"{}}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{explain__genotype_8h}{explain\_genotype.h}}"{}}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{calcul__proba__genotypes_8h_a0b58eca8395af4a7e32f94e02f6717f9}{calcul\_proba\_genotypes}}(}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\&\ genotypes,}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\&\ haplotypes,}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{const}\ std::unordered\_map<std::vector<int>,\ \textcolor{keywordtype}{double},\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\&\ frequencies,}
+\DoxyCodeLine{00055\ \ \ \ \ std::unordered\_map<std::vector<int>,\ \textcolor{keywordtype}{double},\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\&\ probabilities)\ \{}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ probabilities.clear();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ genotype\ :\ genotypes)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ proba\ =\ 0.0;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ h1\ :\ haplotypes)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ h2\ :\ haplotypes)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{explain__genotype_8h_a5b19923b68f554783ace65a9d4b6ab2e}{explainGenotype}}(h1,\ h2,\ genotype))\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ p1\ =\ frequencies.at(h1);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ p2\ =\ frequencies.at(h2);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ contrib\ =\ (h1\ ==\ h2)\ ?\ p1\ *\ p1\ :\ 2\ *\ p1\ *\ p2;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ proba\ +=\ contrib;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ probabilities[genotype]\ =\ proba;}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

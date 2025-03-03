@@ -1,0 +1,114 @@
+\doxysection{src/infer\+\_\+haplo/explain\+\_\+genotype.h File Reference}
+\hypertarget{explain__genotype_8h}{}\label{explain__genotype_8h}\index{src/infer\_haplo/explain\_genotype.h@{src/infer\_haplo/explain\_genotype.h}}
+
+
+Checks whether a pair of haplotypes can explain a given genotype.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$new$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for explain\+\_\+genotype.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{explain__genotype_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{explain__genotype_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{explain__genotype_8h_a306a25890c42640608e22c08c8fe5d6e}{is\+Valid}} (int haplo1, int haplo2, int genotype)
+\item 
+bool \mbox{\hyperlink{explain__genotype_8h_a5b19923b68f554783ace65a9d4b6ab2e}{explain\+Genotype}} (const std\+::vector$<$ int $>$ \&h1, const std\+::vector$<$ int $>$ \&h2, const std\+::vector$<$ int $>$ \&genotype)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Checks whether a pair of haplotypes can explain a given genotype. 
+
+\begin{DoxyAuthor}{Author}
+Ahamed TCHATAKOURA 
+
+Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file provides functions to verify if two haplotypes can explain a given genotype based on Mendelian inheritance rules. The main function, {\ttfamily explain\+Genotype}, ensures that each allele in the genotype can be derived from the corresponding alleles in the haplotype pair.
+
+A helper function, {\ttfamily is\+Valid}, is used to check individual allele compatibility, ensuring that the inheritance constraints are met.\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Determines whether two haplotypes are consistent with a given genotype.
+\item Uses a helper function to validate allele compatibility.
+\item Works with a vector-\/based representation of haplotypes and genotypes.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The input {\ttfamily h1}, {\ttfamily h2}, and {\ttfamily genotype} must be vectors of the same size.
+\item Each vector should represent a sequence of alleles for a particular individual.
+\item Allele values should be within the expected range (typically 0, 1, or 2).
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em h1} & A vector of integers representing the first haplotype. \\
+\hline
+{\em h2} & A vector of integers representing the second haplotype. \\
+\hline
+{\em genotype} & A vector of integers representing the genotype.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the input vectors have different sizes or contain invalid allele values.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the haplotypes ({\ttfamily h1}, {\ttfamily h2}) can explain the genotype, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<int>\ haplo1\ =\ \{0,\ 1,\ 1\};}
+\DoxyCodeLine{std::vector<int>\ haplo2\ =\ \{1,\ 0,\ 1\};}
+\DoxyCodeLine{std::vector<int>\ genotype\ =\ \{1,\ 1,\ 2\};}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ result\ =\ \mbox{\hyperlink{explain__genotype_8h_a5b19923b68f554783ace65a9d4b6ab2e}{explainGenotype}}(haplo1,\ haplo2,\ genotype);}
+\DoxyCodeLine{std::cout\ <<\ \textcolor{stringliteral}{"{}Genotype\ is\ explained:\ "{}}\ <<\ std::boolalpha\ <<\ result\ <<\ std::endl;}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{calcul__proba__genotypes_8h_a0b58eca8395af4a7e32f94e02f6717f9}{calcul\+\_\+proba\+\_\+genotypes()} 
+
+\doxylink{estimation__esperance_8h_a9e8b043393ccaa9b0cd1c043e5a15988}{estimation\+\_\+esperance()} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{explain__genotype_8h_a5b19923b68f554783ace65a9d4b6ab2e}\index{explain\_genotype.h@{explain\_genotype.h}!explainGenotype@{explainGenotype}}
+\index{explainGenotype@{explainGenotype}!explain\_genotype.h@{explain\_genotype.h}}
+\doxysubsubsection{\texorpdfstring{explainGenotype()}{explainGenotype()}}
+{\footnotesize\ttfamily \label{explain__genotype_8h_a5b19923b68f554783ace65a9d4b6ab2e} 
+bool explain\+Genotype (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{h1}{, }\item[{const std\+::vector$<$ int $>$ \&}]{h2}{, }\item[{const std\+::vector$<$ int $>$ \&}]{genotype}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{explain__genotype_8h_a306a25890c42640608e22c08c8fe5d6e}\index{explain\_genotype.h@{explain\_genotype.h}!isValid@{isValid}}
+\index{isValid@{isValid}!explain\_genotype.h@{explain\_genotype.h}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily \label{explain__genotype_8h_a306a25890c42640608e22c08c8fe5d6e} 
+bool is\+Valid (\begin{DoxyParamCaption}\item[{int}]{haplo1}{, }\item[{int}]{haplo2}{, }\item[{int}]{genotype}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

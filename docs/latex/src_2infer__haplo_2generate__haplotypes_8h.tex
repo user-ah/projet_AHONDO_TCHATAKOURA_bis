@@ -1,0 +1,165 @@
+\doxysection{src/infer\+\_\+haplo/generate\+\_\+haplotypes.h File Reference}
+\hypertarget{src_2infer__haplo_2generate__haplotypes_8h}{}\label{src_2infer__haplo_2generate__haplotypes_8h}\index{src/infer\_haplo/generate\_haplotypes.h@{src/infer\_haplo/generate\_haplotypes.h}}
+
+
+Generates possible haplotype pairs for a given genotype and filters unique haplotypes.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+Include dependency graph for generate\+\_\+haplotypes.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{src_2infer__haplo_2generate__haplotypes_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{src_2infer__haplo_2generate__haplotypes_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_af2daca8582985d86410cf72f8dd87346}{Haplotype}} = std\+::vector$<$int$>$
+\begin{DoxyCompactList}\small\item\em Generates all possible haplotype pairs for a given genotype. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_a278ab9137302c7f3e0d98344d1ce9d5b}{Haplo\+Pair}} = std\+::pair$<$\mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_af2daca8582985d86410cf72f8dd87346}{Haplotype}}, \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_af2daca8582985d86410cf72f8dd87346}{Haplotype}}$>$
+\item 
+using \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_ac71069ccedcbc330a816598b01ff938f}{Haplo\+List}} = std\+::vector$<$\mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_a278ab9137302c7f3e0d98344d1ce9d5b}{Haplo\+Pair}}$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_ac71069ccedcbc330a816598b01ff938f}{Haplo\+List}} \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_a83ef78de4373199923f3b797f472e3f4}{generate\+Haplotype\+Pairs}} (const std\+::vector$<$ int $>$ \&genotype)
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_a53104b7780ecf1b786258fb315340d8a}{generate\+And\+Filter\+Unique\+Haplotypes}} (const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&genotypes)
+\begin{DoxyCompactList}\small\item\em Generates and filters unique haplotypes across all individuals. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Generates possible haplotype pairs for a given genotype and filters unique haplotypes. 
+
+\begin{DoxyAuthor}{Author}
+Ahamed TCHATAKOURA 
+
+Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file declares functions used to generate all possible haplotype pairs for a given genotype using a recursive backtracking approach. It also includes functionality to filter out unique haplotypes across all individuals based on the input genotypes.\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Generates all possible haplotype pairs for a given genotype.
+\item Filters out unique haplotypes across all individuals.
+\item Uses a recursive backtracking method for haplotype generation.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The input {\ttfamily genotypes} must be provided as a vector of integer vectors, where each vector represents the genotype of an individual.
+\item The genotypic data must be properly formatted and consistent.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em genotype} & A vector of integers representing a single genotype. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of possible haplotype pairs for the given genotype.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the input genotype contains invalid values.\\
+\hline
+\end{DoxyExceptions}
+\hypertarget{write__genotypes__knn_8h_Output}{}\doxysubsection{\texorpdfstring{Generated Output}{Generated Output}}\label{write__genotypes__knn_8h_Output}
+
+\begin{DoxyItemize}
+\item Returns a list of unique haplotypes.
+\end{DoxyItemize}\hypertarget{src_2infer__haplo_2generate__haplotypes_8h_Functions}{}\doxysubsection{\texorpdfstring{Available Functions}{Available Functions}}\label{src_2infer__haplo_2generate__haplotypes_8h_Functions}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{src_2infer__haplo_2generate__haplotypes_8h_ac71069ccedcbc330a816598b01ff938f}\index{generate\_haplotypes.h@{generate\_haplotypes.h}!HaploList@{HaploList}}
+\index{HaploList@{HaploList}!generate\_haplotypes.h@{generate\_haplotypes.h}}
+\doxysubsubsection{\texorpdfstring{HaploList}{HaploList}}
+{\footnotesize\ttfamily \label{src_2infer__haplo_2generate__haplotypes_8h_ac71069ccedcbc330a816598b01ff938f} 
+using \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_ac71069ccedcbc330a816598b01ff938f}{Haplo\+List}} = std\+::vector$<$\mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_a278ab9137302c7f3e0d98344d1ce9d5b}{Haplo\+Pair}}$>$}
+
+\Hypertarget{src_2infer__haplo_2generate__haplotypes_8h_a278ab9137302c7f3e0d98344d1ce9d5b}\index{generate\_haplotypes.h@{generate\_haplotypes.h}!HaploPair@{HaploPair}}
+\index{HaploPair@{HaploPair}!generate\_haplotypes.h@{generate\_haplotypes.h}}
+\doxysubsubsection{\texorpdfstring{HaploPair}{HaploPair}}
+{\footnotesize\ttfamily \label{src_2infer__haplo_2generate__haplotypes_8h_a278ab9137302c7f3e0d98344d1ce9d5b} 
+using \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_a278ab9137302c7f3e0d98344d1ce9d5b}{Haplo\+Pair}} = std\+::pair$<$\mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_af2daca8582985d86410cf72f8dd87346}{Haplotype}}, \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_af2daca8582985d86410cf72f8dd87346}{Haplotype}}$>$}
+
+\Hypertarget{src_2infer__haplo_2generate__haplotypes_8h_af2daca8582985d86410cf72f8dd87346}\index{generate\_haplotypes.h@{generate\_haplotypes.h}!Haplotype@{Haplotype}}
+\index{Haplotype@{Haplotype}!generate\_haplotypes.h@{generate\_haplotypes.h}}
+\doxysubsubsection{\texorpdfstring{Haplotype}{Haplotype}}
+{\footnotesize\ttfamily \label{src_2infer__haplo_2generate__haplotypes_8h_af2daca8582985d86410cf72f8dd87346} 
+using \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_af2daca8582985d86410cf72f8dd87346}{Haplotype}} = std\+::vector$<$int$>$}
+
+
+
+Generates all possible haplotype pairs for a given genotype. 
+
+This function uses a recursive backtracking method to generate all possible haplotype pairs that can explain a given genotype.
+
+
+\begin{DoxyParams}{Parameters}
+{\em genotype} & A vector of integers representing a single genotype. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of haplotype pairs that are compatible with the given genotype.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the input genotype contains invalid values.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySeeAlso}{See also}
+\doxylink{src_2infer__haplo_2generate__haplotypes_8h_a53104b7780ecf1b786258fb315340d8a}{generate\+And\+Filter\+Unique\+Haplotypes()} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{src_2infer__haplo_2generate__haplotypes_8h_a53104b7780ecf1b786258fb315340d8a}\index{generate\_haplotypes.h@{generate\_haplotypes.h}!generateAndFilterUniqueHaplotypes@{generateAndFilterUniqueHaplotypes}}
+\index{generateAndFilterUniqueHaplotypes@{generateAndFilterUniqueHaplotypes}!generate\_haplotypes.h@{generate\_haplotypes.h}}
+\doxysubsubsection{\texorpdfstring{generateAndFilterUniqueHaplotypes()}{generateAndFilterUniqueHaplotypes()}}
+{\footnotesize\ttfamily \label{src_2infer__haplo_2generate__haplotypes_8h_a53104b7780ecf1b786258fb315340d8a} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ generate\+And\+Filter\+Unique\+Haplotypes (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{genotypes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates and filters unique haplotypes across all individuals. 
+
+This function iterates through all genotypes, generates possible haplotype pairs, and stores only unique haplotypes across all individuals.
+
+
+\begin{DoxyParams}{Parameters}
+{\em genotypes} & A vector of vectors, where each vector represents the genotype of an individual. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of vectors containing unique haplotypes.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{src_2infer__haplo_2generate__haplotypes_8h_a83ef78de4373199923f3b797f472e3f4}{generate\+Haplotype\+Pairs()} 
+\end{DoxySeeAlso}
+\Hypertarget{src_2infer__haplo_2generate__haplotypes_8h_a83ef78de4373199923f3b797f472e3f4}\index{generate\_haplotypes.h@{generate\_haplotypes.h}!generateHaplotypePairs@{generateHaplotypePairs}}
+\index{generateHaplotypePairs@{generateHaplotypePairs}!generate\_haplotypes.h@{generate\_haplotypes.h}}
+\doxysubsubsection{\texorpdfstring{generateHaplotypePairs()}{generateHaplotypePairs()}}
+{\footnotesize\ttfamily \label{src_2infer__haplo_2generate__haplotypes_8h_a83ef78de4373199923f3b797f472e3f4} 
+\mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_ac71069ccedcbc330a816598b01ff938f}{Haplo\+List}} generate\+Haplotype\+Pairs (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{genotype}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

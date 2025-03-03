@@ -1,0 +1,111 @@
+\doxysection{src/infer\+\_\+haplo/sort\+\_\+haplotypes.h File Reference}
+\hypertarget{sort__haplotypes_8h}{}\label{sort__haplotypes_8h}\index{src/infer\_haplo/sort\_haplotypes.h@{src/infer\_haplo/sort\_haplotypes.h}}
+
+
+Sorts haplotypes by their frequency in descending order.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include "{}vector\+\_\+hash.\+h"{}}\newline
+Include dependency graph for sort\+\_\+haplotypes.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sort__haplotypes_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{sort__haplotypes_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::pair$<$ std\+::vector$<$ int $>$, double $>$ $>$ \mbox{\hyperlink{sort__haplotypes_8h_a85855c39606e68e8ae9d01fc36ea3587}{sort\+Haplotypes\+By\+Frequency}} (const std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, double, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&frequencies)
+\begin{DoxyCompactList}\small\item\em Sorts haplotypes by frequency in descending order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Sorts haplotypes by their frequency in descending order. 
+
+\begin{DoxyAuthor}{Author}
+Ahamed TCHATAKOURA 
+
+Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file defines a function that sorts haplotypes based on their frequency in descending order. It takes an unordered map of haplotype frequencies as input and returns a vector of haplotype-\/frequency pairs sorted by frequency.\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Sorts haplotypes based on their frequency.
+\item Returns a vector of haplotypes sorted in descending order of frequency.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The {\ttfamily frequencies} map must contain valid haplotypes and their corresponding frequencies.
+\item The map must not be empty.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Output}{}\doxysubsection{\texorpdfstring{Generated Output}{Generated Output}}\label{write__genotypes__knn_8h_Output}
+
+\begin{DoxyItemize}
+\item The function returns a vector of pairs, where each pair consists of a haplotype and its frequency, sorted by frequency in descending order. 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{sort__haplotypes_8h_a85855c39606e68e8ae9d01fc36ea3587}\index{sort\_haplotypes.h@{sort\_haplotypes.h}!sortHaplotypesByFrequency@{sortHaplotypesByFrequency}}
+\index{sortHaplotypesByFrequency@{sortHaplotypesByFrequency}!sort\_haplotypes.h@{sort\_haplotypes.h}}
+\doxysubsubsection{\texorpdfstring{sortHaplotypesByFrequency()}{sortHaplotypesByFrequency()}}
+{\footnotesize\ttfamily \label{sort__haplotypes_8h_a85855c39606e68e8ae9d01fc36ea3587} 
+std\+::vector$<$ std\+::pair$<$ std\+::vector$<$ int $>$, double $>$ $>$ sort\+Haplotypes\+By\+Frequency (\begin{DoxyParamCaption}\item[{const std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, double, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&}]{frequencies}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sorts haplotypes by frequency in descending order. 
+
+This function sorts haplotypes based on their frequency in descending order. It takes a map of haplotype frequencies and returns a vector of haplotype-\/frequency pairs, ensuring that the most frequent haplotypes appear first.
+
+
+\begin{DoxyParams}{Parameters}
+{\em frequencies} & An unordered map where keys are haplotypes (represented as vectors of integers) and values are their corresponding frequencies.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the input frequency map is empty.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+A vector of pairs, where each pair contains a haplotype and its frequency, sorted in descending order.
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::unordered\_map<std::vector<int>,\ double,\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\ frequencies\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \{\{0,1,1\},\ 0.5\},\ \{\{1,0,1\},\ 0.3\},\ \{\{1,1,0\},\ 0.2\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{std::vector<std::pair<std::vector<int>,\ \textcolor{keywordtype}{double}>>\ sortedHaplotypes\ =\ \mbox{\hyperlink{sort__haplotypes_8h_a85855c39606e68e8ae9d01fc36ea3587}{sortHaplotypesByFrequency}}(frequencies);}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ pair\ :\ sortedHaplotypes)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Haplotype:\ "{}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ allele\ :\ pair.first)\ std::cout\ <<\ allele\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ -\/>\ Frequency:\ "{}}\ <<\ pair.second\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{assign__haplotypes_8h_ad811a6262a92ff4e841f26b38fce625d}{assign\+Haplotypes\+Optimized()} 
+
+\doxylink{initialisation__frequences_8h_a9f879b7018a0b27478a11f8359e09e64}{initialisation\+\_\+frequences\+\_\+haplotypes()} 
+\end{DoxySeeAlso}

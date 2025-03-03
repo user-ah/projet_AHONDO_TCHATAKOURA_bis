@@ -1,0 +1,122 @@
+\doxysection{src/infer\+\_\+haplo/genotype\+\_\+reader.h File Reference}
+\hypertarget{genotype__reader_8h}{}\label{genotype__reader_8h}\index{src/infer\_haplo/genotype\_reader.h@{src/infer\_haplo/genotype\_reader.h}}
+
+
+Provides functionality for reading genotypes from a CSV file.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+Include dependency graph for genotype\+\_\+reader.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{genotype__reader_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{genotype__reader_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{genotype__reader_8h_a380194d87f788a28ed82a0ae4966a630}{read\+Genotypes}} (const std\+::string \&filename, std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&genotypes, int \&n\+\_\+ind, int \&n\+\_\+loci)
+\begin{DoxyCompactList}\small\item\em Reads a CSV file containing genotypic data and extracts relevant information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides functionality for reading genotypes from a CSV file. 
+
+\begin{DoxyAuthor}{Author}
+Ahamed TCHATAKOURA 
+
+Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file defines a function to extract genotype data from a CSV file. The function reads the genotypic data, determines the number of individuals (rows) and loci (columns), and ensures that the data conforms to the expected format. It also handles errors such as invalid values or inconsistent row sizes in the input file.\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Reads genotypes from a CSV file into a vector of vectors.
+\item Validates the input format and ensures consistent row sizes.
+\item Extracts the number of individuals (rows) and loci (columns).
+\item Handles errors, including invalid values and out-\/of-\/range data.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The input file must be a valid CSV file containing only genotypic data.
+\item Each row must represent a genotype (an individual).
+\item Each column must correspond to a locus.
+\item The CSV file must be properly formatted with no missing values.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Output}{}\doxysubsection{\texorpdfstring{Generated Output}{Generated Output}}\label{write__genotypes__knn_8h_Output}
+
+\begin{DoxyItemize}
+\item Populates the {\ttfamily genotypes} vector with the extracted genotypic data.
+\item Updates {\ttfamily n\+\_\+ind} with the number of individuals.
+\item Updates {\ttfamily n\+\_\+loci} with the number of loci. 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{genotype__reader_8h_a380194d87f788a28ed82a0ae4966a630}\index{genotype\_reader.h@{genotype\_reader.h}!readGenotypes@{readGenotypes}}
+\index{readGenotypes@{readGenotypes}!genotype\_reader.h@{genotype\_reader.h}}
+\doxysubsubsection{\texorpdfstring{readGenotypes()}{readGenotypes()}}
+{\footnotesize\ttfamily \label{genotype__reader_8h_a380194d87f788a28ed82a0ae4966a630} 
+void read\+Genotypes (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{genotypes}{, }\item[{int \&}]{n\+\_\+ind}{, }\item[{int \&}]{n\+\_\+loci}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reads a CSV file containing genotypic data and extracts relevant information. 
+
+This function reads a genotype dataset from a CSV file and stores the extracted data in a vector of vectors. It also counts the number of individuals (rows) and loci (columns), ensuring that the dataset is properly formatted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the CSV file containing genotype data. \\
+\hline
+{\em genotypes} & A reference to a vector of vectors storing the extracted genotypic data. \\
+\hline
+{\em n\+\_\+ind} & Reference to an integer storing the number of individuals (rows). \\
+\hline
+{\em n\+\_\+loci} & Reference to an integer storing the number of loci (columns).\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the file cannot be opened. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the file format is invalid (e.\+g., missing values, incorrect delimiters).\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::vector<int>>\ genotypes;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ n\_ind\ =\ 0,\ n\_loci\ =\ 0;}
+\DoxyCodeLine{\mbox{\hyperlink{read__genotypes_8h_a924f036ae8dabaa3d79a0743a1058597}{readGenotypes}}(\textcolor{stringliteral}{"{}genotypes.csv"{}},\ genotypes,\ n\_ind,\ n\_loci);}
+\DoxyCodeLine{std::cout\ <<\ \textcolor{stringliteral}{"{}Number\ of\ individuals:\ "{}}\ <<\ n\_ind\ <<\ \textcolor{stringliteral}{"{},\ Number\ of\ loci:\ "{}}\ <<\ n\_loci\ <<\ std::endl;}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{initialisation__frequences_8h_a9f879b7018a0b27478a11f8359e09e64}{initialisation\+\_\+frequences\+\_\+haplotypes()} 
+
+\doxylink{estimation__esperance_8h_a9e8b043393ccaa9b0cd1c043e5a15988}{estimation\+\_\+esperance()} 
+\end{DoxySeeAlso}

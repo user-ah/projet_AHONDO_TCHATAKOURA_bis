@@ -1,0 +1,5 @@
+<map id="script/generate_genotypes.h" name="script/generate_genotypes.h">
+<area shape="rect" id="Node000001" title="Defines the function generate_genotypes for generating genotypes from haplotypes." alt="" coords="5,5,191,31"/>
+<area shape="rect" id="Node000002" href="$create__geno__haplo__data_8cpp.html" title="This program generates genotypic and haplotypic data based on the parameters specified in an input fi..." alt="" coords="34,79,162,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,46,101,79,95,79,95,46"/>
+</map>

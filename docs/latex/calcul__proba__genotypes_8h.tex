@@ -1,0 +1,102 @@
+\doxysection{src/infer\+\_\+haplo/calcul\+\_\+proba\+\_\+genotypes.h File Reference}
+\hypertarget{calcul__proba__genotypes_8h}{}\label{calcul__proba__genotypes_8h}\index{src/infer\_haplo/calcul\_proba\_genotypes.h@{src/infer\_haplo/calcul\_proba\_genotypes.h}}
+
+
+Calculates the probabilities of genotypes based on haplotype frequencies.  
+
+
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}vector\+\_\+hash.\+h"{}}\newline
+{\ttfamily \#include "{}explain\+\_\+genotype.\+h"{}}\newline
+Include dependency graph for calcul\+\_\+proba\+\_\+genotypes.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{calcul__proba__genotypes_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{calcul__proba__genotypes_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{calcul__proba__genotypes_8h_a0b58eca8395af4a7e32f94e02f6717f9}{calcul\+\_\+proba\+\_\+genotypes}} (const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&genotypes, const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&haplotypes, const std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, double, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&frequencies, std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, double, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&probabilities)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Calculates the probabilities of genotypes based on haplotype frequencies. 
+
+\begin{DoxyAuthor}{Author}
+Ahamed TCHATAKOURA 
+
+Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file declares the function {\ttfamily calcul\+\_\+proba\+\_\+genotypes}, which computes the probability of each genotype by iterating over all possible haplotype pairs that could produce it. The calculation considers the frequencies of these haplotypes and updates a probability map accordingly.\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Computes genotype probabilities using haplotype frequencies.
+\item Uses a vector-\/based representation for genotypes and haplotypes.
+\item Employs a hash map to efficiently store haplotype frequencies and genotype probabilities.
+\item Ensures the {\ttfamily probabilities} map is cleared before updating it with new values.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The input {\ttfamily genotypes} and {\ttfamily haplotypes} must be {\bfseries{non-\/empty}} and correctly formatted.
+\item The {\ttfamily frequencies} map must contain {\bfseries{valid probability values}} for all involved haplotypes.
+\item The sum of all haplotype frequencies should be close to 1 for accurate probability calculations.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em genotypes} & A list of genotypes represented as vectors of integers. \\
+\hline
+{\em haplotypes} & A list of possible haplotypes. \\
+\hline
+{\em frequencies} & A hash map storing the current frequencies of each haplotype. \\
+\hline
+{\em probabilities} & A hash map to store the calculated probabilities for each genotype.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the input data is empty or incorrectly formatted. \\
+\hline
+{\em std\+::out\+\_\+of\+\_\+range} & If an unexpected haplotype is not found in the frequency map.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The function {\bfseries{clears}} the {\ttfamily probabilities} map before updating it with new values.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{estimation__esperance_8h_a9e8b043393ccaa9b0cd1c043e5a15988}{estimation\+\_\+esperance()} 
+
+\doxylink{maximisation_8h_a0797128ff407a2c68fb2d38c7ac06994}{maximisation()} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{calcul__proba__genotypes_8h_a0b58eca8395af4a7e32f94e02f6717f9}\index{calcul\_proba\_genotypes.h@{calcul\_proba\_genotypes.h}!calcul\_proba\_genotypes@{calcul\_proba\_genotypes}}
+\index{calcul\_proba\_genotypes@{calcul\_proba\_genotypes}!calcul\_proba\_genotypes.h@{calcul\_proba\_genotypes.h}}
+\doxysubsubsection{\texorpdfstring{calcul\_proba\_genotypes()}{calcul\_proba\_genotypes()}}
+{\footnotesize\ttfamily \label{calcul__proba__genotypes_8h_a0b58eca8395af4a7e32f94e02f6717f9} 
+void calcul\+\_\+proba\+\_\+genotypes (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{genotypes}{, }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{haplotypes}{, }\item[{const std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, double, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&}]{frequencies}{, }\item[{std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, double, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&}]{probabilities}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

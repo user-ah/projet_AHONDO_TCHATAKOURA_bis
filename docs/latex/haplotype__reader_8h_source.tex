@@ -1,0 +1,50 @@
+\doxysection{haplotype\+\_\+reader.\+h}
+\hypertarget{haplotype__reader_8h_source}{}\label{haplotype__reader_8h_source}\index{src/infer\_haplo/haplotype\_reader.h@{src/infer\_haplo/haplotype\_reader.h}}
+\mbox{\hyperlink{haplotype__reader_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{inline}\ std::vector<std::pair<std::vector<int>,\ std::vector<int>>>\ \mbox{\hyperlink{haplotype__reader_8h_adfe7e2e3b2b88ca279fbc50a74318756}{readHaplotypes}}(\textcolor{keyword}{const}\ std::string\&\ filename)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ std::vector<std::pair<std::vector<int>,\ std::vector<int>>>\ haplotypes;}
+\DoxyCodeLine{00078\ \ \ \ \ std::ifstream\ file(filename);}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Unable\ to\ open\ file\ "{}}\ <<\ filename\ <<\ std::endl;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ std::string\ line;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{char}\ delimiter\ =\ \textcolor{charliteral}{','};\ }
+\DoxyCodeLine{00086\ \ \ \ \ std::vector<int>\ haplo1,\ haplo2;}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(file,\ line))\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ std::vector<int>\ haplo;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ std::istringstream\ stream(line);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ std::string\ alleleStr;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(stream,\ alleleStr,\ delimiter))\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ haplo.push\_back(std::stoi(alleleStr));}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (haplo1.empty())\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ haplo1\ =\ haplo;\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ haplo2\ =\ haplo;\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ haplotypes.emplace\_back(haplo1,\ haplo2);\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ haplo1.clear();\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{return}\ haplotypes;}
+\DoxyCodeLine{00108\ \}}
+
+\end{DoxyCode}

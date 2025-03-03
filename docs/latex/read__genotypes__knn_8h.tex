@@ -1,0 +1,114 @@
+\doxysection{src/infer\+\_\+missing\+\_\+data/read\+\_\+genotypes\+\_\+knn.h File Reference}
+\hypertarget{read__genotypes__knn_8h}{}\label{read__genotypes__knn_8h}\index{src/infer\_missing\_data/read\_genotypes\_knn.h@{src/infer\_missing\_data/read\_genotypes\_knn.h}}
+
+
+Reads genotype data from a CSV file, handling missing values.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+Include dependency graph for read\+\_\+genotypes\+\_\+knn.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{read__genotypes__knn_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{read__genotypes__knn_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{read__genotypes__knn_8h_a0f574dd680f19f6c57497f0f81480179}{read\+Genotypes}} (const std\+::string \&genotypes\+\_\+file, std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&genotypes)
+\begin{DoxyCompactList}\small\item\em Reads genotype data from a CSV file and stores it in a 2D vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Reads genotype data from a CSV file, handling missing values. 
+
+\begin{DoxyAuthor}{Authors}
+Ahamed TCHATAKOURA \& Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file defines a function that reads genotype data from a CSV file and stores it in a 2D vector, where each row represents a genotype and each column represents a locus. Missing values in the CSV file, represented as {\ttfamily "{}\+NA"{}}, are converted to {\ttfamily -\/1} in the output vector.\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Reads genotype data from a CSV file.
+\item Handles missing values by replacing {\ttfamily "{}\+NA"{}} with {\ttfamily -\/1}.
+\item Detects and reports errors for invalid or out-\/of-\/range values in the input file.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The input CSV file must contain genotype data, where each row represents an individual and loci are separated by commas.
+\item Missing values must be represented by {\ttfamily "{}\+NA"{}} in the input file.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Output}{}\doxysubsection{\texorpdfstring{Generated Output}{Generated Output}}\label{write__genotypes__knn_8h_Output}
+
+\begin{DoxyItemize}
+\item The function populates the {\ttfamily genotypes} vector with parsed data from the CSV file. 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{read__genotypes__knn_8h_a0f574dd680f19f6c57497f0f81480179}\index{read\_genotypes\_knn.h@{read\_genotypes\_knn.h}!readGenotypes@{readGenotypes}}
+\index{readGenotypes@{readGenotypes}!read\_genotypes\_knn.h@{read\_genotypes\_knn.h}}
+\doxysubsubsection{\texorpdfstring{readGenotypes()}{readGenotypes()}}
+{\footnotesize\ttfamily \label{read__genotypes__knn_8h_a0f574dd680f19f6c57497f0f81480179} 
+bool read\+Genotypes (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{genotypes\+\_\+file}{, }\item[{std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{genotypes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reads genotype data from a CSV file and stores it in a 2D vector. 
+
+This function reads a genotype dataset from a CSV file and stores it in a vector of vectors. Each row in the file represents a genotype, and missing values ({\ttfamily "{}\+NA"{}}) are replaced by {\ttfamily -\/1} for easier processing in subsequent analyses.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the CSV file containing genotype data. \\
+\hline
+{\em genotypes} & A reference to a 2D vector that will store the parsed genotype data.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the file cannot be opened. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the file contains invalid characters or missing values that are not {\ttfamily "{}\+NA"{}}.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::vector<int>>\ genotypes;}
+\DoxyCodeLine{readGenotypesKNN(\textcolor{stringliteral}{"{}data/genotypes.csv"{}},\ genotypes);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ genotype\ :\ genotypes)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ allele\ :\ genotype)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::cout\ <<\ allele\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+impute\+Missing\+Data\+KNN() 
+\end{DoxySeeAlso}

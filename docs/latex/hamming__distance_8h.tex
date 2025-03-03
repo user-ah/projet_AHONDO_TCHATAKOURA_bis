@@ -1,0 +1,67 @@
+\doxysection{src/infer\+\_\+missing\+\_\+data/hamming\+\_\+distance.h File Reference}
+\hypertarget{hamming__distance_8h}{}\label{hamming__distance_8h}\index{src/infer\_missing\_data/hamming\_distance.h@{src/infer\_missing\_data/hamming\_distance.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for hamming\+\_\+distance.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{hamming__distance_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{hamming__distance_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{hamming__distance_8h_a1d0d2534d44a815db67d2a4304667938}{hamming\+Distance}} (const std\+::vector$<$ int $>$ \&a, const std\+::vector$<$ int $>$ \&b)
+\begin{DoxyCompactList}\small\item\em Computes the Hamming distance between two vectors, ignoring missing values ({\ttfamily -\/1}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hamming__distance_8h_a1d0d2534d44a815db67d2a4304667938}\index{hamming\_distance.h@{hamming\_distance.h}!hammingDistance@{hammingDistance}}
+\index{hammingDistance@{hammingDistance}!hamming\_distance.h@{hamming\_distance.h}}
+\doxysubsubsection{\texorpdfstring{hammingDistance()}{hammingDistance()}}
+{\footnotesize\ttfamily \label{hamming__distance_8h_a1d0d2534d44a815db67d2a4304667938} 
+int hamming\+Distance (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{a}{, }\item[{const std\+::vector$<$ int $>$ \&}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Computes the Hamming distance between two vectors, ignoring missing values ({\ttfamily -\/1}). 
+
+This function calculates the Hamming distance by counting the number of differing positions between two integer vectors while ignoring positions where either vector contains {\ttfamily -\/1}. This allows for flexibility in handling missing data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The first vector of integers. \\
+\hline
+{\em b} & The second vector of integers.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the input vectors are not of the same size.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The computed Hamming distance between the two vectors.
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<int>\ vec1\ =\ \{0,\ 1,\ -\/1,\ 1,\ 0\};}
+\DoxyCodeLine{std::vector<int>\ vec2\ =\ \{0,\ -\/1,\ 1,\ 1,\ 1\};}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ distance\ =\ \mbox{\hyperlink{hamming__distance_8h_a1d0d2534d44a815db67d2a4304667938}{hammingDistance}}(vec1,\ vec2);}
+\DoxyCodeLine{std::cout\ <<\ \textcolor{stringliteral}{"{}Hamming\ Distance:\ "{}}\ <<\ distance\ <<\ std::endl;\ \textcolor{comment}{//\ Output:\ 2}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{calcul_average_hamming_distance_8h_a12e96f0cf88353814de1f2d654507675}{calculate\+Average\+Hamming\+Distance()} 
+\end{DoxySeeAlso}

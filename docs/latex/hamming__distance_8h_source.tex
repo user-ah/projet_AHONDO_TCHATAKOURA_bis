@@ -1,0 +1,24 @@
+\doxysection{hamming\+\_\+distance.\+h}
+\hypertarget{hamming__distance_8h_source}{}\label{hamming__distance_8h_source}\index{src/infer\_missing\_data/hamming\_distance.h@{src/infer\_missing\_data/hamming\_distance.h}}
+\mbox{\hyperlink{hamming__distance_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#ifndef\ HAMMING\_DISTANCE\_KNN\_H}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ HAMMING\_DISTANCE\_KNN\_H}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{hamming__distance_8h_a1d0d2534d44a815db67d2a4304667938}{hammingDistance}}(\textcolor{keyword}{const}\ std::vector<int>\ \&a,\ \textcolor{keyword}{const}\ std::vector<int>\ \&b)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ distance\ =\ 0;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ a.size();\ ++i)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a[i]\ !=\ -\/1\ \&\&\ b[i]\ !=\ -\/1\ \&\&\ a[i]\ !=\ b[i])\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ ++distance;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ distance;}
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

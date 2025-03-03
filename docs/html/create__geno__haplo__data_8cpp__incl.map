@@ -1,0 +1,31 @@
+<map id="script/create_geno_haplo_data.cpp" name="script/create_geno_haplo_data.cpp">
+<area shape="rect" id="Node000001" title="This program generates genotypic and haplotypic data based on the parameters specified in an input fi..." alt="" coords="264,5,392,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,168,77,193"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="263,31,217,37,168,48,119,67,76,96,57,123,47,153,42,152,52,121,72,92,117,62,166,43,217,31,263,26"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="133,168,192,193"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="264,38,159,61,114,77,98,86,87,95,82,112,90,128,105,144,125,157,122,162,102,148,85,131,77,112,83,93,95,82,112,72,157,56,263,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="712,94,765,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="393,34,529,56,697,91,696,96,528,62,392,39"/>
+<area shape="rect" id="Node000005" href="$script_2read__parameters_8h.html" title="Defines the function read_parameters to read configuration parameters from a specified text file." alt="" coords="98,94,227,120"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="288,49,203,89,200,85,285,44"/>
+<area shape="rect" id="Node000008" href="$script_2generate__haplotypes_8h.html" title="This header file defines the function generate_haplotypes, which generates random haplotypes for a gi..." alt="" coords="252,94,404,120"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="330,46,330,78,325,78,325,46"/>
+<area shape="rect" id="Node000010" href="$generate__genotypes_8h.html" title="Defines the function generate_genotypes for generating genotypes from haplotypes." alt="" coords="538,94,688,120"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="393,42,555,87,554,92,392,47"/>
+<area shape="rect" id="Node000011" href="$save__csv_8h.html" title="Defines the function save_csv for saving a 2D vector of integers into a CSV file." alt="" coords="428,94,515,120"/>
+<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="365,44,437,84,435,88,362,49"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="143,123,76,162,73,157,140,118"/>
+<area shape="poly" id="edge8_Node000005_Node000003" title=" " alt="" coords="165,120,165,152,160,152,160,120"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="405,168,458,193"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="209,118,391,166,389,171,207,123"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="286,168,351,193"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="190,118,279,158,277,163,188,123"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="301,123,205,164,203,159,299,118"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="483,168,540,193"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="360,118,470,160,468,165,358,123"/>
+<area shape="poly" id="edge14_Node000010_Node000006" title=" " alt="" coords="583,123,474,166,472,161,581,118"/>
+<area shape="poly" id="edge13_Node000010_Node000009" title=" " alt="" coords="597,122,543,160,540,156,594,118"/>
+<area shape="poly" id="edge17_Node000011_Node000006" title=" " alt="" coords="467,121,448,155,443,153,463,119"/>
+<area shape="poly" id="edge18_Node000011_Node000007" title=" " alt="" coords="447,123,359,163,357,158,445,118"/>
+<area shape="poly" id="edge16_Node000011_Node000009" title=" " alt="" coords="481,119,500,153,495,155,476,121"/>
+</map>

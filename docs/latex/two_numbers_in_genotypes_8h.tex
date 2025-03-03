@@ -1,0 +1,108 @@
+\doxysection{src/infer\+\_\+haplo/two\+Numbers\+In\+Genotypes.h File Reference}
+\hypertarget{two_numbers_in_genotypes_8h}{}\label{two_numbers_in_genotypes_8h}\index{src/infer\_haplo/twoNumbersInGenotypes.h@{src/infer\_haplo/twoNumbersInGenotypes.h}}
+
+
+Counts the total occurrences of the value {\ttfamily 2} in a genotypes CSV file.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+Include dependency graph for two\+Numbers\+In\+Genotypes.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{two_numbers_in_genotypes_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{two_numbers_in_genotypes_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{two_numbers_in_genotypes_8h_adbe640417dfa14130904d21fe1c511b5}{count\+Twos\+In\+Genotypes}} (const std\+::string \&genotypes\+File)
+\begin{DoxyCompactList}\small\item\em Counts the total number of occurrences of {\ttfamily 2} in a genotypes file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Counts the total occurrences of the value {\ttfamily 2} in a genotypes CSV file. 
+
+\begin{DoxyAuthor}{Author}
+Ahamed TCHATAKOURA 
+
+Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file defines a function that scans a genotypes CSV file and counts the total number of occurrences of the value {\ttfamily 2}. Each line in the file represents a genotype, and the function reads through the entire file to determine how frequently the value {\ttfamily 2} appears in the dataset.\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Reads through a genotypes CSV file.
+\item Counts occurrences of the allele {\ttfamily 2} in the dataset.
+\item Returns the total count of {\ttfamily 2}s found in the genotypes file.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The {\ttfamily genotypes\+File} must be a valid and properly formatted CSV file.
+\item Each line in the file must contain genotype values separated by commas.
+\item The file must be accessible and readable.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Output}{}\doxysubsection{\texorpdfstring{Generated Output}{Generated Output}}\label{write__genotypes__knn_8h_Output}
+
+\begin{DoxyItemize}
+\item The function returns the total count of occurrences of {\ttfamily 2} in the genotypes dataset. 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{two_numbers_in_genotypes_8h_adbe640417dfa14130904d21fe1c511b5}\index{twoNumbersInGenotypes.h@{twoNumbersInGenotypes.h}!countTwosInGenotypes@{countTwosInGenotypes}}
+\index{countTwosInGenotypes@{countTwosInGenotypes}!twoNumbersInGenotypes.h@{twoNumbersInGenotypes.h}}
+\doxysubsubsection{\texorpdfstring{countTwosInGenotypes()}{countTwosInGenotypes()}}
+{\footnotesize\ttfamily \label{two_numbers_in_genotypes_8h_adbe640417dfa14130904d21fe1c511b5} 
+size\+\_\+t count\+Twos\+In\+Genotypes (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{genotypes\+File}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Counts the total number of occurrences of {\ttfamily 2} in a genotypes file. 
+
+This function reads through a genotypes CSV file and counts how many times the value {\ttfamily 2} appears across the entire dataset. It ensures that the file is properly formatted and accessible before processing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em genotypes\+File} & The name of the CSV file containing the genotypes.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the file cannot be opened or read.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The total count of {\ttfamily 2}s found in the genotypes file.
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ countTwos\ =\ \mbox{\hyperlink{two_numbers_in_genotypes_8h_adbe640417dfa14130904d21fe1c511b5}{countTwosInGenotypes}}(\textcolor{stringliteral}{"{}data/genotypes.csv"{}});}
+\DoxyCodeLine{std::cout\ <<\ \textcolor{stringliteral}{"{}Total\ number\ of\ \`{}2`s\ in\ the\ dataset:\ "{}}\ <<\ countTwos\ <<\ std::endl;}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{read__genotypes_8h_a924f036ae8dabaa3d79a0743a1058597}{read\+Genotypes()} 
+
+\doxylink{estimation__esperance_8h_a9e8b043393ccaa9b0cd1c043e5a15988}{estimation\+\_\+esperance()} 
+\end{DoxySeeAlso}

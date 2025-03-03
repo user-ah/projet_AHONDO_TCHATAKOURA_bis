@@ -1,0 +1,87 @@
+\doxysection{assign\+\_\+haplotypes.\+h}
+\hypertarget{assign__haplotypes_8h_source}{}\label{assign__haplotypes_8h_source}\index{src/infer\_haplo/assign\_haplotypes.h@{src/infer\_haplo/assign\_haplotypes.h}}
+\mbox{\hyperlink{assign__haplotypes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#ifndef\ ASSIGN\_HAPLOTYPES\_BIS\_H}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ ASSIGN\_HAPLOTYPES\_BIS\_H}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__hash_8h}{vector\_hash.h}}"{}}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{explain__genotype_8h}{explain\_genotype.h}}"{}}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{inline}\ std::unordered\_map<std::vector<int>,\ std::pair<std::vector<int>,\ std::vector<int>>,\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>}
+\DoxyCodeLine{00058\ \mbox{\hyperlink{assign__haplotypes_8h_ad811a6262a92ff4e841f26b38fce625d}{assignHaplotypesOptimized}}(}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\&\ genotypes,}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::pair<std::vector<int>,\ \textcolor{keywordtype}{double}>>\&\ sortedHaplotypes,}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ outputFilename)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ std::unordered\_map<std::vector<int>,\ std::pair<std::vector<int>,\ std::vector<int>>,\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\ genotypeToHaplotypes;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ genotype\ :\ genotypes)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ maxScore\ =\ -\/1.0;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ std::pair<std::vector<int>,\ std::vector<int>>\ bestPair;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ sortedHaplotypes.size();\ ++i)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ haplo1\ =\ sortedHaplotypes[i].first;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ freq1\ =\ sortedHaplotypes[i].second;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ i;\ j\ <\ sortedHaplotypes.size();\ ++j)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ haplo2\ =\ sortedHaplotypes[j].first;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ freq2\ =\ sortedHaplotypes[j].second;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{explain__genotype_8h_a5b19923b68f554783ace65a9d4b6ab2e}{explainGenotype}}(haplo1,\ haplo2,\ genotype))\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ score\ =\ freq1\ *\ freq2;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (score\ >\ maxScore)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ maxScore\ =\ score;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bestPair\ =\ \{haplo1,\ haplo2\};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (maxScore\ >\ -\/1.0)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ genotypeToHaplotypes[genotype]\ =\ bestPair;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Erreur\ :\ Aucun\ haplotype\ trouvé\ pour\ le\ génotype\ suivant\ :\ "{}};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ allele\ :\ genotype)\ std::cerr\ <<\ allele\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ std::endl;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ std::ofstream\ outFile(outputFilename);}
+\DoxyCodeLine{00096\ \textcolor{keywordflow}{if}\ (outFile)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [genotype,\ haplos]\ :\ genotypeToHaplotypes)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ haplo1\ =\ haplos.first;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ haplo2\ =\ haplos.second;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ haplo1.size();\ ++i)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ outFile\ <<\ haplo1[i];}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ haplo1.size()\ -\/\ 1)\ outFile\ <<\ \textcolor{stringliteral}{"{},"{}};\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ outFile\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ haplo2.size();\ ++i)\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ outFile\ <<\ haplo2[i];}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ haplo2.size()\ -\/\ 1)\ outFile\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ outFile\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ outFile.close();}
+\DoxyCodeLine{00114\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Haplotypes\ écrits\ dans\ le\ fichier\ :\ "{}}\ <<\ outputFilename\ <<\ std::endl;}
+\DoxyCodeLine{00115\ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Erreur\ :\ Impossible\ d'écrire\ dans\ le\ fichier\ des\ haplotypes\ "{}}\ <<\ outputFilename\ <<\ std::endl;}
+\DoxyCodeLine{00117\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{return}\ genotypeToHaplotypes;}
+\DoxyCodeLine{00120\ \}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

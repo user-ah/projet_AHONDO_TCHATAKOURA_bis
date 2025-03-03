@@ -1,0 +1,63 @@
+\doxysection{script/generate\+\_\+genotypes.h File Reference}
+\hypertarget{generate__genotypes_8h}{}\label{generate__genotypes_8h}\index{script/generate\_genotypes.h@{script/generate\_genotypes.h}}
+
+
+Defines the function {\ttfamily generate\+\_\+genotypes} for generating genotypes from haplotypes.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for generate\+\_\+genotypes.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{generate__genotypes_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{generate__genotypes_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{generate__genotypes_8h_a89dc57074cd83434a7c7bf7e01d08633}{generate\+\_\+genotypes}} (const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&haplotypes, int n\+\_\+loci)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the function {\ttfamily generate\+\_\+genotypes} for generating genotypes from haplotypes. 
+
+This header file defines the function {\ttfamily generate\+\_\+genotypes}, which takes pairs of haplotypes as input and generates corresponding genotypes based on these haplotypes. The genotypes are returned as a 2D vector, where each genotype corresponds to the alleles inherited from both haplotypes.
+
+\begin{DoxyAuthor}{Authors}
+
+\begin{DoxyItemize}
+\item Ahamed TCHATAKOURA
+\item Mawuéna AHONDO
+\end{DoxyItemize}
+\end{DoxyAuthor}
+The function loops over pairs of haplotypes and constructs genotypes by combining the alleles at each locus. If both haplotypes have the same allele (0 or 1), the genotype will reflect that allele; otherwise, the genotype will be set to 2 (heterozygous).
+
+
+\begin{DoxyParams}{Parameters}
+{\em haplotypes} & A 2D vector representing pairs of haplotypes. \\
+\hline
+{\em n\+\_\+loci} & The number of loci (genetic markers) in each haplotype. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A 2D vector containing the genotypes for all pairs of haplotypes. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{generate__genotypes_8h_a89dc57074cd83434a7c7bf7e01d08633}\index{generate\_genotypes.h@{generate\_genotypes.h}!generate\_genotypes@{generate\_genotypes}}
+\index{generate\_genotypes@{generate\_genotypes}!generate\_genotypes.h@{generate\_genotypes.h}}
+\doxysubsubsection{\texorpdfstring{generate\_genotypes()}{generate\_genotypes()}}
+{\footnotesize\ttfamily \label{generate__genotypes_8h_a89dc57074cd83434a7c7bf7e01d08633} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ generate\+\_\+genotypes (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{haplotypes}{, }\item[{int}]{n\+\_\+loci}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

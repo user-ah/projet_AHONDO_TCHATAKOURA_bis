@@ -1,0 +1,59 @@
+\doxysection{script/create\+\_\+geno\+\_\+haplo\+\_\+data.cpp File Reference}
+\hypertarget{create__geno__haplo__data_8cpp}{}\label{create__geno__haplo__data_8cpp}\index{script/create\_geno\_haplo\_data.cpp@{script/create\_geno\_haplo\_data.cpp}}
+
+
+This program generates genotypic and haplotypic data based on the parameters specified in an input file {\ttfamily parameters.\+txt}. The results are saved in two CSV files\+: {\ttfamily genotypes.\+csv} and {\ttfamily haplotypes.\+csv}.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include "{}read\+\_\+parameters.\+h"{}}\newline
+{\ttfamily \#include "{}generate\+\_\+haplotypes.\+h"{}}\newline
+{\ttfamily \#include "{}generate\+\_\+genotypes.\+h"{}}\newline
+{\ttfamily \#include "{}save\+\_\+csv.\+h"{}}\newline
+Include dependency graph for create\+\_\+geno\+\_\+haplo\+\_\+data.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{create__geno__haplo__data_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{create__geno__haplo__data_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This program generates genotypic and haplotypic data based on the parameters specified in an input file {\ttfamily parameters.\+txt}. The results are saved in two CSV files\+: {\ttfamily genotypes.\+csv} and {\ttfamily haplotypes.\+csv}. 
+
+\begin{DoxyAuthor}{Authors}
+Ahamed TCHATAKOURA \& Mawuéna AHONDO
+\end{DoxyAuthor}
+
+
+Key Features\+:
+\begin{DoxyItemize}
+\item Reading parameters from a text file (number of individuals, loci, distinct haplotypes).
+\item Random generation of haplotypes and genotypes.
+\item Saving the generated data to CSV files.
+\end{DoxyItemize}
+
+@output CSV files {\ttfamily genotypes.\+csv} and {\ttfamily haplotypes.\+csv}.
+
+\begin{DoxyPrecond}{Precondition}
+Properly configured directories and files. 
+
+{\ttfamily parameters.\+txt} file containing n\+\_\+ind, n\+\_\+loci, n\+\_\+distinct\+\_\+haplo. 
+\end{DoxyPrecond}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{create__geno__haplo__data_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{create\_geno\_haplo\_data.cpp@{create\_geno\_haplo\_data.cpp}!main@{main}}
+\index{main@{main}!create\_geno\_haplo\_data.cpp@{create\_geno\_haplo\_data.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{create__geno__haplo__data_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+

@@ -1,0 +1,38 @@
+\doxysection{generate\+\_\+genotypes.\+h}
+\hypertarget{generate__genotypes_8h_source}{}\label{generate__genotypes_8h_source}\index{script/generate\_genotypes.h@{script/generate\_genotypes.h}}
+\mbox{\hyperlink{generate__genotypes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#ifndef\ GENERATE\_GENOTYPES\_H}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ GENERATE\_GENOTYPES\_H}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{inline}\ std::vector<std::vector<int>>\ \mbox{\hyperlink{generate__genotypes_8h_a89dc57074cd83434a7c7bf7e01d08633}{generate\_genotypes}}(\textcolor{keyword}{const}\ std::vector<std::vector<int>>\&\ haplotypes,\ \textcolor{keywordtype}{int}\ n\_loci)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ std::vector<std::vector<int>>\ genotypes;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ haplotypes.size();\ i\ +=\ 2)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ std::vector<int>\ genotype;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ haplo1\ =\ haplotypes[i];}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ haplo2\ =\ haplotypes[i\ +\ 1];}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ n\_loci;\ ++j)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (haplo1[j]\ ==\ 0\ \&\&\ haplo2[j]\ ==\ 0)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ genotype.push\_back(0);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (haplo1[j]\ ==\ 1\ \&\&\ haplo2[j]\ ==\ 1)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ genotype.push\_back(1);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ genotype.push\_back(2);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ genotypes.push\_back(genotype);}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{return}\ genotypes;}
+\DoxyCodeLine{00051\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

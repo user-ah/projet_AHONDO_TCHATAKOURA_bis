@@ -1,0 +1,29 @@
+<map id="src/infer_haplo/vector_hash.h" name="src/infer_haplo/vector_hash.h">
+<area shape="rect" id="Node000001" title="Custom hash function for std::vector&lt;int&gt; to be used in hash&#45;based containers." alt="" coords="585,5,731,46"/>
+<area shape="rect" id="Node000002" href="$assign__haplotypes_8h.html" title=" " alt="" coords="5,94,154,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="570,40,387,64,173,97,155,100,154,95,172,91,386,59,569,35"/>
+<area shape="rect" id="Node000003" href="$infer__haplo_8cpp.html" title=" " alt="" coords="590,183,726,223"/>
+<area shape="poly" id="edge11_Node000001_Node000003" title=" " alt="" coords="570,30,472,34,367,45,318,53,275,65,241,79,219,96,213,105,211,114,213,123,219,133,243,151,280,166,327,177,380,186,491,196,590,199,590,204,491,201,379,191,326,182,279,171,241,156,215,136,208,125,205,114,208,103,215,92,239,74,274,60,317,48,366,40,472,29,569,25"/>
+<area shape="rect" id="Node000004" href="$calcul__proba__genotypes_8h.html" title="Calculates the probabilities of genotypes based on haplotype frequencies." alt="" coords="229,94,373,135"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="571,51,374,98,372,93,569,46"/>
+<area shape="rect" id="Node000005" href="$distinct__haplotypes_8h.html" title=" " alt="" coords="397,94,549,135"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="603,55,516,96,514,91,601,50"/>
+<area shape="rect" id="Node000006" href="$estimation__esperance_8h.html" title="Computes the log&#45;likelihood from genotype probabilities." alt="" coords="573,94,743,135"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="661,62,661,94,656,94,656,62"/>
+<area shape="rect" id="Node000007" href="$haplotype__reordering_8h.html" title=" " alt="" coords="767,94,933,135"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="717,50,808,91,806,96,714,55"/>
+<area shape="rect" id="Node000008" href="$initialisation__frequences_8h.html" title="Initializes the frequencies of distinct haplotypes." alt="" coords="957,94,1135,135"/>
+<area shape="poly" id="edge12_Node000001_Node000008" title=" " alt="" coords="747,44,958,91,957,96,746,49"/>
+<area shape="rect" id="Node000009" href="$maximisation_8h.html" title="Updates haplotype frequencies in the maximization step of the Expectation&#45;Maximization (EM) algorithm..." alt="" coords="1159,102,1357,127"/>
+<area shape="poly" id="edge14_Node000001_Node000009" title=" " alt="" coords="747,36,1148,91,1190,98,1189,104,1147,97,746,41"/>
+<area shape="rect" id="Node000010" href="$sort__haplotypes_8h.html" title="Sorts haplotypes by their frequency in descending order." alt="" coords="1381,94,1514,135"/>
+<area shape="poly" id="edge16_Node000001_Node000010" title=" " alt="" coords="747,29,1025,49,1197,67,1369,91,1381,94,1380,99,1368,97,1197,72,1025,54,747,34"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="169,131,173,132,402,167,590,191,590,196,401,172,172,137,168,137"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="389,134,591,183,590,188,388,139"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="530,139,617,180,615,185,528,144"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="661,150,661,182,656,182,656,150"/>
+<area shape="poly" id="edge10_Node000007_Node000003" title=" " alt="" coords="794,144,703,185,700,180,792,139"/>
+<area shape="poly" id="edge13_Node000008_Node000003" title=" " alt="" coords="943,141,727,189,726,184,942,136"/>
+<area shape="poly" id="edge15_Node000009_Node000003" title=" " alt="" coords="1176,133,1148,137,727,196,726,190,1147,132,1175,128"/>
+<area shape="poly" id="edge17_Node000010_Node000003" title=" " alt="" coords="1366,138,1182,163,1002,182,726,201,726,196,1002,176,1181,158,1366,132"/>
+</map>

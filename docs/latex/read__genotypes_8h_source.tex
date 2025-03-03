@@ -1,0 +1,37 @@
+\doxysection{read\+\_\+genotypes.\+h}
+\hypertarget{read__genotypes_8h_source}{}\label{read__genotypes_8h_source}\index{src/alter\_data/read\_genotypes.h@{src/alter\_data/read\_genotypes.h}}
+\mbox{\hyperlink{read__genotypes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ READ\_GENOTYPES\_H}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ READ\_GENOTYPES\_H}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <cctype>}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{read__genotypes_8h_a924f036ae8dabaa3d79a0743a1058597}{readGenotypes}}(\textcolor{keyword}{const}\ std::string\&\ genotypesFile,\ std::vector<std::vector<int>>\&\ genotypes)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ std::ifstream\ file(genotypesFile);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Erreur\ :\ Impossible\ d'ouvrir\ le\ fichier\ "{}}\ <<\ genotypesFile\ <<\ std::endl;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ std::string\ line;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(file,\ line))\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ std::vector<int>\ row;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ c\ :\ line)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::isdigit(c))\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ row.push\_back(c\ -\/\ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ genotypes.push\_back(row);}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ file.close();}
+\DoxyCodeLine{00055\ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,111 @@
+\doxysection{src/infer\+\_\+haplo/estimation\+\_\+esperance.h File Reference}
+\hypertarget{estimation__esperance_8h}{}\label{estimation__esperance_8h}\index{src/infer\_haplo/estimation\_esperance.h@{src/infer\_haplo/estimation\_esperance.h}}
+
+
+Computes the log-\/likelihood from genotype probabilities.  
+
+
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}vector\+\_\+hash.\+h"{}}\newline
+{\ttfamily \#include "{}explain\+\_\+genotype.\+h"{}}\newline
+Include dependency graph for estimation\+\_\+esperance.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{estimation__esperance_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{estimation__esperance_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{estimation__esperance_8h_a9e8b043393ccaa9b0cd1c043e5a15988}{estimation\+\_\+esperance}} (const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&genotypes, const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&haplotypes, const std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, double, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&frequencies)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Computes the log-\/likelihood from genotype probabilities. 
+
+\begin{DoxyAuthor}{Author}
+Ahamed TCHATAKOURA 
+
+Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file declares the function {\ttfamily estimation\+\_\+esperance}, which calculates the log-\/likelihood value based on haplotype frequencies and observed genotypes. The function iterates over all genotypes and sums the logarithm of their probabilities to determine the overall likelihood of the observed data.\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Computes the log-\/likelihood for a given set of genotypes and haplotype frequencies.
+\item Supports a vector-\/based representation of genotypes and haplotypes.
+\item Uses logarithmic scaling to improve numerical stability.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The {\ttfamily genotypes} matrix must be provided as a vector of vectors of integers.
+\item The {\ttfamily haplotypes} set must be a vector of vectors of integers representing all candidate haplotypes.
+\item The {\ttfamily frequencies} map must contain valid frequency values for all haplotypes.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em genotypes} & A vector of vectors of integers representing the genotype matrix. \\
+\hline
+{\em haplotypes} & A vector of vectors of integers representing the haplotypes. \\
+\hline
+{\em frequencies} & An unordered map with vectors of integers as keys and doubles as values, representing the frequencies corresponding to each haplotype.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the input data is empty or incorrectly formatted. \\
+\hline
+{\em std\+::out\+\_\+of\+\_\+range} & If an expected haplotype is not found in the frequency map.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The computed log-\/likelihood value based on the provided genotype data and haplotype frequencies.
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::vector<int>>\ genotypes\ =\ \{\{0,1,2\},\ \{1,0,1\}\};}
+\DoxyCodeLine{std::vector<std::vector<int>>\ haplotypes\ =\ \{\{0,1,1\},\ \{1,0,1\}\};}
+\DoxyCodeLine{std::unordered\_map<std::vector<int>,\ double,\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\ frequencies\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \{\{0,1,1\},\ 0.6\},\ \{\{1,0,1\},\ 0.4\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ logLikelihood\ =\ \mbox{\hyperlink{estimation__esperance_8h_a9e8b043393ccaa9b0cd1c043e5a15988}{estimation\_esperance}}(genotypes,\ haplotypes,\ frequencies);}
+\DoxyCodeLine{std::cout\ <<\ \textcolor{stringliteral}{"{}Log-\/likelihood:\ "{}}\ <<\ logLikelihood\ <<\ std::endl;}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{calcul__proba__genotypes_8h_a0b58eca8395af4a7e32f94e02f6717f9}{calcul\+\_\+proba\+\_\+genotypes()} 
+
+\doxylink{maximisation_8h_a0797128ff407a2c68fb2d38c7ac06994}{maximisation()} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{estimation__esperance_8h_a9e8b043393ccaa9b0cd1c043e5a15988}\index{estimation\_esperance.h@{estimation\_esperance.h}!estimation\_esperance@{estimation\_esperance}}
+\index{estimation\_esperance@{estimation\_esperance}!estimation\_esperance.h@{estimation\_esperance.h}}
+\doxysubsubsection{\texorpdfstring{estimation\_esperance()}{estimation\_esperance()}}
+{\footnotesize\ttfamily \label{estimation__esperance_8h_a9e8b043393ccaa9b0cd1c043e5a15988} 
+double estimation\+\_\+esperance (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{genotypes}{, }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{haplotypes}{, }\item[{const std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, double, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&}]{frequencies}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

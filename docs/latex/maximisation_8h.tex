@@ -1,0 +1,132 @@
+\doxysection{src/infer\+\_\+haplo/maximisation.h File Reference}
+\hypertarget{maximisation_8h}{}\label{maximisation_8h}\index{src/infer\_haplo/maximisation.h@{src/infer\_haplo/maximisation.h}}
+
+
+Updates haplotype frequencies in the maximization step of the Expectation-\/\+Maximization (EM) algorithm.  
+
+
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}vector\+\_\+hash.\+h"{}}\newline
+{\ttfamily \#include "{}explain\+\_\+genotype.\+h"{}}\newline
+Include dependency graph for maximisation.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{maximisation_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{maximisation_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{maximisation_8h_a0797128ff407a2c68fb2d38c7ac06994}{maximisation}} (const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&genotypes, const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&haplotypes, std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, double, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&frequencies, const std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, double, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&probabilities, int n\+\_\+ind)
+\begin{DoxyCompactList}\small\item\em Updates haplotype frequencies based on observed genotypes and their probabilities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Updates haplotype frequencies in the maximization step of the Expectation-\/\+Maximization (EM) algorithm. 
+
+\begin{DoxyAuthor}{Author}
+Ahamed TCHATAKOURA 
+
+Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file defines a function that updates haplotype frequencies based on observed genotypes and their probabilities. The function implements the maximization step of the Expectation-\/\+Maximization (EM) algorithm, adjusting haplotype frequencies according to the likelihood contributions from genotype-\/probability pairs.
+
+The key steps in this function include\+:
+\begin{DoxyItemize}
+\item Iterating over all possible haplotype pairs.
+\item Computing their contribution to the observed genotypes.
+\item Updating the frequencies accordingly.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Updates haplotype frequencies based on genotype-\/probability pairs.
+\item Iterates over all possible haplotype pairs to calculate their contributions.
+\item Modifies the {\ttfamily frequencies} map to reflect the updated haplotype frequencies.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The {\ttfamily genotypes} and {\ttfamily haplotypes} vectors must contain valid sequences.
+\item The {\ttfamily probabilities} map must contain valid genotype probabilities.
+\item The {\ttfamily frequencies} map must contain the current haplotype frequencies.
+\item The {\ttfamily n\+\_\+ind} parameter must represent the total number of individuals.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Output}{}\doxysubsection{\texorpdfstring{Generated Output}{Generated Output}}\label{write__genotypes__knn_8h_Output}
+
+\begin{DoxyItemize}
+\item The function updates the {\ttfamily frequencies} map with the newly calculated haplotype frequencies. 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{maximisation_8h_a0797128ff407a2c68fb2d38c7ac06994}\index{maximisation.h@{maximisation.h}!maximisation@{maximisation}}
+\index{maximisation@{maximisation}!maximisation.h@{maximisation.h}}
+\doxysubsubsection{\texorpdfstring{maximisation()}{maximisation()}}
+{\footnotesize\ttfamily \label{maximisation_8h_a0797128ff407a2c68fb2d38c7ac06994} 
+void maximisation (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{genotypes}{, }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{haplotypes}{, }\item[{std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, double, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&}]{frequencies}{, }\item[{const std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, double, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&}]{probabilities}{, }\item[{int}]{n\+\_\+ind}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates haplotype frequencies based on observed genotypes and their probabilities. 
+
+This function performs the maximization step in the Expectation-\/\+Maximization (EM) algorithm by adjusting the haplotype frequencies. It computes the contributions of each haplotype pair to the genotype probabilities and updates the frequency map accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em genotypes} & A vector of vectors representing the observed genotypes. \\
+\hline
+{\em haplotypes} & A vector of vectors representing the possible haplotypes. \\
+\hline
+{\em frequencies} & An unordered map containing the current frequencies of haplotypes. \\
+\hline
+{\em probabilities} & An unordered map storing the computed probabilities for each genotype. \\
+\hline
+{\em n\+\_\+ind} & The total number of individuals in the dataset.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If any input vector is empty or improperly formatted. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If an unexpected issue occurs during frequency calculation.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::vector<int>>\ genotypes\ =\ \{\{0,1,1\},\ \{1,0,1\}\};}
+\DoxyCodeLine{std::vector<std::vector<int>>\ haplotypes\ =\ \{\{0,1,1\},\ \{1,0,1\}\};}
+\DoxyCodeLine{std::unordered\_map<std::vector<int>,\ double,\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\ frequencies\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \{\{0,1,1\},\ 0.5\},\ \{\{1,0,1\},\ 0.5\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{std::unordered\_map<std::vector<int>,\ double,\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\ probabilities\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \{\{0,1,1\},\ 0.7\},\ \{\{1,0,1\},\ 0.3\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\mbox{\hyperlink{maximisation_8h_a0797128ff407a2c68fb2d38c7ac06994}{maximisation}}(genotypes,\ haplotypes,\ frequencies,\ probabilities,\ 100);}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{estimation__esperance_8h_a9e8b043393ccaa9b0cd1c043e5a15988}{estimation\+\_\+esperance()} 
+
+\doxylink{calcul__proba__genotypes_8h_a0b58eca8395af4a7e32f94e02f6717f9}{calcul\+\_\+proba\+\_\+genotypes()} 
+\end{DoxySeeAlso}

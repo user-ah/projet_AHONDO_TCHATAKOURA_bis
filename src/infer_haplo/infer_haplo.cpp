@@ -1,29 +1,76 @@
-/*
-    File: main.h
+/**
+ * @file main.h
+ * @author Ahamed TCHATAKOURA
+ * @author Mawuéna AHONDO
+ * @date 2025-03-03
+ * @version 1.0
+ * 
+ * @brief Main function for the Expectation-Maximization (EM) algorithm used in haplotype inference.
+ * 
+ * @details
+ * This header file defines the main function that implements an Expectation-Maximization (EM) 
+ * algorithm for haplotype inference from genotype data. The program reads input genotype and 
+ * haplotype data, performs multiple EM iterations to maximize the likelihood, and outputs the 
+ * results, including ordered haplotypes and log files.
+ * 
+ * The algorithm follows these steps:
+ * 1. Reads genotype and haplotype data from CSV files.
+ * 2. Initializes haplotype frequencies and computes genotype probabilities.
+ * 3. Runs the Expectation-Maximization algorithm to estimate the most likely haplotypes.
+ * 4. Outputs the ordered haplotypes, execution logs, and convergence information.
+ * 5. Computes the Hamming distance between inferred haplotypes and the ground truth for accuracy assessment.
+ * 
+ * @section Features Key Features
+ * - Reads genotype and haplotype data from CSV files.
+ * - Runs the Expectation-Maximization algorithm for haplotype inference.
+ * - Outputs the ordered haplotypes and logs execution details, including iterations, time, and convergence status.
+ * - Computes the average Hamming distance between inferred and ground truth haplotypes.
+ * 
+ * @section Preconditions Preconditions
+ * - The input files for genotypes, ground truth haplotypes, and output haplotypes must be properly formatted CSV files.
+ * - The number of genotypes and haplotypes must align with the provided data.
+ * 
+ * @section Output Output
+ * - Writes the ordered haplotypes to a CSV file.
+ * - Logs execution details (iterations, time, convergence) to a log file.
+ * - Computes and outputs the average Hamming distance between inferred and ground truth haplotypes.
+ */
 
-    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
-
-    Description:
-    This header file defines the main function of an Expectation-Maximization (EM) algorithm used for 
-    haplotype inference from genotype data. The program reads genotype and haplotype data, performs 
-    EM iterations to maximize the likelihood, and outputs the results, including the ordered haplotypes 
-    and log files.
-
-    Key Features:
-    - Reads genotype and haplotype data from CSV files.
-    - Runs the Expectation-Maximization algorithm for haplotype inference.
-    - Outputs the ordered haplotypes and log details, including execution time and convergence information.
-    - Calculates the Hamming distance between inferred haplotypes and ground truth for accuracy assessment.
-
-    Output:
-    - Writes the ordered haplotypes to a CSV file.
-    - Logs the execution details (iterations, time, convergence) to a log file.
-    - Calculates and outputs the average Hamming distance between inferred and ground truth haplotypes.
-
-    Preconditions:
-    - The input files for genotypes, ground truth haplotypes, and output haplotypes must be properly formatted CSV files.
-    - The number of genotypes and haplotypes must align with the provided data.
-*/
+/**
+ * @brief Main function implementing the Expectation-Maximization algorithm for haplotype inference.
+ * 
+ * @details
+ * This function orchestrates the entire haplotype inference process, including:
+ * - Reading input data (genotypes and haplotypes).
+ * - Initializing haplotype frequencies and computing genotype probabilities.
+ * - Performing EM iterations until convergence is reached.
+ * - Reordering haplotypes based on genotype mapping.
+ * - Computing the average Hamming distance for validation.
+ * - Writing results to output files.
+ * 
+ * @param argc The number of command-line arguments.
+ * @param argv The list of command-line arguments:
+ *  - `argv[1]` : Path to the genotype CSV file.
+ *  - `argv[2]` : Path to the ground truth haplotypes CSV file.
+ *  - `argv[3]` : Path to the output haplotypes CSV file.
+ *  - `argv[4]` : Path to the log file.
+ * 
+ * @throws std::runtime_error If an input file cannot be opened or contains invalid data.
+ * @throws std::invalid_argument If the provided command-line arguments are incorrect.
+ * 
+ * @return `EXIT_SUCCESS` if the execution is successful, `EXIT_FAILURE` otherwise.
+ * 
+ * @section Example Example Usage
+ * @code
+ * ./haplotype_inference data/genotypes.csv data/ground_truth.csv results/haplotypes.csv logs/em_log.txt
+ * @endcode
+ * 
+ * @see readGenotypes()
+ * @see generateAndFilterUniqueHaplotypes()
+ * @see estimation_esperance()
+ * @see calculAverageHammingDistance()
+ * @see writeLog()
+ */
 
 #include <iostream>
 #include <vector>

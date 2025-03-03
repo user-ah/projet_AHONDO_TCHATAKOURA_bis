@@ -1,0 +1,89 @@
+\doxysection{src/infer\+\_\+haplo/calcul\+Average\+Hamming\+Distance.h File Reference}
+\hypertarget{calcul_average_hamming_distance_8h}{}\label{calcul_average_hamming_distance_8h}\index{src/infer\_haplo/calculAverageHammingDistance.h@{src/infer\_haplo/calculAverageHammingDistance.h}}
+
+
+Computes the normalized average Hamming distance between two sets of haplotypes.  
+
+
+{\ttfamily \#include "{}calcul\+Hamming\+Distance.\+h"{}}\newline
+Include dependency graph for calcul\+Average\+Hamming\+Distance.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{calcul_average_hamming_distance_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{calcul_average_hamming_distance_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{calcul_average_hamming_distance_8h_a12e96f0cf88353814de1f2d654507675}{calculate\+Average\+Hamming\+Distance}} (const std\+::vector$<$ std\+::pair$<$ std\+::vector$<$ int $>$, std\+::vector$<$ int $>$ $>$ $>$ \&inferred\+Haplotypes, const std\+::vector$<$ std\+::pair$<$ std\+::vector$<$ int $>$, std\+::vector$<$ int $>$ $>$ $>$ \&ground\+Truth\+Haplotypes, int n\+Loci)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Computes the normalized average Hamming distance between two sets of haplotypes. 
+
+\begin{DoxyAuthor}{Author}
+Ahamed TCHATAKOURA 
+
+Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file declares the function {\ttfamily calculate\+Average\+Hamming\+Distance}, which computes the Hamming distance for each pair of inferred haplotypes compared to a reference set (ground truth). The function returns the average normalized Hamming distance across all individuals.\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Computes Hamming distances between haplotype pairs.
+\item Normalizes distances by the number of loci.
+\item Supports direct comparison of inferred haplotypes against a ground truth reference.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The number of inferred haplotype pairs must match the number of ground truth pairs.
+\item Each haplotype must have the correct number of loci (i.\+e., vector size must match {\ttfamily n\+Loci}).
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em inferred\+Haplotypes} & A vector of pairs of vectors representing the inferred haplotypes. \\
+\hline
+{\em ground\+Truth\+Haplotypes} & A vector of pairs of vectors representing the ground truth haplotypes. \\
+\hline
+{\em n\+Loci} & The number of loci in each haplotype.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the number of haplotype pairs does not match or if the dimensions of the haplotypes are incorrect.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The average normalized Hamming distance across all individuals.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{assign__haplotypes_8h_ad811a6262a92ff4e841f26b38fce625d}{assign\+Haplotypes\+Optimized()} 
+
+\doxylink{estimation__esperance_8h_a9e8b043393ccaa9b0cd1c043e5a15988}{estimation\+\_\+esperance()} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{calcul_average_hamming_distance_8h_a12e96f0cf88353814de1f2d654507675}\index{calculAverageHammingDistance.h@{calculAverageHammingDistance.h}!calculateAverageHammingDistance@{calculateAverageHammingDistance}}
+\index{calculateAverageHammingDistance@{calculateAverageHammingDistance}!calculAverageHammingDistance.h@{calculAverageHammingDistance.h}}
+\doxysubsubsection{\texorpdfstring{calculateAverageHammingDistance()}{calculateAverageHammingDistance()}}
+{\footnotesize\ttfamily \label{calcul_average_hamming_distance_8h_a12e96f0cf88353814de1f2d654507675} 
+double calculate\+Average\+Hamming\+Distance (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::pair$<$ std\+::vector$<$ int $>$, std\+::vector$<$ int $>$ $>$ $>$ \&}]{inferred\+Haplotypes}{, }\item[{const std\+::vector$<$ std\+::pair$<$ std\+::vector$<$ int $>$, std\+::vector$<$ int $>$ $>$ $>$ \&}]{ground\+Truth\+Haplotypes}{, }\item[{int}]{n\+Loci}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

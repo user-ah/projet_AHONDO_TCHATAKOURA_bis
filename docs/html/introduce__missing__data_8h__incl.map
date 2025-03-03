@@ -1,0 +1,9 @@
+<map id="src/alter_data/introduce_missing_data.h" name="src/alter_data/introduce_missing_data.h">
+<area shape="rect" id="Node000001" title="Defines a function to introduce missing data into a genotype matrix." alt="" coords="38,5,195,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,63,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,48,60,85,56,81,94,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="87,94,146,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,46,119,78,114,78,114,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="170,94,223,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="138,45,175,81,172,85,135,48"/>
+</map>

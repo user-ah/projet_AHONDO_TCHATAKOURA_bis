@@ -1,0 +1,29 @@
+\doxysection{vector\+\_\+hash.\+h}
+\hypertarget{vector__hash_8h_source}{}\label{vector__hash_8h_source}\index{src/infer\_haplo/vector\_hash.h@{src/infer\_haplo/vector\_hash.h}}
+\mbox{\hyperlink{vector__hash_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ VECTOR\_HASH\_H}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ VECTOR\_HASH\_H}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <new>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_vector_hash}{VectorHash}}\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{struct_vector_hash_a92159a2dc136c69bf2b5d701637321f3}{operator()}}(\textcolor{keyword}{const}\ std::vector<int>\&\ v)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::hash<int>\ hasher;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ seed\ =\ 0;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ :\ v)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ seed\ \string^=\ hasher(i)\ +\ 0x9e3779b9\ +\ (seed\ <<\ 6)\ +\ (seed\ >>\ 2);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ seed;}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VECTOR\_HASH\_H}}
+
+\end{DoxyCode}

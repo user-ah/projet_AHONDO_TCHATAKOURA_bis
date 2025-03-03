@@ -1,0 +1,40 @@
+\doxysection{calcul\+Average\+Hamming\+Distance.\+h}
+\hypertarget{calcul_average_hamming_distance_8h_source}{}\label{calcul_average_hamming_distance_8h_source}\index{src/infer\_haplo/calculAverageHammingDistance.h@{src/infer\_haplo/calculAverageHammingDistance.h}}
+\mbox{\hyperlink{calcul_average_hamming_distance_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{calcul_hamming_distance_8h}{calculHammingDistance.h}}"{}}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{calcul_average_hamming_distance_8h_a12e96f0cf88353814de1f2d654507675}{calculateAverageHammingDistance}}(}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::pair<std::vector<int>,\ std::vector<int>>>\&\ inferredHaplotypes,}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::pair<std::vector<int>,\ std::vector<int>>>\&\ groundTruthHaplotypes,}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{int}\ nLoci)\ \{}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (inferredHaplotypes.size()\ !=\ groundTruthHaplotypes.size())\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ The\ number\ of\ haplotype\ pairs\ does\ not\ match."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{double}\ totalDistance\ =\ 0.0;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ nInd\ =\ inferredHaplotypes.size();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ nInd;\ ++i)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [h1,\ h2]\ =\ inferredHaplotypes[i];}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [g1,\ g2]\ =\ groundTruthHaplotypes[i];}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (h1.size()\ !=\ nLoci\ ||\ h2.size()\ !=\ nLoci\ ||\ g1.size()\ !=\ nLoci\ ||\ g2.size()\ !=\ nLoci)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Incorrect\ dimensions\ for\ individual\ "{}}\ <<\ i\ <<\ std::endl;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ d1\ =\ \mbox{\hyperlink{calcul_hamming_distance_8h_aa0bc2ce0c77c29eb18cf2f0349fb404e}{calculateHammingDistance}}(h1,\ g1)\ +\ \mbox{\hyperlink{calcul_hamming_distance_8h_aa0bc2ce0c77c29eb18cf2f0349fb404e}{calculateHammingDistance}}(h2,\ g2);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ d2\ =\ \mbox{\hyperlink{calcul_hamming_distance_8h_aa0bc2ce0c77c29eb18cf2f0349fb404e}{calculateHammingDistance}}(h1,\ g2)\ +\ \mbox{\hyperlink{calcul_hamming_distance_8h_aa0bc2ce0c77c29eb18cf2f0349fb404e}{calculateHammingDistance}}(h2,\ g1);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ totalDistance\ +=\ std::min(d1,\ d2)\ /\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(2\ *\ nLoci);}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{return}\ totalDistance\ /\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(nInd);}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}

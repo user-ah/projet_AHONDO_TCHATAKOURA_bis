@@ -1,0 +1,24 @@
+<map id="src/infer_haplo/distinct_haplotypes.h" name="src/infer_haplo/distinct_haplotypes.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="230,5,382,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,77,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,49,93,93,91,88,239,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="235,168,292,193"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="231,41,181,61,159,76,142,95,137,107,138,118,145,128,155,138,186,154,221,166,219,171,184,159,152,142,141,132,133,120,132,107,137,93,156,72,179,56,229,36"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="152,94,255,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="283,49,233,86,230,82,279,44"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="280,94,333,120"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="309,46,309,78,304,78,304,46"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="358,94,426,120"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="329,44,369,81,366,85,326,48"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="450,94,515,120"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="351,44,443,85,440,90,349,49"/>
+<area shape="rect" id="Node000008" href="$vector__hash_8h.html" title="Custom hash function for std::vector&lt;int&gt; to be used in hash&#45;based containers." alt="" coords="539,94,642,120"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="378,44,533,87,531,92,377,49"/>
+<area shape="poly" id="edge8_Node000008_Node000003" title=" " alt="" coords="539,122,308,172,307,167,538,117"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="466,168,544,193"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="578,122,532,160,529,156,574,118"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="568,168,613,193"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="593,120,593,152,588,152,588,120"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="638,168,706,193"/>
+<area shape="poly" id="edge11_Node000008_Node000011" title=" " alt="" coords="606,118,648,155,645,159,602,122"/>
+</map>

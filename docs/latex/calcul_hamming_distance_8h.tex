@@ -1,0 +1,100 @@
+\doxysection{src/infer\+\_\+haplo/calcul\+Hamming\+Distance.h File Reference}
+\hypertarget{calcul_hamming_distance_8h}{}\label{calcul_hamming_distance_8h}\index{src/infer\_haplo/calculHammingDistance.h@{src/infer\_haplo/calculHammingDistance.h}}
+
+
+Computes the Hamming distance between two haplotypes.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for calcul\+Hamming\+Distance.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{calcul_hamming_distance_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{calcul_hamming_distance_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{calcul_hamming_distance_8h_aa0bc2ce0c77c29eb18cf2f0349fb404e}{calculate\+Hamming\+Distance}} (const std\+::vector$<$ int $>$ \&haplo1, const std\+::vector$<$ int $>$ \&haplo2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Computes the Hamming distance between two haplotypes. 
+
+\begin{DoxyAuthor}{Author}
+Ahamed TCHATAKOURA 
+
+Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file declares the function {\ttfamily calculate\+Hamming\+Distance}, which computes the Hamming distance between two haplotypes represented as vectors of integers. The Hamming distance is the number of positions where the corresponding elements of the two vectors differ.
+
+The function ensures that both input haplotypes have the same length before performing the calculation. If they have different lengths, an exception is thrown.\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Computes the Hamming distance between two haplotypes.
+\item Validates that both input vectors have the same size.
+\item Returns an integer representing the number of differing positions.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The two input haplotypes must have the same size (number of loci).
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em haplo1} & The first haplotype, represented as a vector of integers. \\
+\hline
+{\em haplo2} & The second haplotype, represented as a vector of integers.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the two haplotypes have different sizes.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+The Hamming distance (integer) between the two haplotypes.
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<int>\ haplo1\ =\ \{1,\ 0,\ 1,\ 1\};}
+\DoxyCodeLine{std::vector<int>\ haplo2\ =\ \{1,\ 1,\ 0,\ 1\};}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ distance\ =\ \mbox{\hyperlink{calcul_hamming_distance_8h_aa0bc2ce0c77c29eb18cf2f0349fb404e}{calculateHammingDistance}}(haplo1,\ haplo2);}
+\DoxyCodeLine{std::cout\ <<\ \textcolor{stringliteral}{"{}Hamming\ Distance:\ "{}}\ <<\ distance\ <<\ std::endl;\ \textcolor{comment}{//\ Output:\ Hamming\ Distance:\ 2}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{calcul_average_hamming_distance_8h_a12e96f0cf88353814de1f2d654507675}{calculate\+Average\+Hamming\+Distance()} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{calcul_hamming_distance_8h_aa0bc2ce0c77c29eb18cf2f0349fb404e}\index{calculHammingDistance.h@{calculHammingDistance.h}!calculateHammingDistance@{calculateHammingDistance}}
+\index{calculateHammingDistance@{calculateHammingDistance}!calculHammingDistance.h@{calculHammingDistance.h}}
+\doxysubsubsection{\texorpdfstring{calculateHammingDistance()}{calculateHammingDistance()}}
+{\footnotesize\ttfamily \label{calcul_hamming_distance_8h_aa0bc2ce0c77c29eb18cf2f0349fb404e} 
+int calculate\+Hamming\+Distance (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{haplo1}{, }\item[{const std\+::vector$<$ int $>$ \&}]{haplo2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

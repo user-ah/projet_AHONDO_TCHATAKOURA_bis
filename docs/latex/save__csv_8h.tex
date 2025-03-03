@@ -1,0 +1,66 @@
+\doxysection{script/save\+\_\+csv.h File Reference}
+\hypertarget{save__csv_8h}{}\label{save__csv_8h}\index{script/save\_csv.h@{script/save\_csv.h}}
+
+
+Defines the function {\ttfamily save\+\_\+csv} for saving a 2D vector of integers into a CSV file.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+Include dependency graph for save\+\_\+csv.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{save__csv_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{save__csv_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{save__csv_8h_ac15015d8f58864c08591290bf5192c31}{save\+\_\+csv}} (const std\+::string \&filename, const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the function {\ttfamily save\+\_\+csv} for saving a 2D vector of integers into a CSV file. 
+
+This header file contains the declaration of the {\ttfamily save\+\_\+csv} function, which writes a 2D vector of integers to a CSV file. The function ensures that values are separated by commas and rows are separated by newline characters.
+
+\begin{DoxyAuthor}{Authors}
+Ahamed TCHATAKOURA \& Mawuéna AHONDO
+\end{DoxyAuthor}
+The {\ttfamily save\+\_\+csv} function performs the following operations\+:
+\begin{DoxyItemize}
+\item Opens the specified file for writing.
+\item Iterates through each row of the 2D vector and writes the values to the file, adding commas between the values in a row.
+\item Adds a newline character after writing each row to separate rows.
+\item Closes the file after writing all the data.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file where the data will be saved. \\
+\hline
+{\em data} & A 2D vector of integers containing the data to be written to the file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{save__csv_8h_ac15015d8f58864c08591290bf5192c31}\index{save\_csv.h@{save\_csv.h}!save\_csv@{save\_csv}}
+\index{save\_csv@{save\_csv}!save\_csv.h@{save\_csv.h}}
+\doxysubsubsection{\texorpdfstring{save\_csv()}{save\_csv()}}
+{\footnotesize\ttfamily \label{save__csv_8h_ac15015d8f58864c08591290bf5192c31} 
+void save\+\_\+csv (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

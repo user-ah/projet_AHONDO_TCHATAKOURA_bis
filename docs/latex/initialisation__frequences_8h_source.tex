@@ -1,0 +1,26 @@
+\doxysection{initialisation\+\_\+frequences.\+h}
+\hypertarget{initialisation__frequences_8h_source}{}\label{initialisation__frequences_8h_source}\index{src/infer\_haplo/initialisation\_frequences.h@{src/infer\_haplo/initialisation\_frequences.h}}
+\mbox{\hyperlink{initialisation__frequences_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#ifndef\ INITIALISATION\_FREQUENCES\_H}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ INITIALISATION\_FREQUENCES\_H}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__hash_8h}{vector\_hash.h}}"{}}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{initialisation__frequences_8h_a9f879b7018a0b27478a11f8359e09e64}{initialisation\_frequences\_haplotypes}}(}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\&\ haplotypes,\ }
+\DoxyCodeLine{00078\ \ \ \ \ std::unordered\_map<std::vector<int>,\ \textcolor{keywordtype}{double},\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\&\ frequencies)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{double}\ p\ =\ 1.0\ /\ haplotypes.size();}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ haplotype\ :\ haplotypes)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ frequencies[haplotype]\ =\ p;\ }
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

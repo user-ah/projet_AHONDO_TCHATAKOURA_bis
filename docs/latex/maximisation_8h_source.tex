@@ -1,0 +1,52 @@
+\doxysection{maximisation.\+h}
+\hypertarget{maximisation_8h_source}{}\label{maximisation_8h_source}\index{src/infer\_haplo/maximisation.h@{src/infer\_haplo/maximisation.h}}
+\mbox{\hyperlink{maximisation_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#ifndef\ MAXIMISATION\_H}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ MAXIMISATION\_H}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__hash_8h}{vector\_hash.h}}"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{explain__genotype_8h}{explain\_genotype.h}}"{}}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{maximisation_8h_a0797128ff407a2c68fb2d38c7ac06994}{maximisation}}(}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\&\ genotypes,}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\&\ haplotypes,}
+\DoxyCodeLine{00084\ \ \ \ \ std::unordered\_map<std::vector<int>,\ \textcolor{keywordtype}{double},\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\&\ frequencies,}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{const}\ std::unordered\_map<std::vector<int>,\ \textcolor{keywordtype}{double},\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\&\ probabilities,}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{int}\ n\_ind)\ \{}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ std::unordered\_map<std::vector<int>,\ double,\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\ new\_frequencies;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ h1\ :\ haplotypes)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ freq\ =\ 0.0;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ genotype\ :\ genotypes)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ proba\_g\ =\ probabilities.at(genotype);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ h2\ :\ haplotypes)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{explain__genotype_8h_a5b19923b68f554783ace65a9d4b6ab2e}{explainGenotype}}(h1,\ h2,\ genotype))\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ contrib\ =\ (h1\ ==\ h2)\ ?}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2\ *\ frequencies.at(h1)\ *\ frequencies.at(h1))\ /\ proba\_g\ :}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2\ *\ frequencies.at(h1)\ *\ frequencies.at(h2))\ /\ proba\_g;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ freq\ +=\ contrib\ /\ n\_ind;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ new\_frequencies[h1]\ =\ freq\ /\ 2;}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ frequencies\ =\ new\_frequencies;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MAXIMISATION\_H}}
+
+\end{DoxyCode}

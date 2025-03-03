@@ -1,0 +1,64 @@
+\doxysection{src/infer\+\_\+haplo/vector\+\_\+hash.h File Reference}
+\hypertarget{vector__hash_8h}{}\label{vector__hash_8h}\index{src/infer\_haplo/vector\_hash.h@{src/infer\_haplo/vector\_hash.h}}
+
+
+Custom hash function for {\ttfamily std\+::vector\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}} to be used in hash-\/based containers.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$new$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for vector\+\_\+hash.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{vector__hash_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vector__hash_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}}
+\begin{DoxyCompactList}\small\item\em Custom hash function for {\ttfamily std\+::vector\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Custom hash function for {\ttfamily std\+::vector\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}} to be used in hash-\/based containers. 
+
+\begin{DoxyAuthor}{Author}
+Ahamed TCHATAKOURA 
+
+Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file defines a custom hash function for {\ttfamily std\+::vector\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}}, allowing it to be used as a key in hash-\/based containers like {\ttfamily std\+::unordered\+\_\+map} and {\ttfamily std\+::unordered\+\_\+set}. The hash function iterates through the elements of the vector and applies a combination of hash operations to generate a unique hash code for each vector.\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Implements a custom hash function for vectors of integers.
+\item Ensures compatibility of {\ttfamily std\+::vector\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}} with unordered containers.
+\item Provides a simple and efficient hashing mechanism.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The elements of the vector should be of type {\ttfamily int}.
+\item The hashing mechanism assumes the vector has a deterministic ordering.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Output}{}\doxysubsection{\texorpdfstring{Generated Output}{Generated Output}}\label{write__genotypes__knn_8h_Output}
+
+\begin{DoxyItemize}
+\item Provides the {\ttfamily \doxylink{struct_vector_hash}{Vector\+Hash}} structure that can be used as a custom hash function in {\ttfamily std\+::unordered\+\_\+map} and {\ttfamily std\+::unordered\+\_\+set}. 
+\end{DoxyItemize}

@@ -1,0 +1,58 @@
+\doxysection{haplotype\+\_\+reordering.\+h}
+\hypertarget{haplotype__reordering_8h_source}{}\label{haplotype__reordering_8h_source}\index{src/infer\_haplo/haplotype\_reordering.h@{src/infer\_haplo/haplotype\_reordering.h}}
+\mbox{\hyperlink{haplotype__reordering_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#ifndef\ HAPLOTYPE\_REORDERING\_H}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ HAPLOTYPE\_REORDERING\_H}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__hash_8h}{vector\_hash.h}}"{}}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{haplotype__reordering_8h_a81e3ab8ff80b4f0c576073e831b20321}{reorganizeHaplotypesAndWriteToFile}}(}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\&\ genotypes,}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{const}\ std::unordered\_map<std::vector<int>,\ std::pair<std::vector<int>,\ std::vector<int>>,\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\&\ genotypeToHaplotypes,}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ haplotypesFile)\ \{}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ std::vector<std::pair<std::vector<int>,\ std::vector<int>>>\ orderedHaplotypes;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ genotype\ :\ genotypes)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (genotypeToHaplotypes.find(genotype)\ !=\ genotypeToHaplotypes.end())\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ orderedHaplotypes.push\_back(genotypeToHaplotypes.at(genotype));}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ No\ haplotype\ found\ for\ the\ following\ genotype:\ "{}};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ allele\ :\ genotype)\ std::cerr\ <<\ allele\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ std::endl;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ std::ofstream\ haploFile(haplotypesFile);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (haploFile)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [haplo1,\ haplo2]\ :\ orderedHaplotypes)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ haplo1.size();\ ++i)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ haploFile\ <<\ haplo1[i];}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ haplo1.size()\ -\/\ 1)\ haploFile\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ haploFile\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ haplo2.size();\ ++i)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ haploFile\ <<\ haplo2[i];}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ haplo2.size()\ -\/\ 1)\ haploFile\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ haploFile\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ haploFile.close();}
+\DoxyCodeLine{00102\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Unable\ to\ write\ to\ haplotype\ file\ "{}}\ <<\ haplotypesFile\ <<\ std::endl;}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ HAPLOTYPE\_REORDERING\_H}}
+
+\end{DoxyCode}

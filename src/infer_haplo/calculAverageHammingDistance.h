@@ -1,25 +1,37 @@
-/*
-    File: calculHammingDistance.h
-
-    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
-
-    Description:
-    This header file defines a function to calculate the normalized average Hamming distance 
-    between two sets of haplotypes. The function computes the Hamming distance for each pair of 
-    inferred haplotypes compared to a reference set (ground truth), and returns the average normalized 
-    distance across all individuals.
-
-    Key Features:
-    - Computes Hamming distances between haplotype pairs.
-    - Normalizes the distances by the number of loci.
-    - Supports comparing inferred haplotypes with a ground truth reference.
-
-    Output: Returns the average normalized Hamming distance across all individuals.
-
-    Preconditions:
-    - The number of inferred and ground truth haplotype pairs must be the same.
-    - Each haplotype must have the correct number of loci (i.e., vector size must match `nLoci`).
-*/
+/**
+ * @file calculAverageHammingDistance.h
+ * @author Ahamed TCHATAKOURA
+ * @author Mawuéna AHONDO
+ * @date 2025-03-03
+ * @version 1.0
+ * 
+ * @brief Computes the normalized average Hamming distance between two sets of haplotypes.
+ * 
+ * @details
+ * This header file declares the function `calculateAverageHammingDistance`, which computes the 
+ * Hamming distance for each pair of inferred haplotypes compared to a reference set (ground truth). 
+ * The function returns the average normalized Hamming distance across all individuals.
+ * 
+ * @section Features Key Features
+ * - Computes Hamming distances between haplotype pairs.
+ * - Normalizes distances by the number of loci.
+ * - Supports direct comparison of inferred haplotypes against a ground truth reference.
+ * 
+ * @section Preconditions Preconditions
+ * - The number of inferred haplotype pairs must match the number of ground truth pairs.
+ * - Each haplotype must have the correct number of loci (i.e., vector size must match `nLoci`).
+ * 
+ * @param inferredHaplotypes A vector of pairs of vectors representing the inferred haplotypes.
+ * @param groundTruthHaplotypes A vector of pairs of vectors representing the ground truth haplotypes.
+ * @param nLoci The number of loci in each haplotype.
+ * 
+ * @throws std::runtime_error If the number of haplotype pairs does not match or if the dimensions of the haplotypes are incorrect.
+ * 
+ * @return The average normalized Hamming distance across all individuals.
+ * 
+ * @see assignHaplotypesOptimized()
+ * @see estimation_esperance()
+ */
 
 #include "calculHammingDistance.h"
 

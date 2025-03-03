@@ -1,0 +1,85 @@
+\doxysection{src/infer\+\_\+haplo/haplotype\+\_\+reader.h File Reference}
+\hypertarget{haplotype__reader_8h}{}\label{haplotype__reader_8h}\index{src/infer\_haplo/haplotype\_reader.h@{src/infer\_haplo/haplotype\_reader.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+Include dependency graph for haplotype\+\_\+reader.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{haplotype__reader_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{haplotype__reader_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::pair$<$ std\+::vector$<$ int $>$, std\+::vector$<$ int $>$ $>$ $>$ \mbox{\hyperlink{haplotype__reader_8h_adfe7e2e3b2b88ca279fbc50a74318756}{read\+Haplotypes}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Reads haplotypes from a CSV file and stores them in a vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{haplotype__reader_8h_adfe7e2e3b2b88ca279fbc50a74318756}\index{haplotype\_reader.h@{haplotype\_reader.h}!readHaplotypes@{readHaplotypes}}
+\index{readHaplotypes@{readHaplotypes}!haplotype\_reader.h@{haplotype\_reader.h}}
+\doxysubsubsection{\texorpdfstring{readHaplotypes()}{readHaplotypes()}}
+{\footnotesize\ttfamily \label{haplotype__reader_8h_adfe7e2e3b2b88ca279fbc50a74318756} 
+std\+::vector$<$ std\+::pair$<$ std\+::vector$<$ int $>$, std\+::vector$<$ int $>$ $>$ $>$ read\+Haplotypes (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reads haplotypes from a CSV file and stores them in a vector. 
+
+This function reads a haplotype dataset from a CSV file where each row represents a haplotype. It processes the data and stores haplotypes as pairs of vectors of integers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the CSV file containing haplotype data.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the file cannot be opened. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the file format is invalid (e.\+g., uneven number of rows).\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+A vector of pairs of haplotypes, each represented as a vector of integers.
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::pair<std::vector<int>,\ std::vector<int>>>\ haplotypes\ =\ \mbox{\hyperlink{haplotype__reader_8h_adfe7e2e3b2b88ca279fbc50a74318756}{readHaplotypes}}(\textcolor{stringliteral}{"{}haplotypes.csv"{}});}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ pair\ :\ haplotypes)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Haplotype\ 1:\ "{}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ allele\ :\ pair.first)\ std::cout\ <<\ allele\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nHaplotype\ 2:\ "{}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ allele\ :\ pair.second)\ std::cout\ <<\ allele\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{src_2infer__haplo_2generate__haplotypes_8h_a83ef78de4373199923f3b797f472e3f4}{generate\+Haplotype\+Pairs()} 
+
+\doxylink{assign__haplotypes_8h_ad811a6262a92ff4e841f26b38fce625d}{assign\+Haplotypes\+Optimized()} Reads haplotypes from a CSV file and stores them in a vector. Each pair of haplotypes corresponds to two consecutive lines in the file.
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The CSV file containing the haplotypes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of haplotype pairs (each is a vector of integers). 
+\end{DoxyReturn}

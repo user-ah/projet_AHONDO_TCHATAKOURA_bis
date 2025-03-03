@@ -1,0 +1,115 @@
+\doxysection{src/infer\+\_\+missing\+\_\+data/write\+\_\+genotypes\+\_\+knn.h File Reference}
+\hypertarget{write__genotypes__knn_8h}{}\label{write__genotypes__knn_8h}\index{src/infer\_missing\_data/write\_genotypes\_knn.h@{src/infer\_missing\_data/write\_genotypes\_knn.h}}
+
+
+Writes the imputed genotype data to a CSV file, handling missing values.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for write\+\_\+genotypes\+\_\+knn.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{write__genotypes__knn_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{write__genotypes__knn_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{write__genotypes__knn_8h_af1500fd08f05e7708aa150bc7feeacf6}{write\+Genotypes}} (const std\+::string \&output\+\_\+file, const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&genotypes)
+\begin{DoxyCompactList}\small\item\em Writes the imputed genotype data to a CSV file, converting missing values to {\ttfamily "{}\+NA"{}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Writes the imputed genotype data to a CSV file, handling missing values. 
+
+\begin{DoxyAuthor}{Authors}
+Ahamed TCHATAKOURA \& Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file defines a function that writes genotype data to a CSV file after imputation. The function ensures that missing values (represented by {\ttfamily -\/1}) are converted into {\ttfamily "{}\+NA"{}} in the output file, maintaining compatibility with standard genotype data formats.\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Writes imputed genotype data to a CSV file.
+\item Replaces missing values ({\ttfamily -\/1}) with {\ttfamily "{}\+NA"{}} in the output file.
+\item Ensures each genotype row is correctly formatted in the CSV file.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The {\ttfamily genotypes} vector must contain valid imputed genotype data.
+\item The {\ttfamily output\+\_\+file} must be a valid writable file path.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Output}{}\doxysubsection{\texorpdfstring{Generated Output}{Generated Output}}\label{write__genotypes__knn_8h_Output}
+
+\begin{DoxyItemize}
+\item The function writes the genotype data to the specified output CSV file.
+\item Each genotype row is saved on a new line. 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{write__genotypes__knn_8h_af1500fd08f05e7708aa150bc7feeacf6}\index{write\_genotypes\_knn.h@{write\_genotypes\_knn.h}!writeGenotypes@{writeGenotypes}}
+\index{writeGenotypes@{writeGenotypes}!write\_genotypes\_knn.h@{write\_genotypes\_knn.h}}
+\doxysubsubsection{\texorpdfstring{writeGenotypes()}{writeGenotypes()}}
+{\footnotesize\ttfamily \label{write__genotypes__knn_8h_af1500fd08f05e7708aa150bc7feeacf6} 
+bool write\+Genotypes (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{output\+\_\+file}{, }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{genotypes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Writes the imputed genotype data to a CSV file, converting missing values to {\ttfamily "{}\+NA"{}}. 
+
+This function takes a 2D vector of genotypes and writes it to a CSV file. Missing values (represented as {\ttfamily -\/1} in the vector) are replaced with {\ttfamily "{}\+NA"{}} in the output file to maintain standard formatting. Each row of the matrix is written as a line in the CSV file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em output\+\_\+file} & The path to the output CSV file where the genotypes will be saved. \\
+\hline
+{\em genotypes} & A 2D vector containing the imputed genotype data.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the output file cannot be opened for writing.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the file is successfully written, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::vector<int>>\ genotypes\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \{0,\ 1,\ -\/1,\ 1,\ 0\},}
+\DoxyCodeLine{\ \ \ \ \{1,\ 0,\ 1,\ -\/1,\ 1\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ success\ =\ \mbox{\hyperlink{write__genotypes_8h_a53e7ee6d78c4b6d3b065705e318cf258}{writeGenotypes}}(\textcolor{stringliteral}{"{}output/imputed\_genotypes.csv"{}},\ genotypes);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (success)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}File\ successfully\ written."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error\ writing\ file."{}}\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+read\+Genotypes\+KNN() 
+
+impute\+Missing\+Data\+KNN() 
+\end{DoxySeeAlso}

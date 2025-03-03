@@ -1,0 +1,36 @@
+\doxysection{read\+\_\+parameters\+\_\+knn.\+h}
+\hypertarget{read__parameters__knn_8h_source}{}\label{read__parameters__knn_8h_source}\index{src/infer\_missing\_data/read\_parameters\_knn.h@{src/infer\_missing\_data/read\_parameters\_knn.h}}
+\mbox{\hyperlink{read__parameters__knn_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifndef\ READ\_PARAMETERS\_KNN\_H}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ READ\_PARAMETERS\_KNN\_H}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{read__parameters__knn_8h_ad6d1d99c12ab0b0a4842881c87c619ce}{readParameters}}(\textcolor{keyword}{const}\ std::string\ \&parameters\_file,\ \textcolor{keywordtype}{int}\ \&k)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ std::ifstream\ file(parameters\_file);}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Unable\ to\ open\ "{}}\ <<\ parameters\_file\ <<\ std::endl;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ std::string\ line;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(file,\ line))\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.find(\textcolor{stringliteral}{"{}k"{}})\ !=\ std::string::npos)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ std::istringstream\ iss(line);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ key;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ iss\ >>\ key\ >>\ k;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ file.close();}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00080\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

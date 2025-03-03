@@ -1,0 +1,68 @@
+\doxysection{generate\+\_\+haplotypes.\+h}
+\hypertarget{src_2infer__haplo_2generate__haplotypes_8h_source}{}\label{src_2infer__haplo_2generate__haplotypes_8h_source}\index{src/infer\_haplo/generate\_haplotypes.h@{src/infer\_haplo/generate\_haplotypes.h}}
+\mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ GENERATE\_HAPLOTYPES\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ GENERATE\_HAPLOTYPES\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{using\ }\mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_af2daca8582985d86410cf72f8dd87346}{Haplotype}}\ =\ std::vector<int>;}
+\DoxyCodeLine{00059\ \textcolor{keyword}{using\ }\mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_a278ab9137302c7f3e0d98344d1ce9d5b}{HaploPair}}\ =\ std::pair<Haplotype,\ Haplotype>;}
+\DoxyCodeLine{00060\ \textcolor{keyword}{using\ }\mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_ac71069ccedcbc330a816598b01ff938f}{HaploList}}\ =\ std::vector<HaploPair>;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_ac71069ccedcbc330a816598b01ff938f}{HaploList}}\ \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_a83ef78de4373199923f3b797f472e3f4}{generateHaplotypePairs}}(\textcolor{keyword}{const}\ std::vector<int>\&\ genotype)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_ac71069ccedcbc330a816598b01ff938f}{HaploList}}\ result;}
+\DoxyCodeLine{00064\ \ \ \ \ std::function<void(\textcolor{keywordtype}{size\_t},\ \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_af2daca8582985d86410cf72f8dd87346}{Haplotype}},\ \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_af2daca8582985d86410cf72f8dd87346}{Haplotype}})>\ backtrack\ =}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ [\&](\textcolor{keywordtype}{size\_t}\ index,\ \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_af2daca8582985d86410cf72f8dd87346}{Haplotype}}\ h1,\ \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_af2daca8582985d86410cf72f8dd87346}{Haplotype}}\ h2)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ genotype.size())\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.emplace\_back(h1,\ h2);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (genotype[index]\ ==\ 0)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ h1.push\_back(0);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ h2.push\_back(0);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ backtrack(index\ +\ 1,\ h1,\ h2);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (genotype[index]\ ==\ 1)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ h1.push\_back(1);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ h2.push\_back(1);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ backtrack(index\ +\ 1,\ h1,\ h2);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (genotype[index]\ ==\ 2)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_af2daca8582985d86410cf72f8dd87346}{Haplotype}}\ h1\_copy\ =\ h1,\ h2\_copy\ =\ h2;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ h1.push\_back(0);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ h2.push\_back(1);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ backtrack(index\ +\ 1,\ h1,\ h2);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ h1\_copy.push\_back(1);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ h2\_copy.push\_back(0);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ backtrack(index\ +\ 1,\ h1\_copy,\ h2\_copy);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00088\ \ \ \ \ backtrack(0,\ \{\},\ \{\});}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00090\ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{keyword}{inline}\ std::vector<std::vector<int>>\ \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_a53104b7780ecf1b786258fb315340d8a}{generateAndFilterUniqueHaplotypes}}(\textcolor{keyword}{const}\ std::vector<std::vector<int>>\&\ genotypes)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ std::set<Haplotype>\ allUniqueHaplotypes;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ genotype\ :\ genotypes)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_ac71069ccedcbc330a816598b01ff938f}{HaploList}}\ pairs\ =\ \mbox{\hyperlink{src_2infer__haplo_2generate__haplotypes_8h_a83ef78de4373199923f3b797f472e3f4}{generateHaplotypePairs}}(genotype);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ pair\ :\ pairs)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ allUniqueHaplotypes.insert(pair.first);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ allUniqueHaplotypes.insert(pair.second);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{return}\ std::vector<std::vector<int>>(allUniqueHaplotypes.begin(),\ allUniqueHaplotypes.end());}
+\DoxyCodeLine{00118\ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GENERATE\_HAPLOTYPES\_H}}
+
+\end{DoxyCode}

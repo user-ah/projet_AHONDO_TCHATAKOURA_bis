@@ -1,24 +1,22 @@
-/*
-    File: create_geno_haplo_data.cpp
-
-    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
-
-    Description:
-    This program generates genotypic and haplotypic data based on the parameters specified 
-    in an input file `parameters.txt`. The results are saved in two CSV files: `genotypes.csv` 
-    and `haplotypes.csv`.
-
-    Key Features:
-    - Reading parameters from a text file (number of individuals, loci, distinct haplotypes).
-    - Random generation of haplotypes and genotypes.
-    - Saving the generated data to CSV files.
-
-    Output: CSV files `genotypes.csv` and `haplotypes.csv`.
-
-    Preconditions:
-    - Properly configured directories and files.
-    - `parameters.txt` file containing n_ind, n_loci, n_distinct_haplo.
-*/
+/**
+ * @file create_geno_haplo_data.cpp
+ * @authors Ahamed TCHATAKOURA & Mawuéna AHONDO
+ * 
+ * @brief This program generates genotypic and haplotypic data based on the parameters specified 
+ * in an input file `parameters.txt`. The results are saved in two CSV files: `genotypes.csv` 
+ * and `haplotypes.csv`.
+ * 
+ * @details
+ * Key Features:
+ * - Reading parameters from a text file (number of individuals, loci, distinct haplotypes).
+ * - Random generation of haplotypes and genotypes.
+ * - Saving the generated data to CSV files.
+ * 
+ * @output CSV files `genotypes.csv` and `haplotypes.csv`.
+ * 
+ * @pre Properly configured directories and files.
+ * @pre `parameters.txt` file containing n_ind, n_loci, n_distinct_haplo.
+ */
 
 #include <iostream>
 #include <cstdlib>

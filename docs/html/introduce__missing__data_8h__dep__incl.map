@@ -1,0 +1,5 @@
+<map id="src/alter_data/introduce_missing_data.h" name="src/alter_data/introduce_missing_data.h">
+<area shape="rect" id="Node000001" title="Defines a function to introduce missing data into a genotype matrix." alt="" coords="5,5,163,46"/>
+<area shape="rect" id="Node000002" href="$alter__data_8cpp.html" title="This program modifies genotype data by introducing missing values based on parameters specified in an..." alt="" coords="19,94,149,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,62,87,94,81,94,81,62"/>
+</map>

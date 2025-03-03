@@ -1,0 +1,33 @@
+\doxysection{read\+\_\+parameters.\+h}
+\hypertarget{src_2alter__data_2read__parameters_8h_source}{}\label{src_2alter__data_2read__parameters_8h_source}\index{src/alter\_data/read\_parameters.h@{src/alter\_data/read\_parameters.h}}
+\mbox{\hyperlink{src_2alter__data_2read__parameters_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#ifndef\ READ\_PARAMETERS\_H}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ READ\_PARAMETERS\_H}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{src_2alter__data_2read__parameters_8h_a37c005757e514e65fd00377f6ef906a1}{readParameters}}(\textcolor{keyword}{const}\ std::string\&\ parametersFile,\ \textcolor{keywordtype}{float}\&\ percentMiss)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ std::ifstream\ file(parametersFile);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Erreur\ :\ Impossible\ d'ouvrir\ le\ fichier\ "{}}\ <<\ parametersFile\ <<\ std::endl;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ std::string\ line;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(file,\ line))\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.find(\textcolor{stringliteral}{"{}percent\_miss"{}})\ !=\ std::string::npos)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ percentMiss\ =\ std::stof(line.substr(line.find(\textcolor{charliteral}{'<'})\ +\ 1));}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ file.close();}
+\DoxyCodeLine{00049\ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

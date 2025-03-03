@@ -1,0 +1,72 @@
+\doxysection{src/alter\+\_\+data/introduce\+\_\+missing\+\_\+data.h File Reference}
+\hypertarget{introduce__missing__data_8h}{}\label{introduce__missing__data_8h}\index{src/alter\_data/introduce\_missing\_data.h@{src/alter\_data/introduce\_missing\_data.h}}
+
+
+Defines a function to introduce missing data into a genotype matrix.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+Include dependency graph for introduce\+\_\+missing\+\_\+data.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{introduce__missing__data_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{introduce__missing__data_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{introduce__missing__data_8h_ada92848fe8ee0bc16733f76d5ce49473}{introduce\+Missing\+Data}} (std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&genotypes, float percent\+Miss)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines a function to introduce missing data into a genotype matrix. 
+
+This header file contains the declaration of a function that introduces missing data into a genotype matrix. The percentage of missing data is specified as a parameter, and the function randomly replaces elements in the matrix with a sentinel value (-\/1) to represent missing data.
+
+\begin{DoxyAuthor}{Authors}
+Ahamed TCHATAKOURA \& Mawuéna AHONDO
+\end{DoxyAuthor}
+
+\begin{DoxyItemize}
+\item Supports input genotype matrices of any size.
+\item Randomly introduces missing data based on the specified percentage.
+\item Utilizes standard library functions for randomness.
+\end{DoxyItemize}
+
+\begin{DoxyPrecond}{Precondition}
+
+\begin{DoxyItemize}
+\item The input genotype matrix must be non-\/empty and rectangular.
+\item The percentage of missing data should be between 0 and 100.
+\end{DoxyItemize}
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em genotypes} & A reference to a 2D vector representing the genotype matrix. \\
+\hline
+{\em percent\+Miss} & A float representing the percentage of missing data to introduce.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modified genotype matrix with missing data represented by -\/1. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{introduce__missing__data_8h_ada92848fe8ee0bc16733f76d5ce49473}\index{introduce\_missing\_data.h@{introduce\_missing\_data.h}!introduceMissingData@{introduceMissingData}}
+\index{introduceMissingData@{introduceMissingData}!introduce\_missing\_data.h@{introduce\_missing\_data.h}}
+\doxysubsubsection{\texorpdfstring{introduceMissingData()}{introduceMissingData()}}
+{\footnotesize\ttfamily \label{introduce__missing__data_8h_ada92848fe8ee0bc16733f76d5ce49473} 
+void introduce\+Missing\+Data (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{genotypes}{, }\item[{float}]{percent\+Miss}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

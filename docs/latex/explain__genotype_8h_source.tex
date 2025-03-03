@@ -1,0 +1,33 @@
+\doxysection{explain\+\_\+genotype.\+h}
+\hypertarget{explain__genotype_8h_source}{}\label{explain__genotype_8h_source}\index{src/infer\_haplo/explain\_genotype.h@{src/infer\_haplo/explain\_genotype.h}}
+\mbox{\hyperlink{explain__genotype_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#ifndef\ EXPLAIN\_GENOTYPE\_H}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ EXPLAIN\_GENOTYPE\_H}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ <new>}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{explain__genotype_8h_a306a25890c42640608e22c08c8fe5d6e}{isValid}}(\textcolor{keywordtype}{int}\ haplo1,\ \textcolor{keywordtype}{int}\ haplo2,\ \textcolor{keywordtype}{int}\ genotype)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ haplo\_sum\ =\ haplo1\ +\ haplo2;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (haplo\_sum\ ==\ 0)\ \textcolor{keywordflow}{return}\ genotype\ ==\ 0;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (haplo\_sum\ ==\ 1)\ \textcolor{keywordflow}{return}\ genotype\ ==\ 2;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (haplo\_sum\ ==\ 2)\ \textcolor{keywordflow}{return}\ genotype\ ==\ 1;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{explain__genotype_8h_a5b19923b68f554783ace65a9d4b6ab2e}{explainGenotype}}(\textcolor{keyword}{const}\ std::vector<int>\&\ h1,\ \textcolor{keyword}{const}\ std::vector<int>\&\ h2,\ \textcolor{keyword}{const}\ std::vector<int>\&\ genotype)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ genotype.size();\ ++i)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{explain__genotype_8h_a306a25890c42640608e22c08c8fe5d6e}{isValid}}(h1[i],\ h2[i],\ genotype[i]))\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00071\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

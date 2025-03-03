@@ -1,0 +1,120 @@
+\doxysection{src/infer\+\_\+missing\+\_\+data/infer\+\_\+missing\+\_\+data.cpp File Reference}
+\hypertarget{infer__missing__data_8cpp}{}\label{infer__missing__data_8cpp}\index{src/infer\_missing\_data/infer\_missing\_data.cpp@{src/infer\_missing\_data/infer\_missing\_data.cpp}}
+
+
+Implements the main function for genotype imputation using the k-\/nearest neighbors (KNN) approach.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}read\+\_\+parameters\+\_\+knn.\+h"{}}\newline
+{\ttfamily \#include "{}read\+\_\+genotypes\+\_\+knn.\+h"{}}\newline
+{\ttfamily \#include "{}impute\+\_\+missing\+\_\+data.\+h"{}}\newline
+{\ttfamily \#include "{}write\+\_\+genotypes\+\_\+knn.\+h"{}}\newline
+Include dependency graph for infer\+\_\+missing\+\_\+data.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{infer__missing__data_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{infer__missing__data_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function for genotype imputation using KNN. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements the main function for genotype imputation using the k-\/nearest neighbors (KNN) approach. 
+
+\begin{DoxyAuthor}{Author}
+Ahamed TCHATAKOURA 
+
+Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This program performs genotype imputation using a k-\/nearest neighbors (KNN) approach. It reads configuration parameters from a file, loads genotype data (which may contain missing values), imputes missing values using KNN imputation, and writes the fully imputed genotype data to an output CSV file.
+
+The imputation process involves\+:
+\begin{DoxyEnumerate}
+\item Reading parameters, including the value of {\ttfamily k} (number of neighbors), from a configuration file.
+\item Reading genotype data from a CSV file where missing values are represented by {\ttfamily -\/1}.
+\item Computing Hamming distances to find the {\ttfamily k} nearest genotypes for imputation.
+\item Imputing missing genotype values using majority voting from the {\ttfamily k} nearest neighbors.
+\item Saving the imputed genotype data to an output CSV file.
+\end{DoxyEnumerate}\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Reads parameters, including the value of {\ttfamily k}, from a configuration file.
+\item Reads genotype data (with potential missing values) from a CSV file.
+\item Imputes missing genotype values using KNN imputation.
+\item Saves the imputed genotype data to an output CSV file.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The {\ttfamily parameters.\+txt} file must contain a valid {\ttfamily k} value.
+\item The {\ttfamily genotypes.\+csv} file must contain properly formatted genotype data, with missing values represented by {\ttfamily -\/1}.
+\item The output file path must be correctly specified to store the imputed genotypes.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Output}{}\doxysubsection{\texorpdfstring{Generated Output}{Generated Output}}\label{write__genotypes__knn_8h_Output}
+
+\begin{DoxyItemize}
+\item The imputed genotype data is saved in a CSV file specified by the user. 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{infer__missing__data_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{infer\_missing\_data.cpp@{infer\_missing\_data.cpp}!main@{main}}
+\index{main@{main}!infer\_missing\_data.cpp@{infer\_missing\_data.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{infer__missing__data_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Main function for genotype imputation using KNN. 
+
+This function reads parameters from a configuration file, loads genotype data, applies KNN-\/based imputation to fill in missing values, and writes the imputed genotype data to an output CSV file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command-\/line arguments. \\
+\hline
+{\em argv} & The list of command-\/line arguments\+:
+\begin{DoxyItemize}
+\item {\ttfamily argv\mbox{[}1\mbox{]}} \+: Path to the {\ttfamily parameters.\+txt} file containing the value of {\ttfamily k}.
+\item {\ttfamily argv\mbox{[}2\mbox{]}} \+: Path to the {\ttfamily genotypes.\+csv} file containing genotype data with missing values.
+\item {\ttfamily argv\mbox{[}3\mbox{]}} \+: Path to the output CSV file where the imputed genotypes will be saved.
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the parameter file or genotype file cannot be opened. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the {\ttfamily k} value is missing or invalid.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+{\ttfamily EXIT\+\_\+\+SUCCESS} if execution is successful, {\ttfamily EXIT\+\_\+\+FAILURE} otherwise.
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./infer\_missing\_data\ config/parameters.txt\ data/genotypes.csv\ results/imputed\_genotypes.csv}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+impute\+Missing\+Data\+KNN() 
+
+\doxylink{hamming__distance_8h_a1d0d2534d44a815db67d2a4304667938}{hamming\+Distance()} 
+\end{DoxySeeAlso}

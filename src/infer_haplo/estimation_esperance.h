@@ -1,25 +1,53 @@
-/*
-    File: estimationEsperance.h
+/**
+ * @file estimation_esperance.h
+ * @author Ahamed TCHATAKOURA
+ * @author Mawuéna AHONDO
+ * @date 2025-03-03
+ * @version 1.0
+ * 
+ * @brief Computes the log-likelihood from genotype probabilities.
+ * 
+ * @details
+ * This header file declares the function `estimation_esperance`, which calculates the 
+ * log-likelihood value based on haplotype frequencies and observed genotypes. The function 
+ * iterates over all genotypes and sums the logarithm of their probabilities to determine 
+ * the overall likelihood of the observed data.
+ * 
+ * @section Features Key Features
+ * - Computes the log-likelihood for a given set of genotypes and haplotype frequencies.
+ * - Supports a vector-based representation of genotypes and haplotypes.
+ * - Uses logarithmic scaling to improve numerical stability.
+ * 
+ * @section Preconditions Preconditions
+ * - The `genotypes` matrix must be provided as a vector of vectors of integers.
+ * - The `haplotypes` set must be a vector of vectors of integers representing all candidate haplotypes.
+ * - The `frequencies` map must contain valid frequency values for all haplotypes.
+ * 
+ * @param genotypes A vector of vectors of integers representing the genotype matrix.
+ * @param haplotypes A vector of vectors of integers representing the haplotypes.
+ * @param frequencies An unordered map with vectors of integers as keys and doubles as values, 
+ * representing the frequencies corresponding to each haplotype.
+ * 
+ * @throws std::invalid_argument If the input data is empty or incorrectly formatted.
+ * @throws std::out_of_range If an expected haplotype is not found in the frequency map.
+ * 
+ * @return The computed log-likelihood value based on the provided genotype data and haplotype frequencies.
+ * 
+ * @section Example Example Usage
+ * @code
+ * std::vector<std::vector<int>> genotypes = {{0,1,2}, {1,0,1}};
+ * std::vector<std::vector<int>> haplotypes = {{0,1,1}, {1,0,1}};
+ * std::unordered_map<std::vector<int>, double, VectorHash> frequencies = {
+ *     {{0,1,1}, 0.6}, {{1,0,1}, 0.4}
+ * };
+ * double logLikelihood = estimation_esperance(genotypes, haplotypes, frequencies);
+ * std::cout << "Log-likelihood: " << logLikelihood << std::endl;
+ * @endcode
+ * 
+ * @see calcul_proba_genotypes()
+ * @see maximisation()
+ */
 
-    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
-
-    Description:
-    This header file defines a function to calculate the log-likelihood from the genotype probabilities. 
-    The function computes the log-likelihood based on the given frequencies of haplotypes and the 
-    genotypes. It sums the log of genotype probabilities over all provided genotypes.
-
-    Key Features:
-    - Calculates the log-likelihood from genotype and haplotype probabilities.
-    - Supports a vector-based representation of genotypes and haplotypes.
-    - Uses logarithmic scaling to compute the log-likelihood.
-
-    Output:
-    - Returns the log-likelihood value of the provided genotypes based on the haplotype frequencies.
-
-    Preconditions:
-    - The input genotype matrix must be provided as a vector of vectors of integers.
-    - The haplotype frequency map must be provided, with frequencies corresponding to each haplotype.
-*/
 
 #ifndef ESTIMATION_ESPERANCE_H
 #define ESTIMATION_ESPERANCE_H

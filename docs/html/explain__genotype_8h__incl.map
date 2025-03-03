@@ -1,0 +1,9 @@
+<map id="src/infer_haplo/explain_genotype.h" name="src/infer_haplo/explain_genotype.h">
+<area shape="rect" id="Node000001" title="Checks whether a pair of haplotypes can explain a given genotype." alt="" coords="34,5,186,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,63,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,48,58,84,54,81,89,45"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="87,94,133,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="113,46,113,78,107,78,107,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="157,94,226,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="132,44,170,81,166,85,128,48"/>
+</map>

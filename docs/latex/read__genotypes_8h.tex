@@ -1,0 +1,75 @@
+\doxysection{src/alter\+\_\+data/read\+\_\+genotypes.h File Reference}
+\hypertarget{read__genotypes_8h}{}\label{read__genotypes_8h}\index{src/alter\_data/read\_genotypes.h@{src/alter\_data/read\_genotypes.h}}
+
+
+This header file defines a function to read genotype data from a text file. The genotype data is stored in a 2D vector of integers. Each row in the file corresponds to a row in the matrix, and non-\/numeric characters are ignored.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cctype$>$}\newline
+Include dependency graph for read\+\_\+genotypes.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{read__genotypes_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=177pt]{read__genotypes_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{read__genotypes_8h_a924f036ae8dabaa3d79a0743a1058597}{read\+Genotypes}} (const std\+::string \&genotypes\+File, std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&genotypes)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This header file defines a function to read genotype data from a text file. The genotype data is stored in a 2D vector of integers. Each row in the file corresponds to a row in the matrix, and non-\/numeric characters are ignored. 
+
+\begin{DoxyAuthor}{Authors}
+Ahamed TCHATAKOURA Mawuéna AHONDO
+\end{DoxyAuthor}
+Key Features\+:
+\begin{DoxyItemize}
+\item Reads a genotype matrix from a text file.
+\item Parses numeric characters and ignores other characters.
+\item Supports matrices of arbitrary dimensions.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em genotypes\+File} & The path to the genotype text file. \\
+\hline
+{\em genotypes} & A 2D vector to store the genotype data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+The input file must be in a readable format (one genotype per cell, rows separated by newlines). 
+
+Non-\/numeric characters are ignored during parsing.
+\end{DoxyPrecond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::ifstream\+::failure} & If the file cannot be opened. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{read__genotypes_8h_a924f036ae8dabaa3d79a0743a1058597}\index{read\_genotypes.h@{read\_genotypes.h}!readGenotypes@{readGenotypes}}
+\index{readGenotypes@{readGenotypes}!read\_genotypes.h@{read\_genotypes.h}}
+\doxysubsubsection{\texorpdfstring{readGenotypes()}{readGenotypes()}}
+{\footnotesize\ttfamily \label{read__genotypes_8h_a924f036ae8dabaa3d79a0743a1058597} 
+void read\+Genotypes (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{genotypes\+File}{, }\item[{std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{genotypes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

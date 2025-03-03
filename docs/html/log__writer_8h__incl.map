@@ -1,0 +1,9 @@
+<map id="src/infer_haplo/log_writer.h" name="src/infer_haplo/log_writer.h">
+<area shape="rect" id="Node000001" title="Writes log information to a specified log file." alt="" coords="52,5,180,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,59,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,48,58,85,54,81,93,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="83,94,149,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,46,119,78,113,78,113,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="172,94,244,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="140,44,184,82,181,86,137,48"/>
+</map>

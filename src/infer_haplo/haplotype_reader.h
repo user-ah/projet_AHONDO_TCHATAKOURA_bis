@@ -1,25 +1,63 @@
-/*
-    File: haplotypeReader.h
+/**
+ * @file haplotypeReader.h
+ * @author Ahamed TCHATAKOURA
+ * @author Mawuéna AHONDO
+ * @date 2025-03-03
+ * @version 1.0
+ * 
+ * @brief Reads haplotypes from a CSV file and stores them in a structured format.
+ * 
+ * @details
+ * This header file defines a function to read haplotypes from a CSV file and store them in a vector. 
+ * Each pair of haplotypes corresponds to two consecutive lines in the file. The function assumes that 
+ * alleles are separated by commas and that the file contains an even number of rows, each representing 
+ * a haplotype.
+ * 
+ * @section Features Key Features
+ * - Reads haplotypes from a CSV file where each row represents a haplotype.
+ * - Each pair of haplotypes is stored as a pair of vectors of integers.
+ * - Assumes the file uses a comma as the delimiter between alleles.
+ * - Ensures that haplotypes are properly paired for further processing.
+ * 
+ * @section Preconditions Preconditions
+ * - The input file must be a valid CSV file containing haplotypes.
+ * - Each pair of consecutive rows in the file represents one haplotype pair.
+ * - The number of rows must be even to form complete haplotype pairs.
+ * 
+ * @section Output Output
+ * - Returns a vector of pairs of haplotypes, each represented as a vector of integers.
+ */
 
-    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+/**
+ * @brief Reads haplotypes from a CSV file and stores them in a vector.
+ * 
+ * @details
+ * This function reads a haplotype dataset from a CSV file where each row represents a haplotype.
+ * It processes the data and stores haplotypes as pairs of vectors of integers.
+ * 
+ * @param filename The name of the CSV file containing haplotype data.
+ * 
+ * @throws std::runtime_error If the file cannot be opened.
+ * @throws std::invalid_argument If the file format is invalid (e.g., uneven number of rows).
+ * 
+ * @return A vector of pairs of haplotypes, each represented as a vector of integers.
+ * 
+ * @section Example Example Usage
+ * @code
+ * std::vector<std::pair<std::vector<int>, std::vector<int>>> haplotypes = readHaplotypes("haplotypes.csv");
+ * for (const auto& pair : haplotypes) {
+ *     std::cout << "Haplotype 1: ";
+ *     for (int allele : pair.first) std::cout << allele << " ";
+ *     std::cout << "\nHaplotype 2: ";
+ *     for (int allele : pair.second) std::cout << allele << " ";
+ *     std::cout << std::endl;
+ * }
+ * @endcode
+ * 
+ * @see generateHaplotypePairs()
+ * @see assignHaplotypesOptimized()
+ */
 
-    Description:
-    This header file defines a function to read haplotypes from a CSV file and store them in a vector. 
-    Each pair of haplotypes corresponds to two consecutive lines in the file.
-
-    Key Features:
-    - Reads haplotypes from a CSV file, where each row represents a haplotype.
-    - Each pair of haplotypes is stored as a pair of vectors of integers.
-    - Assumes the file uses a comma as the delimiter between alleles.
-
-    Output:
-    - Returns a vector of pairs of haplotypes, each represented as a vector of integers.
-
-    Preconditions:
-    - The input file must be a valid CSV file containing pairs of haplotypes.
-    - Each pair of consecutive rows in the file represents one haplotype pair.
-
-*/
 
 #include <vector>
 #include <string>

@@ -1,0 +1,79 @@
+\doxysection{src/infer\+\_\+haplo/haplotype\+\_\+reordering.h File Reference}
+\hypertarget{haplotype__reordering_8h}{}\label{haplotype__reordering_8h}\index{src/infer\_haplo/haplotype\_reordering.h@{src/infer\_haplo/haplotype\_reordering.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}vector\+\_\+hash.\+h"{}}\newline
+Include dependency graph for haplotype\+\_\+reordering.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{haplotype__reordering_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{haplotype__reordering_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{haplotype__reordering_8h_a81e3ab8ff80b4f0c576073e831b20321}{reorganize\+Haplotypes\+And\+Write\+To\+File}} (const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&genotypes, const std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, std\+::pair$<$ std\+::vector$<$ int $>$, std\+::vector$<$ int $>$ $>$, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&genotype\+To\+Haplotypes, const std\+::string \&haplotypes\+File)
+\begin{DoxyCompactList}\small\item\em Reorders haplotypes to match the order of genotypes and writes them to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{haplotype__reordering_8h_a81e3ab8ff80b4f0c576073e831b20321}\index{haplotype\_reordering.h@{haplotype\_reordering.h}!reorganizeHaplotypesAndWriteToFile@{reorganizeHaplotypesAndWriteToFile}}
+\index{reorganizeHaplotypesAndWriteToFile@{reorganizeHaplotypesAndWriteToFile}!haplotype\_reordering.h@{haplotype\_reordering.h}}
+\doxysubsubsection{\texorpdfstring{reorganizeHaplotypesAndWriteToFile()}{reorganizeHaplotypesAndWriteToFile()}}
+{\footnotesize\ttfamily \label{haplotype__reordering_8h_a81e3ab8ff80b4f0c576073e831b20321} 
+void reorganize\+Haplotypes\+And\+Write\+To\+File (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{genotypes}{, }\item[{const std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, std\+::pair$<$ std\+::vector$<$ int $>$, std\+::vector$<$ int $>$ $>$, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&}]{genotype\+To\+Haplotypes}{, }\item[{const std\+::string \&}]{haplotypes\+File}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reorders haplotypes to match the order of genotypes and writes them to a file. 
+
+This function ensures that haplotypes are reordered to align with the corresponding genotypes and then writes them to a CSV file for further processing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em genotypes} & A list of genotypes, each represented as a vector of integers. \\
+\hline
+{\em genotype\+To\+Haplotypes} & A map associating each genotype with its corresponding haplotype pair. \\
+\hline
+{\em haplotypes\+File} & The name of the output CSV file where the reordered haplotypes will be written.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the output file cannot be opened for writing. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the input data is improperly formatted or missing expected entries.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::vector<int>>\ genotypes\ =\ \{\{0,1,1\},\ \{1,0,1\}\};}
+\DoxyCodeLine{std::unordered\_map<std::vector<int>,\ std::pair<std::vector<int>,\ std::vector<int>>,\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\ genotypeToHaplotypes;}
+\DoxyCodeLine{genotypeToHaplotypes[genotypes[0]]\ =\ \{\{0,1,0\},\ \{1,1,1\}\};}
+\DoxyCodeLine{genotypeToHaplotypes[genotypes[1]]\ =\ \{\{1,0,1\},\ \{0,1,1\}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{haplotype__reordering_8h_a81e3ab8ff80b4f0c576073e831b20321}{reorganizeHaplotypesAndWriteToFile}}(genotypes,\ genotypeToHaplotypes,\ \textcolor{stringliteral}{"{}ordered\_haplotypes.csv"{}});}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{assign__haplotypes_8h_ad811a6262a92ff4e841f26b38fce625d}{assign\+Haplotypes\+Optimized()} 
+
+\doxylink{src_2infer__haplo_2generate__haplotypes_8h_a83ef78de4373199923f3b797f472e3f4}{generate\+Haplotype\+Pairs()} 
+\end{DoxySeeAlso}

@@ -1,0 +1,27 @@
+\doxysection{calcul\+Hamming\+Distance.\+h}
+\hypertarget{calcul_hamming_distance_8h_source}{}\label{calcul_hamming_distance_8h_source}\index{src/infer\_haplo/calculHammingDistance.h@{src/infer\_haplo/calculHammingDistance.h}}
+\mbox{\hyperlink{calcul_hamming_distance_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{calcul_hamming_distance_8h_aa0bc2ce0c77c29eb18cf2f0349fb404e}{calculateHammingDistance}}(\textcolor{keyword}{const}\ std::vector<int>\&\ haplo1,\ \textcolor{keyword}{const}\ std::vector<int>\&\ haplo2)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (haplo1.size()\ !=\ haplo2.size())\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ The\ haplotypes\ have\ different\ dimensions."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ distance\ =\ 0;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ haplo1.size();\ ++i)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (haplo1[i]\ !=\ haplo2[i])\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ distance++;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{return}\ distance;}
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}

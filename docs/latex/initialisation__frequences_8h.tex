@@ -1,0 +1,123 @@
+\doxysection{src/infer\+\_\+haplo/initialisation\+\_\+frequences.h File Reference}
+\hypertarget{initialisation__frequences_8h}{}\label{initialisation__frequences_8h}\index{src/infer\_haplo/initialisation\_frequences.h@{src/infer\_haplo/initialisation\_frequences.h}}
+
+
+Initializes the frequencies of distinct haplotypes.  
+
+
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}vector\+\_\+hash.\+h"{}}\newline
+Include dependency graph for initialisation\+\_\+frequences.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{initialisation__frequences_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{initialisation__frequences_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{initialisation__frequences_8h_a9f879b7018a0b27478a11f8359e09e64}{initialisation\+\_\+frequences\+\_\+haplotypes}} (const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&haplotypes, std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, double, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&frequencies)
+\begin{DoxyCompactList}\small\item\em Initializes the frequencies of distinct haplotypes with an equal probability. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Initializes the frequencies of distinct haplotypes. 
+
+\begin{DoxyAuthor}{Author}
+Ahamed TCHATAKOURA 
+
+Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file defines a function to initialize the frequencies of distinct haplotypes. The frequencies are assigned an equal probability, calculated as ( 1 / N ), where ( N ) is the total number of distinct haplotypes.\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Initializes haplotype frequencies with an equal probability value.
+\item Stores haplotype frequencies in a hash map for fast retrieval.
+\item Ensures that all haplotypes have a valid initial frequency.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The {\ttfamily haplotypes} vector must contain distinct haplotype sequences.
+\item The {\ttfamily frequencies} map must be empty at the start and will be populated by this function.
+\item The number of haplotypes must be greater than zero to avoid division by zero.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Output}{}\doxysubsection{\texorpdfstring{Generated Output}{Generated Output}}\label{write__genotypes__knn_8h_Output}
+
+\begin{DoxyItemize}
+\item The function populates the {\ttfamily frequencies} map, assigning an equal probability to each haplotype. 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{initialisation__frequences_8h_a9f879b7018a0b27478a11f8359e09e64}\index{initialisation\_frequences.h@{initialisation\_frequences.h}!initialisation\_frequences\_haplotypes@{initialisation\_frequences\_haplotypes}}
+\index{initialisation\_frequences\_haplotypes@{initialisation\_frequences\_haplotypes}!initialisation\_frequences.h@{initialisation\_frequences.h}}
+\doxysubsubsection{\texorpdfstring{initialisation\_frequences\_haplotypes()}{initialisation\_frequences\_haplotypes()}}
+{\footnotesize\ttfamily \label{initialisation__frequences_8h_a9f879b7018a0b27478a11f8359e09e64} 
+void initialisation\+\_\+frequences\+\_\+haplotypes (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{haplotypes}{, }\item[{std\+::unordered\+\_\+map$<$ std\+::vector$<$ int $>$, double, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \&}]{frequencies}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes the frequencies of distinct haplotypes with an equal probability. 
+
+This function assigns an equal probability to each unique haplotype present in the input list. The probabilities are stored in a hash map for efficient lookup.
+
+
+\begin{DoxyParams}{Parameters}
+{\em haplotypes} & A vector containing distinct haplotypes. \\
+\hline
+{\em frequencies} & An unordered map to store the haplotype frequencies.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the haplotype vector is empty (to avoid division by zero).\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::vector<int>>\ haplotypes\ =\ \{\{0,1,1\},\ \{1,0,1\},\ \{1,1,0\}\};}
+\DoxyCodeLine{std::unordered\_map<std::vector<int>,\ double,\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\ frequencies;}
+\DoxyCodeLine{\mbox{\hyperlink{initialisation__frequences_8h_a9f879b7018a0b27478a11f8359e09e64}{initialisation\_frequences\_haplotypes}}(haplotypes,\ frequencies);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ pair\ :\ frequencies)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Haplotype:\ "{}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ allele\ :\ pair.first)\ std::cout\ <<\ allele\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ -\/>\ Frequency:\ "{}}\ <<\ pair.second\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{estimation__esperance_8h_a9e8b043393ccaa9b0cd1c043e5a15988}{estimation\+\_\+esperance()} 
+
+\doxylink{calcul__proba__genotypes_8h_a0b58eca8395af4a7e32f94e02f6717f9}{calcul\+\_\+proba\+\_\+genotypes()} Initializes the frequencies of the haplotypes.
+\end{DoxySeeAlso}
+Each haplotype is assigned an equal initial probability of 1 / (total number of haplotypes).
+
+
+\begin{DoxyParams}{Parameters}
+{\em haplotypes} & A collection of distinct haplotypes. \\
+\hline
+{\em frequencies} & A map to store the haplotype frequencies. \\
+\hline
+\end{DoxyParams}

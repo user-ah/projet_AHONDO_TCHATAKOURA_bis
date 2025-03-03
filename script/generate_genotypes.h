@@ -1,28 +1,25 @@
-/*
-    File: generate_genotypes.h
-
-    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
-
-    Description:
-    This header file defines the function `generate_genotypes`, which takes pairs of haplotypes 
-    as input and generates corresponding genotypes based on these haplotypes. The genotypes are 
-    returned as a 2D vector, where each genotype corresponds to the alleles inherited from 
-    both haplotypes.
-
-    Key Functionality:
-    - The function loops over pairs of haplotypes and constructs genotypes by combining the 
-      alleles at each locus. 
-    - If both haplotypes have the same allele (0 or 1), the genotype will reflect that allele; 
-      otherwise, the genotype will be set to 2 (heterozygous).
-
-    Parameters:
-    - `haplotypes`: A 2D vector representing pairs of haplotypes.
-    - `n_loci`: The number of loci (genetic markers) in each haplotype.
-
-    Output:
-    - Returns a 2D vector containing the genotypes for all pairs of haplotypes.
-*/
-
+/**
+ * @file generate_genotypes.h
+ * @brief Defines the function `generate_genotypes` for generating genotypes from haplotypes.
+ * 
+ * This header file defines the function `generate_genotypes`, which takes pairs of haplotypes 
+ * as input and generates corresponding genotypes based on these haplotypes. The genotypes are 
+ * returned as a 2D vector, where each genotype corresponds to the alleles inherited from 
+ * both haplotypes.
+ * 
+ * @authors 
+ * - Ahamed TCHATAKOURA
+ * - Mawuéna AHONDO
+ * 
+ * @details
+ * The function loops over pairs of haplotypes and constructs genotypes by combining the 
+ * alleles at each locus. If both haplotypes have the same allele (0 or 1), the genotype 
+ * will reflect that allele; otherwise, the genotype will be set to 2 (heterozygous).
+ * 
+ * @param haplotypes A 2D vector representing pairs of haplotypes.
+ * @param n_loci The number of loci (genetic markers) in each haplotype.
+ * @return A 2D vector containing the genotypes for all pairs of haplotypes.
+ */
 
 #ifndef GENERATE_GENOTYPES_H
 #define GENERATE_GENOTYPES_H

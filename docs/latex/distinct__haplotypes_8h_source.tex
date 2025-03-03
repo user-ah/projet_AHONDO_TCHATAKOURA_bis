@@ -1,0 +1,56 @@
+\doxysection{distinct\+\_\+haplotypes.\+h}
+\hypertarget{distinct__haplotypes_8h_source}{}\label{distinct__haplotypes_8h_source}\index{src/infer\_haplo/distinct\_haplotypes.h@{src/infer\_haplo/distinct\_haplotypes.h}}
+\mbox{\hyperlink{distinct__haplotypes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ CALCULATE\_HAPLOTYPES\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ CALCULATE\_HAPLOTYPES\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector__hash_8h}{vector\_hash.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{inline}\ std::vector<int>\ \mbox{\hyperlink{distinct__haplotypes_8h_a2883ca161023b8bde50d37739827d8e1}{parseCSVLine}}(\textcolor{keyword}{const}\ std::string\&\ line,\ \textcolor{keywordtype}{char}\ delimiter\ =\ \textcolor{charliteral}{','})\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ std::vector<int>\ haplotype;}
+\DoxyCodeLine{00049\ \ \ \ \ std::stringstream\ ss(line);}
+\DoxyCodeLine{00050\ \ \ \ \ std::string\ token;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(ss,\ token,\ delimiter))\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ haplotype.push\_back(std::stoi(token));}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{return}\ haplotype;}
+\DoxyCodeLine{00055\ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{inline}\ std::unordered\_set<std::vector<int>,\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\ \mbox{\hyperlink{distinct__haplotypes_8h_af820206a4be302624201db9d422c3287}{loadHaplotypesFromFile}}(\textcolor{keyword}{const}\ std::string\&\ haplotypesFile)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ std::ifstream\ file(haplotypesFile);}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Erreur\ :\ Impossible\ d'ouvrir\ le\ fichier\ "{}}\ <<\ haplotypesFile\ <<\ std::endl;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ exit(EXIT\_FAILURE);}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ std::unordered\_set<std::vector<int>,\ \mbox{\hyperlink{struct_vector_hash}{VectorHash}}>\ haplotypes;}
+\DoxyCodeLine{00077\ \ \ \ \ std::string\ line;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(file,\ line))\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.empty())\ \textcolor{keywordflow}{continue};\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ haplotypes.insert(\mbox{\hyperlink{distinct__haplotypes_8h_a2883ca161023b8bde50d37739827d8e1}{parseCSVLine}}(line));}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{return}\ haplotypes;}
+\DoxyCodeLine{00085\ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{distinct__haplotypes_8h_ab1ea12ad8f92c79989c07d1825ce9b70}{DistinctHaplotypesFromFile}}(\textcolor{keyword}{const}\ std::string\&\ haplotypesFile,\ \textcolor{keywordtype}{size\_t}\&\ n\_distinct\_haplotypes)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{auto}\ distinctHaplotypes\ =\ \mbox{\hyperlink{distinct__haplotypes_8h_af820206a4be302624201db9d422c3287}{loadHaplotypesFromFile}}(haplotypesFile);}
+\DoxyCodeLine{00101\ \ \ \ \ n\_distinct\_haplotypes\ =\ distinctHaplotypes.size();}
+\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

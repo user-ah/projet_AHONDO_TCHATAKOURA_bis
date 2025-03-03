@@ -1,0 +1,65 @@
+\doxysection{script/generate\+\_\+haplotypes.h File Reference}
+\hypertarget{script_2generate__haplotypes_8h}{}\label{script_2generate__haplotypes_8h}\index{script/generate\_haplotypes.h@{script/generate\_haplotypes.h}}
+
+
+This header file defines the function {\ttfamily generate\+\_\+haplotypes}, which generates random haplotypes for a given population of individuals.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+Include dependency graph for generate\+\_\+haplotypes.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{script_2generate__haplotypes_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{script_2generate__haplotypes_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{script_2generate__haplotypes_8h_a0374ce95adfcc39f8525841251921727}{generate\+\_\+haplotypes}} (int n\+\_\+ind, int n\+\_\+loci, int n\+\_\+distinct\+\_\+haplo)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This header file defines the function {\ttfamily generate\+\_\+haplotypes}, which generates random haplotypes for a given population of individuals. 
+
+\begin{DoxyAuthor}{Authors}
+Ahamed TCHATAKOURA \& Mawuéna AHONDO 
+\end{DoxyAuthor}
+The function creates a set of distinct haplotypes, then pairs them randomly to generate haplotypes for each individual.
+
+
+\begin{DoxyItemize}
+\item First, the function generates {\ttfamily n\+\_\+distinct\+\_\+haplo} distinct haplotypes, each having {\ttfamily n\+\_\+loci} loci, with each locus being randomly assigned a value of 0 or 1.
+\item Then, it randomly selects pairs of haplotypes from the distinct haplotypes and assigns them to individuals.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+ind} & The number of individuals (i.\+e., the number of haplotype pairs to generate). \\
+\hline
+{\em n\+\_\+loci} & The number of loci (genetic markers) in each haplotype. \\
+\hline
+{\em n\+\_\+distinct\+\_\+haplo} & The number of distinct haplotypes to generate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A 2D vector representing the haplotypes for all individuals. Each individual has two associated haplotypes. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{script_2generate__haplotypes_8h_a0374ce95adfcc39f8525841251921727}\index{generate\_haplotypes.h@{generate\_haplotypes.h}!generate\_haplotypes@{generate\_haplotypes}}
+\index{generate\_haplotypes@{generate\_haplotypes}!generate\_haplotypes.h@{generate\_haplotypes.h}}
+\doxysubsubsection{\texorpdfstring{generate\_haplotypes()}{generate\_haplotypes()}}
+{\footnotesize\ttfamily \label{script_2generate__haplotypes_8h_a0374ce95adfcc39f8525841251921727} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ generate\+\_\+haplotypes (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+ind}{, }\item[{int}]{n\+\_\+loci}{, }\item[{int}]{n\+\_\+distinct\+\_\+haplo}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

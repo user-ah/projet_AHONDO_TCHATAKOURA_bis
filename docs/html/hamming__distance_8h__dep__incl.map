@@ -1,0 +1,7 @@
+<map id="src/infer_missing_data/hamming_distance.h" name="src/infer_missing_data/hamming_distance.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="9,5,161,46"/>
+<area shape="rect" id="Node000002" href="$impute__missing__data_8h.html" title=" " alt="" coords="5,94,165,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,62,88,94,82,94,82,62"/>
+<area shape="rect" id="Node000003" href="$infer__missing__data_8cpp.html" title="Implements the main function for genotype imputation using the k&#45;nearest neighbors (KNN) approach." alt="" coords="5,183,165,223"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="88,150,88,182,82,182,82,150"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="src/infer_missing_data/read_parameters_knn.h" name="src/infer_missing_data/read_parameters_knn.h">
+<area shape="rect" id="Node000001" title="Reads the parameter file to extract the value of k for KNN imputation." alt="" coords="5,5,167,46"/>
+<area shape="rect" id="Node000002" href="$infer__missing__data_8cpp.html" title="Implements the main function for genotype imputation using the k&#45;nearest neighbors (KNN) approach." alt="" coords="6,94,166,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,62,89,94,83,94,83,62"/>
+</map>

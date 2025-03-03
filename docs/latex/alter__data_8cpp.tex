@@ -1,0 +1,72 @@
+\doxysection{src/alter\+\_\+data/alter\+\_\+data.cpp File Reference}
+\hypertarget{alter__data_8cpp}{}\label{alter__data_8cpp}\index{src/alter\_data/alter\_data.cpp@{src/alter\_data/alter\_data.cpp}}
+
+
+This program modifies genotype data by introducing missing values based on parameters specified in an input file {\ttfamily parameters.\+txt}.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}read\+\_\+parameters.\+h"{}}\newline
+{\ttfamily \#include "{}read\+\_\+genotypes.\+h"{}}\newline
+{\ttfamily \#include "{}introduce\+\_\+missing\+\_\+data.\+h"{}}\newline
+{\ttfamily \#include "{}write\+\_\+genotypes.\+h"{}}\newline
+Include dependency graph for alter\+\_\+data.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{alter__data_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{alter__data_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This program modifies genotype data by introducing missing values based on parameters specified in an input file {\ttfamily parameters.\+txt}. 
+
+The modified data is saved in a new CSV file.
+
+Key Features\+:
+\begin{DoxyItemize}
+\item Reading a percentage of missing data to introduce from a parameters file.
+\item Reading genotype data from a CSV file.
+\item Introducing missing data into the genotype matrix.
+\item Writing the altered genotype data to a new CSV file.
+\end{DoxyItemize}
+
+@output A new CSV file {\ttfamily \texorpdfstring{$<$}{<}genotypes\texorpdfstring{$>$}{>}\+\_\+altered.\+csv} containing the modified genotype data.
+
+@preconditions
+\begin{DoxyItemize}
+\item {\ttfamily parameters.\+txt} must specify the percentage of missing data (as a float).
+\item {\ttfamily genotypes.\+csv} must contain a valid genotype matrix.
+\item Ensure proper file paths and directory permissions.
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Authors}
+Ahamed TCHATAKOURA \& Mawuéna AHONDO
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of command-\/line arguments. \\
+\hline
+{\em argv} & Array of command-\/line arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Exit status of the program. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{alter__data_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{alter\_data.cpp@{alter\_data.cpp}!main@{main}}
+\index{main@{main}!alter\_data.cpp@{alter\_data.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{alter__data_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+

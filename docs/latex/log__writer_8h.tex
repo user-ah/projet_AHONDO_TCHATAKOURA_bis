@@ -1,0 +1,134 @@
+\doxysection{src/infer\+\_\+haplo/log\+\_\+writer.h File Reference}
+\hypertarget{log__writer_8h}{}\label{log__writer_8h}\index{src/infer\_haplo/log\_writer.h@{src/infer\_haplo/log\_writer.h}}
+
+
+Writes log information to a specified log file.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for log\+\_\+writer.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{log__writer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{log__writer_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{log__writer_8h_a5236a68db1670176ebd399d26dfc6532}{write\+Log}} (const std\+::string \&log\+\_\+file, int n\+\_\+ind, int n\+\_\+loci, int nb\+\_\+iterations, double execution\+Time, size\+\_\+t count\+Twos, size\+\_\+t n\+\_\+distinct\+\_\+ground\+\_\+truth, size\+\_\+t n\+\_\+distinct\+\_\+inferred, double average\+Distance)
+\begin{DoxyCompactList}\small\item\em Writes execution details to a log file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Writes log information to a specified log file. 
+
+\begin{DoxyAuthor}{Author}
+Ahamed TCHATAKOURA 
+
+Mawuéna AHONDO 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/03 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+
+
+This header file defines a function that writes log details to a specified file. The log contains information about the execution of the Expectation-\/\+Maximization (EM) algorithm, including\+:
+\begin{DoxyItemize}
+\item The number of individuals and loci.
+\item The number of iterations and execution time.
+\item The number of distinct haplotypes found.
+\item Other relevant statistics for debugging and analysis.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Features}{}\doxysubsection{\texorpdfstring{Key Features}{Key Features}}\label{write__genotypes__knn_8h_Features}
+
+\begin{DoxyItemize}
+\item Records key execution details into a log file.
+\item Logs information about the number of individuals, loci, and distinct haplotypes.
+\item Records execution time, EM iterations, and other relevant statistics.
+\item Provides feedback on the success or failure of writing to the log file.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Preconditions}{}\doxysubsection{\texorpdfstring{Preconditions}{Preconditions}}\label{write__genotypes__knn_8h_Preconditions}
+
+\begin{DoxyItemize}
+\item The {\ttfamily log\+\_\+file} parameter must be a valid file path and writable.
+\item The {\ttfamily frequencies}, {\ttfamily genotypes}, and {\ttfamily haplotypes} data must be properly initialized before calling the function.
+\end{DoxyItemize}\hypertarget{write__genotypes__knn_8h_Output}{}\doxysubsection{\texorpdfstring{Generated Output}{Generated Output}}\label{write__genotypes__knn_8h_Output}
+
+\begin{DoxyItemize}
+\item Writes structured log data to a file specified by {\ttfamily log\+\_\+file}.
+\item Provides success/failure feedback for log writing operations. 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\Hypertarget{log__writer_8h_a5236a68db1670176ebd399d26dfc6532}\index{log\_writer.h@{log\_writer.h}!writeLog@{writeLog}}
+\index{writeLog@{writeLog}!log\_writer.h@{log\_writer.h}}
+\doxysubsubsection{\texorpdfstring{writeLog()}{writeLog()}}
+{\footnotesize\ttfamily \label{log__writer_8h_a5236a68db1670176ebd399d26dfc6532} 
+void write\+Log (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{log\+\_\+file}{, }\item[{int}]{n\+\_\+ind}{, }\item[{int}]{n\+\_\+loci}{, }\item[{int}]{nb\+\_\+iterations}{, }\item[{double}]{execution\+Time}{, }\item[{size\+\_\+t}]{count\+Twos}{, }\item[{size\+\_\+t}]{n\+\_\+distinct\+\_\+ground\+\_\+truth}{, }\item[{size\+\_\+t}]{n\+\_\+distinct\+\_\+inferred}{, }\item[{double}]{average\+Distance}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Writes execution details to a log file. 
+
+This function records key execution details into a log file for debugging and analysis. It captures information such as\+:
+\begin{DoxyItemize}
+\item The number of individuals and loci.
+\item The number of EM iterations performed.
+\item Execution time in seconds.
+\item The number of distinct haplotypes identified.
+\item The computed average Hamming distance.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em log\+\_\+file} & The path to the log file where execution details will be written. \\
+\hline
+{\em n\+\_\+ind} & The number of individuals in the dataset. \\
+\hline
+{\em n\+\_\+loci} & The number of loci in the dataset. \\
+\hline
+{\em nb\+\_\+iterations} & The number of EM iterations performed. \\
+\hline
+{\em execution\+\_\+time} & The total execution time in seconds. \\
+\hline
+{\em count\+\_\+twos} & The number of occurrences of the allele {\ttfamily 2} in the dataset. \\
+\hline
+{\em n\+\_\+distinct\+\_\+ground\+\_\+truth\+\_\+haplotypes} & The number of distinct haplotypes in the ground truth data. \\
+\hline
+{\em n\+\_\+distinct\+\_\+inferred\+\_\+haplotypes} & The number of distinct haplotypes inferred by the algorithm. \\
+\hline
+{\em average\+\_\+distance} & The computed average Hamming distance.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the log file cannot be opened or written to.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{log__writer_8h_a5236a68db1670176ebd399d26dfc6532}{writeLog}}(\textcolor{stringliteral}{"{}results/log.txt"{}},\ 100,\ 50,\ 20,\ 1.23,\ 150,\ 30,\ 28,\ 0.05);}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{estimation__esperance_8h_a9e8b043393ccaa9b0cd1c043e5a15988}{estimation\+\_\+esperance()} 
+
+calcul\+Average\+Hamming\+Distance() 
+\end{DoxySeeAlso}

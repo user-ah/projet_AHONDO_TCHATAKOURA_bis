@@ -1,0 +1,73 @@
+\doxysection{script/read\+\_\+parameters.h File Reference}
+\hypertarget{script_2read__parameters_8h}{}\label{script_2read__parameters_8h}\index{script/read\_parameters.h@{script/read\_parameters.h}}
+
+
+Defines the function {\ttfamily read\+\_\+parameters} to read configuration parameters from a specified text file.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+Include dependency graph for read\+\_\+parameters.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{script_2read__parameters_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{script_2read__parameters_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{script_2read__parameters_8h_a7fc66529e1fbfce5f2ee0a0352f756da}{read\+\_\+parameters}} (const std\+::string \&filepath, int \&n\+\_\+ind, int \&n\+\_\+loci, int \&n\+\_\+distinct\+\_\+haplo)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the function {\ttfamily read\+\_\+parameters} to read configuration parameters from a specified text file. 
+
+This header file defines the function {\ttfamily read\+\_\+parameters}, which reads configuration parameters from a specified text file. The function extracts the values for the number of individuals ({\ttfamily n\+\_\+ind}), the number of loci ({\ttfamily n\+\_\+loci}), and the number of distinct haplotypes ({\ttfamily n\+\_\+distinct\+\_\+haplo}) from the file and assigns them to the respective variables.
+
+\begin{DoxyAuthor}{Authors}
+Ahamed TCHATAKOURA \& Mawuéna AHONDO
+\end{DoxyAuthor}
+
+\begin{DoxyItemize}
+\item The function opens the input file and checks for successful opening.
+\item It reads each line of the file and extracts the values of {\ttfamily n\+\_\+ind}, {\ttfamily n\+\_\+loci}, and {\ttfamily n\+\_\+distinct\+\_\+haplo}.
+\item If the file cannot be opened, an error message is displayed, and the program terminates.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & The path to the input parameters file. \\
+\hline
+{\em n\+\_\+ind} & Output parameter to store the number of individuals. \\
+\hline
+{\em n\+\_\+loci} & Output parameter to store the number of loci. \\
+\hline
+{\em n\+\_\+distinct\+\_\+haplo} & Output parameter to store the number of distinct haplotypes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+The parameters file must be correctly formatted, containing {\ttfamily n\+\_\+ind}, {\ttfamily n\+\_\+loci}, and {\ttfamily n\+\_\+distinct\+\_\+haplo}.
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The function modifies the {\ttfamily n\+\_\+ind}, {\ttfamily n\+\_\+loci}, and {\ttfamily n\+\_\+distinct\+\_\+haplo} variables with the values read from the file. 
+\end{DoxyPostcond}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{script_2read__parameters_8h_a7fc66529e1fbfce5f2ee0a0352f756da}\index{read\_parameters.h@{read\_parameters.h}!read\_parameters@{read\_parameters}}
+\index{read\_parameters@{read\_parameters}!read\_parameters.h@{read\_parameters.h}}
+\doxysubsubsection{\texorpdfstring{read\_parameters()}{read\_parameters()}}
+{\footnotesize\ttfamily \label{script_2read__parameters_8h_a7fc66529e1fbfce5f2ee0a0352f756da} 
+void read\+\_\+parameters (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filepath}{, }\item[{int \&}]{n\+\_\+ind}{, }\item[{int \&}]{n\+\_\+loci}{, }\item[{int \&}]{n\+\_\+distinct\+\_\+haplo}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

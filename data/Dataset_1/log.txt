@@ -1,8 +1,8 @@
-Nombre d'individus (n_ind) : 20
-Nombre de loci (n_loci) : 8
-Nombre d'itérations utilisées : 4
-Durée d'exécution : 0.0825608 secondes
-Nombre total de `2` dans le fichier des génotypes : 62
-Nombre d'haplotypes distincts (ground truth) : 5
-Nombre d'haplotypes distincts (inférés) : 5
-Distance moyenne de Hamming (normalisée) : 0
+Number of individuals (n_ind): 20
+Number of loci (n_loci): 8
+Number of iterations used: 4
+Execution time: 0.134813 seconds
+Total count of `2`s in the genotypes file: 62
+Number of distinct haplotypes (ground truth): 5
+Number of distinct haplotypes (inferred): 5
+Average normalized Hamming distance: 0

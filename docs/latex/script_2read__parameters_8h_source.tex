@@ -1,0 +1,37 @@
+\doxysection{read\+\_\+parameters.\+h}
+\hypertarget{script_2read__parameters_8h_source}{}\label{script_2read__parameters_8h_source}\index{script/read\_parameters.h@{script/read\_parameters.h}}
+\mbox{\hyperlink{script_2read__parameters_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ READ\_PARAMETERS\_H}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ READ\_PARAMETERS\_H}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{script_2read__parameters_8h_a7fc66529e1fbfce5f2ee0a0352f756da}{read\_parameters}}(\textcolor{keyword}{const}\ std::string\&\ filepath,\ \textcolor{keywordtype}{int}\&\ n\_ind,\ \textcolor{keywordtype}{int}\&\ n\_loci,\ \textcolor{keywordtype}{int}\&\ n\_distinct\_haplo)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ std::ifstream\ infile(filepath);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (!infile)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Erreur\ d'ouverture\ du\ fichier\ de\ paramètres.\(\backslash\)n"{}};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ exit(1);}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ std::string\ line;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{while}\ (infile\ >>\ line)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line\ ==\ \textcolor{stringliteral}{"{}n\_ind"{}})\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ infile\ >>\ n\_ind;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (line\ ==\ \textcolor{stringliteral}{"{}n\_loci"{}})\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ infile\ >>\ n\_loci;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (line\ ==\ \textcolor{stringliteral}{"{}n\_distinct\_haplo"{}})\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ infile\ >>\ n\_distinct\_haplo;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ infile.close();}
+\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00057\ }
+
+\end{DoxyCode}

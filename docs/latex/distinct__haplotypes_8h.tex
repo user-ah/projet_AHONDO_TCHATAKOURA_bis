@@ -1,0 +1,90 @@
+\doxysection{src/infer\+\_\+haplo/distinct\+\_\+haplotypes.h File Reference}
+\hypertarget{distinct__haplotypes_8h}{}\label{distinct__haplotypes_8h}\index{src/infer\_haplo/distinct\_haplotypes.h@{src/infer\_haplo/distinct\_haplotypes.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include "{}vector\+\_\+hash.\+h"{}}\newline
+Include dependency graph for distinct\+\_\+haplotypes.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{distinct__haplotypes_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{distinct__haplotypes_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{distinct__haplotypes_8h_a2883ca161023b8bde50d37739827d8e1}{parse\+CSVLine}} (const std\+::string \&line, char delimiter=\textquotesingle{},\textquotesingle{})
+\item 
+std\+::unordered\+\_\+set$<$ std\+::vector$<$ int $>$, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ \mbox{\hyperlink{distinct__haplotypes_8h_af820206a4be302624201db9d422c3287}{load\+Haplotypes\+From\+File}} (const std\+::string \&haplotypes\+File)
+\begin{DoxyCompactList}\small\item\em Loads haplotypes from a CSV file and stores them in an unordered set. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{distinct__haplotypes_8h_ab1ea12ad8f92c79989c07d1825ce9b70}{Distinct\+Haplotypes\+From\+File}} (const std\+::string \&haplotypes\+File, size\+\_\+t \&n\+\_\+distinct\+\_\+haplotypes)
+\begin{DoxyCompactList}\small\item\em Computes the number of distinct haplotypes from a CSV file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{distinct__haplotypes_8h_ab1ea12ad8f92c79989c07d1825ce9b70}\index{distinct\_haplotypes.h@{distinct\_haplotypes.h}!DistinctHaplotypesFromFile@{DistinctHaplotypesFromFile}}
+\index{DistinctHaplotypesFromFile@{DistinctHaplotypesFromFile}!distinct\_haplotypes.h@{distinct\_haplotypes.h}}
+\doxysubsubsection{\texorpdfstring{DistinctHaplotypesFromFile()}{DistinctHaplotypesFromFile()}}
+{\footnotesize\ttfamily \label{distinct__haplotypes_8h_ab1ea12ad8f92c79989c07d1825ce9b70} 
+void Distinct\+Haplotypes\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{haplotypes\+File}{, }\item[{size\+\_\+t \&}]{n\+\_\+distinct\+\_\+haplotypes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Computes the number of distinct haplotypes from a CSV file. 
+
+This function reads haplotypes from a file and determines the count of unique haplotypes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em haplotypes\+File} & The path to the CSV file containing haplotypes. \\
+\hline
+{\em n\+\_\+distinct\+\_\+haplotypes} & A reference to a size\+\_\+t variable to store the number of distinct haplotypes.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the file cannot be opened or read. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{distinct__haplotypes_8h_af820206a4be302624201db9d422c3287}\index{distinct\_haplotypes.h@{distinct\_haplotypes.h}!loadHaplotypesFromFile@{loadHaplotypesFromFile}}
+\index{loadHaplotypesFromFile@{loadHaplotypesFromFile}!distinct\_haplotypes.h@{distinct\_haplotypes.h}}
+\doxysubsubsection{\texorpdfstring{loadHaplotypesFromFile()}{loadHaplotypesFromFile()}}
+{\footnotesize\ttfamily \label{distinct__haplotypes_8h_af820206a4be302624201db9d422c3287} 
+std\+::unordered\+\_\+set$<$ std\+::vector$<$ int $>$, \mbox{\hyperlink{struct_vector_hash}{Vector\+Hash}} $>$ load\+Haplotypes\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{haplotypes\+File}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Loads haplotypes from a CSV file and stores them in an unordered set. 
+
+This function reads a CSV file containing haplotypes, parses them into vectors of integers, and stores them in an unordered set to remove duplicates.
+
+
+\begin{DoxyParams}{Parameters}
+{\em haplotypes\+File} & The path to the CSV file containing haplotypes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An unordered set of vectors of integers representing the distinct haplotypes.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the file cannot be opened or read. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{distinct__haplotypes_8h_a2883ca161023b8bde50d37739827d8e1}\index{distinct\_haplotypes.h@{distinct\_haplotypes.h}!parseCSVLine@{parseCSVLine}}
+\index{parseCSVLine@{parseCSVLine}!distinct\_haplotypes.h@{distinct\_haplotypes.h}}
+\doxysubsubsection{\texorpdfstring{parseCSVLine()}{parseCSVLine()}}
+{\footnotesize\ttfamily \label{distinct__haplotypes_8h_a2883ca161023b8bde50d37739827d8e1} 
+std\+::vector$<$ int $>$ parse\+CSVLine (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{line}{, }\item[{char}]{delimiter}{ = {\ttfamily \textquotesingle{},\textquotesingle{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

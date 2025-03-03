@@ -1,0 +1,43 @@
+\doxysection{log\+\_\+writer.\+h}
+\hypertarget{log__writer_8h_source}{}\label{log__writer_8h_source}\index{src/infer\_haplo/log\_writer.h@{src/infer\_haplo/log\_writer.h}}
+\mbox{\hyperlink{log__writer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#ifndef\ LOG\_WRITER\_H}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ LOG\_WRITER\_H}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{log__writer_8h_a5236a68db1670176ebd399d26dfc6532}{writeLog}}(\textcolor{keyword}{const}\ std::string\&\ log\_file,}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\_ind,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\_loci,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nb\_iterations,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ executionTime,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ countTwos,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ n\_distinct\_ground\_truth,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ n\_distinct\_inferred,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ averageDistance)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ std::ofstream\ log(log\_file);}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{if}\ (log.is\_open())\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ log\ <<\ \textcolor{stringliteral}{"{}Number\ of\ individuals\ (n\_ind):\ "{}}\ <<\ n\_ind\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ log\ <<\ \textcolor{stringliteral}{"{}Number\ of\ loci\ (n\_loci):\ "{}}\ <<\ n\_loci\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ log\ <<\ \textcolor{stringliteral}{"{}Number\ of\ iterations\ used:\ "{}}\ <<\ nb\_iterations\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ log\ <<\ \textcolor{stringliteral}{"{}Execution\ time:\ "{}}\ <<\ executionTime\ <<\ \textcolor{stringliteral}{"{}\ seconds\(\backslash\)n"{}};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ log\ <<\ \textcolor{stringliteral}{"{}Total\ count\ of\ \`{}2`s\ in\ the\ genotypes\ file:\ "{}}\ <<\ countTwos\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ log\ <<\ \textcolor{stringliteral}{"{}Number\ of\ distinct\ haplotypes\ (ground\ truth):\ "{}}\ <<\ n\_distinct\_ground\_truth\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ log\ <<\ \textcolor{stringliteral}{"{}Number\ of\ distinct\ haplotypes\ (inferred):\ "{}}\ <<\ n\_distinct\_inferred\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ log\ <<\ \textcolor{stringliteral}{"{}Average\ normalized\ Hamming\ distance:\ "{}}\ <<\ averageDistance\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ log.close();}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Log\ written\ to:\ "{}}\ <<\ log\_file\ <<\ std::endl;}
+\DoxyCodeLine{00096\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Unable\ to\ open\ the\ log\ file:\ "{}}\ <<\ log\_file\ <<\ std::endl;}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LOG\_WRITER\_H}}
+
+\end{DoxyCode}

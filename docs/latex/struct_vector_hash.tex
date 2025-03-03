@@ -1,0 +1,59 @@
+\doxysection{Vector\+Hash Struct Reference}
+\hypertarget{struct_vector_hash}{}\label{struct_vector_hash}\index{VectorHash@{VectorHash}}
+
+
+Custom hash function for {\ttfamily std\+::vector\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}}.  
+
+
+
+
+{\ttfamily \#include $<$vector\+\_\+hash.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{struct_vector_hash_a92159a2dc136c69bf2b5d701637321f3}{operator()}} (const std\+::vector$<$ int $>$ \&v) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Custom hash function for {\ttfamily std\+::vector\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}}. 
+
+This structure defines a custom hashing mechanism for {\ttfamily std\+::vector\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}}. It computes a hash value by iterating through the vector elements and applying bitwise operations to ensure a unique and well-\/distributed hash.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of elements in the vector (assumed to be {\ttfamily int}).\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+A hash value representing the vector.
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::unordered\_map<std::vector<int>,\ double,\ VectorHash>\ frequencies;}
+\DoxyCodeLine{frequencies[std::vector<int>\{0,\ 1,\ 1\}]\ =\ 0.5;}
+\DoxyCodeLine{frequencies[std::vector<int>\{1,\ 0,\ 1\}]\ =\ 0.3;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ pair\ :\ frequencies)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Haplotype:\ "{}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ allele\ :\ pair.first)\ std::cout\ <<\ allele\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ -\/>\ Frequency:\ "{}}\ <<\ pair.second\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_vector_hash_a92159a2dc136c69bf2b5d701637321f3}\index{VectorHash@{VectorHash}!operator()@{operator()}}
+\index{operator()@{operator()}!VectorHash@{VectorHash}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \label{struct_vector_hash_a92159a2dc136c69bf2b5d701637321f3} 
+size\+\_\+t Vector\+Hash\+::operator() (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{v}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/infer\+\_\+haplo/\mbox{\hyperlink{vector__hash_8h}{vector\+\_\+hash.\+h}}\end{DoxyCompactItemize}

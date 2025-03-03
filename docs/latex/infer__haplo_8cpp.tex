@@ -1,0 +1,122 @@
+\doxysection{src/infer\+\_\+haplo/infer\+\_\+haplo.cpp File Reference}
+\hypertarget{infer__haplo_8cpp}{}\label{infer__haplo_8cpp}\index{src/infer\_haplo/infer\_haplo.cpp@{src/infer\_haplo/infer\_haplo.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include "{}genotype\+\_\+reader.\+h"{}}\newline
+{\ttfamily \#include "{}generate\+\_\+haplotypes.\+h"{}}\newline
+{\ttfamily \#include "{}initialisation\+\_\+frequences.\+h"{}}\newline
+{\ttfamily \#include "{}calcul\+\_\+proba\+\_\+genotypes.\+h"{}}\newline
+{\ttfamily \#include "{}maximisation.\+h"{}}\newline
+{\ttfamily \#include "{}estimation\+\_\+esperance.\+h"{}}\newline
+{\ttfamily \#include "{}sort\+\_\+haplotypes.\+h"{}}\newline
+{\ttfamily \#include "{}assign\+\_\+haplotypes.\+h"{}}\newline
+{\ttfamily \#include "{}vector\+\_\+hash.\+h"{}}\newline
+{\ttfamily \#include "{}distinct\+\_\+haplotypes.\+h"{}}\newline
+{\ttfamily \#include "{}haplotype\+\_\+reordering.\+h"{}}\newline
+{\ttfamily \#include "{}calcul\+Average\+Hamming\+Distance.\+h"{}}\newline
+{\ttfamily \#include "{}two\+Numbers\+In\+Genotypes.\+h"{}}\newline
+{\ttfamily \#include "{}haplotype\+\_\+reader.\+h"{}}\newline
+{\ttfamily \#include "{}log\+\_\+writer.\+h"{}}\newline
+Include dependency graph for infer\+\_\+haplo.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{infer__haplo_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{infer__haplo_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{infer__haplo_8cpp_a7645fb7a13c24e293d2ecb1c90f4727b}{NB\+\_\+\+ETAPES\+\_\+\+MAXIMUM}} = 100
+\begin{DoxyCompactList}\small\item\em Main function implementing the Expectation-\/\+Maximization algorithm for haplotype inference. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{infer__haplo_8cpp_a6c29f410b135eac9c5e33c6907164008}{SEUIL}} = 0.\+001
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{infer__haplo_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{infer\_haplo.cpp@{infer\_haplo.cpp}!main@{main}}
+\index{main@{main}!infer\_haplo.cpp@{infer\_haplo.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{infer__haplo_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{infer__haplo_8cpp_a7645fb7a13c24e293d2ecb1c90f4727b}\index{infer\_haplo.cpp@{infer\_haplo.cpp}!NB\_ETAPES\_MAXIMUM@{NB\_ETAPES\_MAXIMUM}}
+\index{NB\_ETAPES\_MAXIMUM@{NB\_ETAPES\_MAXIMUM}!infer\_haplo.cpp@{infer\_haplo.cpp}}
+\doxysubsubsection{\texorpdfstring{NB\_ETAPES\_MAXIMUM}{NB\_ETAPES\_MAXIMUM}}
+{\footnotesize\ttfamily \label{infer__haplo_8cpp_a7645fb7a13c24e293d2ecb1c90f4727b} 
+const int NB\+\_\+\+ETAPES\+\_\+\+MAXIMUM = 100}
+
+
+
+Main function implementing the Expectation-\/\+Maximization algorithm for haplotype inference. 
+
+This function orchestrates the entire haplotype inference process, including\+:
+\begin{DoxyItemize}
+\item Reading input data (genotypes and haplotypes).
+\item Initializing haplotype frequencies and computing genotype probabilities.
+\item Performing EM iterations until convergence is reached.
+\item Reordering haplotypes based on genotype mapping.
+\item Computing the average Hamming distance for validation.
+\item Writing results to output files.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command-\/line arguments. \\
+\hline
+{\em argv} & The list of command-\/line arguments\+:
+\begin{DoxyItemize}
+\item {\ttfamily argv\mbox{[}1\mbox{]}} \+: Path to the genotype CSV file.
+\item {\ttfamily argv\mbox{[}2\mbox{]}} \+: Path to the ground truth haplotypes CSV file.
+\item {\ttfamily argv\mbox{[}3\mbox{]}} \+: Path to the output haplotypes CSV file.
+\item {\ttfamily argv\mbox{[}4\mbox{]}} \+: Path to the log file.
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If an input file cannot be opened or contains invalid data. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If the provided command-\/line arguments are incorrect.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+{\ttfamily EXIT\+\_\+\+SUCCESS} if the execution is successful, {\ttfamily EXIT\+\_\+\+FAILURE} otherwise.
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./haplotype\_inference\ data/genotypes.csv\ data/ground\_truth.csv\ results/haplotypes.csv\ logs/em\_log.txt}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{read__genotypes_8h_a924f036ae8dabaa3d79a0743a1058597}{read\+Genotypes()} 
+
+\doxylink{src_2infer__haplo_2generate__haplotypes_8h_a53104b7780ecf1b786258fb315340d8a}{generate\+And\+Filter\+Unique\+Haplotypes()} 
+
+\doxylink{estimation__esperance_8h_a9e8b043393ccaa9b0cd1c043e5a15988}{estimation\+\_\+esperance()} 
+
+calcul\+Average\+Hamming\+Distance() 
+
+\doxylink{log__writer_8h_a5236a68db1670176ebd399d26dfc6532}{write\+Log()} 
+\end{DoxySeeAlso}
+\Hypertarget{infer__haplo_8cpp_a6c29f410b135eac9c5e33c6907164008}\index{infer\_haplo.cpp@{infer\_haplo.cpp}!SEUIL@{SEUIL}}
+\index{SEUIL@{SEUIL}!infer\_haplo.cpp@{infer\_haplo.cpp}}
+\doxysubsubsection{\texorpdfstring{SEUIL}{SEUIL}}
+{\footnotesize\ttfamily \label{infer__haplo_8cpp_a6c29f410b135eac9c5e33c6907164008} 
+const double SEUIL = 0.\+001}
+

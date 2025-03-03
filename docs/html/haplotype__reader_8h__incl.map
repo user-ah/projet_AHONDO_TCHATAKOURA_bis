@@ -1,0 +1,15 @@
+<map id="src/infer_haplo/haplotype_reader.h" name="src/infer_haplo/haplotype_reader.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="160,5,326,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,63,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,49,78,92,76,87,190,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="87,94,141,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,49,148,88,145,83,210,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="165,94,231,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="234,48,215,82,210,79,230,45"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="254,94,326,120"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="257,45,277,79,273,82,253,48"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="349,94,418,120"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="280,44,350,84,347,88,277,49"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="442,94,520,120"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="303,44,431,86,429,91,302,49"/>
+</map>

@@ -1,0 +1,323 @@
+\doxysection{launch\+\_\+toy\+\_\+example Namespace Reference}
+\hypertarget{namespacelaunch__toy__example}{}\label{namespacelaunch__toy__example}\index{launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespacelaunch__toy__example_aae792f38eee39ff52f8cb7c97f84a576}{parameters\+\_\+file}} = "{}../src/parameters.\+txt"{}
+\item 
+str \mbox{\hyperlink{namespacelaunch__toy__example_a44bbb2fc11ed8dc559d950db28ff234b}{genotypes\+\_\+file}} = "{}../data/genotypes.\+csv"{}
+\item 
+str \mbox{\hyperlink{namespacelaunch__toy__example_a1c3991256230015684194b24544c4236}{cpp\+\_\+file}} = "{}../src/alter\+\_\+data.\+cpp"{}
+\item 
+str \mbox{\hyperlink{namespacelaunch__toy__example_a4c6260a8572785b3f1fae8b8eccbd435}{executable}} = "{}../src/alter\+\_\+data"{}
+\item 
+str \mbox{\hyperlink{namespacelaunch__toy__example_ae9f5f73bc0913f85085729c2d21ca002}{compile\+\_\+command}} = f"{}g++ -\/std=c++11 -\/o \{\mbox{\hyperlink{namespacelaunch__toy__example_a4c6260a8572785b3f1fae8b8eccbd435}{executable}}\} \{\mbox{\hyperlink{namespacelaunch__toy__example_a1c3991256230015684194b24544c4236}{cpp\+\_\+file}}\}"{}
+\item 
+\mbox{\hyperlink{namespacelaunch__toy__example_a8ac3ebafada7c0115e20f7d57973d16a}{shell}}
+\item 
+\mbox{\hyperlink{namespacelaunch__toy__example_a3af9f1e4e8263ae01507f390a3bd36b4}{True}}
+\item 
+\mbox{\hyperlink{namespacelaunch__toy__example_a6b2050dff049b396512dc70b6aadb0a1}{check}}
+\item 
+str \mbox{\hyperlink{namespacelaunch__toy__example_a2ee184ac190240b11700ab7146a4cce3}{cmd}} = f"{}\{\mbox{\hyperlink{namespacelaunch__toy__example_a4c6260a8572785b3f1fae8b8eccbd435}{executable}}\} \{\mbox{\hyperlink{namespacelaunch__toy__example_aae792f38eee39ff52f8cb7c97f84a576}{parameters\+\_\+file}}\} \{\mbox{\hyperlink{namespacelaunch__toy__example_a44bbb2fc11ed8dc559d950db28ff234b}{genotypes\+\_\+file}}\}"{}
+\item 
+str \mbox{\hyperlink{namespacelaunch__toy__example_a9564d666dd61aa151bb07f626d5a2d68}{haplotypes\+\_\+file}} = "{}../data/haplotypes.\+csv"{}
+\item 
+str \mbox{\hyperlink{namespacelaunch__toy__example_a18549a243530cadf6defae58475f3aaa}{groundtruth\+\_\+file}} = "{}../data/Dataset\+\_\+1/haplotypes.\+csv"{}
+\item 
+str \mbox{\hyperlink{namespacelaunch__toy__example_abcc806a19b79299de24537dddf51daa1}{infered\+\_\+haplotypes\+\_\+file}} = "{}../data/Dataset\+\_\+1/infered\+\_\+haplo.\+csv"{}
+\item 
+str \mbox{\hyperlink{namespacelaunch__toy__example_a044191dc30cbb50aa266bc7f7dcf026c}{log\+\_\+file}} = "{}../data/Dataset\+\_\+1/log.\+txt"{}
+\item 
+str \mbox{\hyperlink{namespacelaunch__toy__example_a906400a00718ec8748f787e5e6311378}{output\+\_\+genotypes\+\_\+file}} = "{}../data/Dataset\+\_\+8/alt\+\_\+20/k\+\_\+1/imputed\+\_\+genotypes.\+csv"{}
+\item 
+str \mbox{\hyperlink{namespacelaunch__toy__example_ac25ed80fe1bb2a0ad7b13f6e039f6629}{source\+\_\+file}} = "{}../src/infer\+\_\+missing\+\_\+data/infer\+\_\+missing\+\_\+data.\+cpp"{}
+\item 
+str \mbox{\hyperlink{namespacelaunch__toy__example_aca07d7e8421b6ab5b2a6d22f7f88709c}{compile\+\_\+cmd}} = f"{}g++ -\/o \{\mbox{\hyperlink{namespacelaunch__toy__example_a4c6260a8572785b3f1fae8b8eccbd435}{executable}}\} \{\mbox{\hyperlink{namespacelaunch__toy__example_ac25ed80fe1bb2a0ad7b13f6e039f6629}{source\+\_\+file}}\} -\/std=c++11"{}
+\item 
+\mbox{\hyperlink{namespacelaunch__toy__example_adacb643493b510401b137ec255052684}{compile\+\_\+exit\+\_\+code}} = os.\+system(\mbox{\hyperlink{namespacelaunch__toy__example_aca07d7e8421b6ab5b2a6d22f7f88709c}{compile\+\_\+cmd}})
+\item 
+\mbox{\hyperlink{namespacelaunch__toy__example_aa1c031334bf21a0695fc98743b81faa4}{exit\+\_\+code}} = os.\+system(\mbox{\hyperlink{namespacelaunch__toy__example_a2ee184ac190240b11700ab7146a4cce3}{cmd}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}@file run_alter_data.py
+@authors Ahamed TCHATAKOURA & Mawuéna AHONDO
+@date 2025-03-03
+@version 1.0
+
+@brief Compiles and executes a C++ program to modify genotype data.
+
+@details
+This script automates the compilation and execution of a C++ program (`alter_data.cpp`) that modifies genotype data.
+It first compiles the C++ source file using `g++`, and upon successful compilation, executes the compiled program with
+the required input parameters.
+
+The script performs the following steps:
+1. Compiles the C++ source file (`alter_data.cpp`) using `g++ -std=c++11`.
+2. Runs the compiled executable with input parameters (`parameters.txt` and `genotypes.csv`).
+3. Handles errors during compilation and execution, displaying appropriate messages.
+
+@section Features Key Features
+- Compiles the C++ source code using `g++` with the C++11 standard.
+- Executes the compiled program with necessary input files (`parameters.txt` and `genotypes.csv`).
+- Handles errors gracefully, outputting messages in case of failures.
+- Assumes the C++ source file is located in `../src/` and input files exist in the expected locations.
+
+@section Preconditions Preconditions
+- The C++ source file (`alter_data.cpp`) must be correctly written and located in `../src/`.
+- The `parameters.txt` file must exist and contain the necessary configuration for the program.
+- The `genotypes.csv` file must exist and will be modified by the C++ program based on the execution logic.
+- The script must have execution permissions and the required dependencies installed.
+
+@section Output Output
+- If successful, the script compiles and runs the C++ program, modifying the `genotypes.csv` file accordingly.
+- If an error occurs during compilation or execution, an appropriate error message is displayed.
+
+@section Example Example Usage
+@code
+python run_alter_data.py
+@endcode
+\end{DoxyVerb}
+
+
+\begin{DoxyVerb}@file run_create_geno_haplo_data.py
+@authors Ahamed TCHATAKOURA & Mawuéna AHONDO
+@date 2025-03-03
+@version 1.0
+
+@brief Compiles and executes a C++ program to generate genotype and haplotype data.
+
+@details
+This script automates the compilation and execution of a C++ program (`create_geno_haplo_data.cpp`)
+that generates genotype and haplotype data. It first compiles the C++ source code using `g++`,
+and upon successful compilation, executes the compiled program to generate the necessary output files.
+
+The script performs the following steps:
+1. Compiles the C++ source file (`create_geno_haplo_data.cpp`).
+2. Runs the compiled executable with input parameters (`parameters.txt`).
+3. Generates `genotypes.csv` and `haplotypes.csv` files based on the execution logic.
+4. Handles errors during compilation and execution, displaying appropriate error messages.
+
+@section Features Key Features
+- Compiles the C++ source code using `g++`.
+- Executes the compiled program with necessary input files (`parameters.txt`).
+- Generates the output genotype (`genotypes.csv`) and haplotype (`haplotypes.csv`) files.
+- Handles errors gracefully, displaying relevant messages in case of failures.
+- Assumes the C++ source file and necessary files exist in the specified paths.
+
+@section Preconditions Preconditions
+- The C++ source file (`create_geno_haplo_data.cpp`) must be correctly written and located in `../script/`.
+- The `parameters.txt` file must exist and contain the necessary configuration for the program.
+- The script must have execution permissions and the required dependencies installed.
+
+@section Output Output
+- If successful, the script compiles and runs the C++ program, generating:
+  - `genotypes.csv`
+  - `haplotypes.csv`
+- If an error occurs during compilation or execution, an appropriate error message is displayed.
+
+@section Example Example Usage
+@code
+python run_create_geno_haplo_data.py
+@endcode
+\end{DoxyVerb}
+
+
+\begin{DoxyVerb}@file run_infer_haplo.py
+@authors Ahamed TCHATAKOURA & Mawuéna AHONDO
+@date 2025-03-03
+@version 1.0
+
+@brief Compiles and executes a C++ program for haplotype inference.
+
+@details
+This script automates the compilation and execution of a C++ program (`infer_haplo.cpp`) that performs haplotype inference.
+It first compiles the C++ source file using `g++ -std=c++17`, and upon successful compilation, executes the compiled program 
+with the required input files: genotypes, ground truth haplotypes, inferred haplotypes, and a log file.
+
+The script performs the following steps:
+1. Compiles the C++ source file (`infer_haplo.cpp`).
+2. Runs the compiled executable with the input genotype and haplotype files.
+3. Generates an output file containing inferred haplotypes and a log file recording execution details.
+4. Handles errors during compilation and execution, displaying appropriate error messages.
+
+@section Features Key Features
+- Compiles the C++ source code using `g++` with the C++17 standard.
+- Executes the compiled program with input files: `genotypes.csv`, `haplotypes.csv`, and a specified log file.
+- Handles compilation and execution errors, displaying meaningful error messages.
+- Assumes that the C++ source code and necessary input files exist at the specified paths.
+
+@section Preconditions Preconditions
+- The C++ source file (`infer_haplo.cpp`) must be correctly written and located in `../src/infer_haplo/`.
+- The input files (`genotypes.csv`, `haplotypes.csv`) must exist and be properly formatted.
+- The output file for inferred haplotypes (`infered_haplo.csv`) and the log file (`log.txt`) must be correctly specified.
+- The script must have execution permissions and necessary dependencies installed.
+
+@section Output Output
+- If successful, the script compiles and runs the C++ program, generating:
+  - `infered_haplo.csv` (file with inferred haplotypes).
+  - `log.txt` (execution log file).
+- If an error occurs during compilation or execution, an appropriate error message is displayed.
+
+@section Example Example Usage
+@code
+python run_infer_haplo.py
+@endcode
+\end{DoxyVerb}
+
+
+\begin{DoxyVerb}@file run_infer_missing_data.py
+@authors Ahamed TCHATAKOURA & Mawuéna AHONDO
+@date 2025-03-03
+@version 1.0
+
+@brief Compiles and executes a C++ program to impute missing genotype data.
+
+@details
+This script automates the compilation and execution of a C++ program (`infer_missing_data.cpp`) 
+that imputes missing values in genotype data. It first compiles the C++ source file using `g++ -std=c++11`,
+and upon successful compilation, executes the compiled program with the required input files: 
+parameters and altered genotypes. The program generates an output file containing the imputed genotypes.
+
+The script performs the following steps:
+1. Compiles the C++ source file (`infer_missing_data.cpp`).
+2. Runs the compiled executable with input parameters and genotype data.
+3. Generates an output file containing the imputed genotype dataset.
+4. Handles errors during compilation and execution, displaying appropriate error messages.
+
+@section Features Key Features
+- Compiles the C++ source code using `g++` with the C++11 standard.
+- Executes the compiled program with input files: `parameters_3_1.txt` and `genotypes_alteres.csv`.
+- Produces an output file: `imputed_genotypes.csv` containing imputed genotypes.
+- Handles compilation and execution errors, displaying meaningful messages in case of failure.
+- Assumes that the C++ source code and necessary input files exist at the specified paths.
+
+@section Preconditions Preconditions
+- The C++ source file (`infer_missing_data.cpp`) must be correctly written and located in `../src/infer_missing_data/`.
+- The input files (`parameters_3_1.txt`, `genotypes_alteres.csv`) must exist and be properly formatted.
+- The output file for imputed genotypes (`imputed_genotypes.csv`) must be correctly specified.
+- The script must have execution permissions and necessary dependencies installed.
+
+@section Output Output
+- If successful, the script compiles and runs the C++ program, generating:
+  - `imputed_genotypes.csv` (file with imputed genotypes).
+- If an error occurs during compilation or execution, an appropriate error message is displayed.
+
+@section Example Example Usage
+@code
+python run_infer_missing_data.py
+@endcode
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacelaunch__toy__example_a6b2050dff049b396512dc70b6aadb0a1}\index{launch\_toy\_example@{launch\_toy\_example}!check@{check}}
+\index{check@{check}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{check}{check}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_a6b2050dff049b396512dc70b6aadb0a1} 
+launch\+\_\+toy\+\_\+example.\+check}
+
+\Hypertarget{namespacelaunch__toy__example_a2ee184ac190240b11700ab7146a4cce3}\index{launch\_toy\_example@{launch\_toy\_example}!cmd@{cmd}}
+\index{cmd@{cmd}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{cmd}{cmd}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_a2ee184ac190240b11700ab7146a4cce3} 
+str launch\+\_\+toy\+\_\+example.\+cmd = f"{}\{\mbox{\hyperlink{namespacelaunch__toy__example_a4c6260a8572785b3f1fae8b8eccbd435}{executable}}\} \{\mbox{\hyperlink{namespacelaunch__toy__example_aae792f38eee39ff52f8cb7c97f84a576}{parameters\+\_\+file}}\} \{\mbox{\hyperlink{namespacelaunch__toy__example_a44bbb2fc11ed8dc559d950db28ff234b}{genotypes\+\_\+file}}\}"{}}
+
+\Hypertarget{namespacelaunch__toy__example_aca07d7e8421b6ab5b2a6d22f7f88709c}\index{launch\_toy\_example@{launch\_toy\_example}!compile\_cmd@{compile\_cmd}}
+\index{compile\_cmd@{compile\_cmd}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{compile\_cmd}{compile\_cmd}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_aca07d7e8421b6ab5b2a6d22f7f88709c} 
+str launch\+\_\+toy\+\_\+example.\+compile\+\_\+cmd = f"{}g++ -\/o \{\mbox{\hyperlink{namespacelaunch__toy__example_a4c6260a8572785b3f1fae8b8eccbd435}{executable}}\} \{\mbox{\hyperlink{namespacelaunch__toy__example_ac25ed80fe1bb2a0ad7b13f6e039f6629}{source\+\_\+file}}\} -\/std=c++11"{}}
+
+\Hypertarget{namespacelaunch__toy__example_ae9f5f73bc0913f85085729c2d21ca002}\index{launch\_toy\_example@{launch\_toy\_example}!compile\_command@{compile\_command}}
+\index{compile\_command@{compile\_command}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{compile\_command}{compile\_command}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_ae9f5f73bc0913f85085729c2d21ca002} 
+str launch\+\_\+toy\+\_\+example.\+compile\+\_\+command = f"{}g++ -\/std=c++11 -\/o \{\mbox{\hyperlink{namespacelaunch__toy__example_a4c6260a8572785b3f1fae8b8eccbd435}{executable}}\} \{\mbox{\hyperlink{namespacelaunch__toy__example_a1c3991256230015684194b24544c4236}{cpp\+\_\+file}}\}"{}}
+
+\Hypertarget{namespacelaunch__toy__example_adacb643493b510401b137ec255052684}\index{launch\_toy\_example@{launch\_toy\_example}!compile\_exit\_code@{compile\_exit\_code}}
+\index{compile\_exit\_code@{compile\_exit\_code}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{compile\_exit\_code}{compile\_exit\_code}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_adacb643493b510401b137ec255052684} 
+launch\+\_\+toy\+\_\+example.\+compile\+\_\+exit\+\_\+code = os.\+system(\mbox{\hyperlink{namespacelaunch__toy__example_aca07d7e8421b6ab5b2a6d22f7f88709c}{compile\+\_\+cmd}})}
+
+\Hypertarget{namespacelaunch__toy__example_a1c3991256230015684194b24544c4236}\index{launch\_toy\_example@{launch\_toy\_example}!cpp\_file@{cpp\_file}}
+\index{cpp\_file@{cpp\_file}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{cpp\_file}{cpp\_file}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_a1c3991256230015684194b24544c4236} 
+str launch\+\_\+toy\+\_\+example.\+cpp\+\_\+file = "{}../src/alter\+\_\+data.\+cpp"{}}
+
+\Hypertarget{namespacelaunch__toy__example_a4c6260a8572785b3f1fae8b8eccbd435}\index{launch\_toy\_example@{launch\_toy\_example}!executable@{executable}}
+\index{executable@{executable}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{executable}{executable}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_a4c6260a8572785b3f1fae8b8eccbd435} 
+str launch\+\_\+toy\+\_\+example.\+executable = "{}../src/alter\+\_\+data"{}}
+
+\Hypertarget{namespacelaunch__toy__example_aa1c031334bf21a0695fc98743b81faa4}\index{launch\_toy\_example@{launch\_toy\_example}!exit\_code@{exit\_code}}
+\index{exit\_code@{exit\_code}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{exit\_code}{exit\_code}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_aa1c031334bf21a0695fc98743b81faa4} 
+launch\+\_\+toy\+\_\+example.\+exit\+\_\+code = os.\+system(\mbox{\hyperlink{namespacelaunch__toy__example_a2ee184ac190240b11700ab7146a4cce3}{cmd}})}
+
+\Hypertarget{namespacelaunch__toy__example_a44bbb2fc11ed8dc559d950db28ff234b}\index{launch\_toy\_example@{launch\_toy\_example}!genotypes\_file@{genotypes\_file}}
+\index{genotypes\_file@{genotypes\_file}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{genotypes\_file}{genotypes\_file}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_a44bbb2fc11ed8dc559d950db28ff234b} 
+str launch\+\_\+toy\+\_\+example.\+genotypes\+\_\+file = "{}../data/genotypes.\+csv"{}}
+
+\Hypertarget{namespacelaunch__toy__example_a18549a243530cadf6defae58475f3aaa}\index{launch\_toy\_example@{launch\_toy\_example}!groundtruth\_file@{groundtruth\_file}}
+\index{groundtruth\_file@{groundtruth\_file}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{groundtruth\_file}{groundtruth\_file}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_a18549a243530cadf6defae58475f3aaa} 
+str launch\+\_\+toy\+\_\+example.\+groundtruth\+\_\+file = "{}../data/Dataset\+\_\+1/haplotypes.\+csv"{}}
+
+\Hypertarget{namespacelaunch__toy__example_a9564d666dd61aa151bb07f626d5a2d68}\index{launch\_toy\_example@{launch\_toy\_example}!haplotypes\_file@{haplotypes\_file}}
+\index{haplotypes\_file@{haplotypes\_file}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{haplotypes\_file}{haplotypes\_file}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_a9564d666dd61aa151bb07f626d5a2d68} 
+str launch\+\_\+toy\+\_\+example.\+haplotypes\+\_\+file = "{}../data/haplotypes.\+csv"{}}
+
+\Hypertarget{namespacelaunch__toy__example_abcc806a19b79299de24537dddf51daa1}\index{launch\_toy\_example@{launch\_toy\_example}!infered\_haplotypes\_file@{infered\_haplotypes\_file}}
+\index{infered\_haplotypes\_file@{infered\_haplotypes\_file}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{infered\_haplotypes\_file}{infered\_haplotypes\_file}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_abcc806a19b79299de24537dddf51daa1} 
+str launch\+\_\+toy\+\_\+example.\+infered\+\_\+haplotypes\+\_\+file = "{}../data/Dataset\+\_\+1/infered\+\_\+haplo.\+csv"{}}
+
+\Hypertarget{namespacelaunch__toy__example_a044191dc30cbb50aa266bc7f7dcf026c}\index{launch\_toy\_example@{launch\_toy\_example}!log\_file@{log\_file}}
+\index{log\_file@{log\_file}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{log\_file}{log\_file}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_a044191dc30cbb50aa266bc7f7dcf026c} 
+str launch\+\_\+toy\+\_\+example.\+log\+\_\+file = "{}../data/Dataset\+\_\+1/log.\+txt"{}}
+
+\Hypertarget{namespacelaunch__toy__example_a906400a00718ec8748f787e5e6311378}\index{launch\_toy\_example@{launch\_toy\_example}!output\_genotypes\_file@{output\_genotypes\_file}}
+\index{output\_genotypes\_file@{output\_genotypes\_file}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{output\_genotypes\_file}{output\_genotypes\_file}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_a906400a00718ec8748f787e5e6311378} 
+str launch\+\_\+toy\+\_\+example.\+output\+\_\+genotypes\+\_\+file = "{}../data/Dataset\+\_\+8/alt\+\_\+20/k\+\_\+1/imputed\+\_\+genotypes.\+csv"{}}
+
+\Hypertarget{namespacelaunch__toy__example_aae792f38eee39ff52f8cb7c97f84a576}\index{launch\_toy\_example@{launch\_toy\_example}!parameters\_file@{parameters\_file}}
+\index{parameters\_file@{parameters\_file}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{parameters\_file}{parameters\_file}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_aae792f38eee39ff52f8cb7c97f84a576} 
+str launch\+\_\+toy\+\_\+example.\+parameters\+\_\+file = "{}../src/parameters.\+txt"{}}
+
+\Hypertarget{namespacelaunch__toy__example_a8ac3ebafada7c0115e20f7d57973d16a}\index{launch\_toy\_example@{launch\_toy\_example}!shell@{shell}}
+\index{shell@{shell}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{shell}{shell}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_a8ac3ebafada7c0115e20f7d57973d16a} 
+launch\+\_\+toy\+\_\+example.\+shell}
+
+\Hypertarget{namespacelaunch__toy__example_ac25ed80fe1bb2a0ad7b13f6e039f6629}\index{launch\_toy\_example@{launch\_toy\_example}!source\_file@{source\_file}}
+\index{source\_file@{source\_file}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{source\_file}{source\_file}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_ac25ed80fe1bb2a0ad7b13f6e039f6629} 
+str launch\+\_\+toy\+\_\+example.\+source\+\_\+file = "{}../src/infer\+\_\+missing\+\_\+data/infer\+\_\+missing\+\_\+data.\+cpp"{}}
+
+\Hypertarget{namespacelaunch__toy__example_a3af9f1e4e8263ae01507f390a3bd36b4}\index{launch\_toy\_example@{launch\_toy\_example}!True@{True}}
+\index{True@{True}!launch\_toy\_example@{launch\_toy\_example}}
+\doxysubsubsection{\texorpdfstring{True}{True}}
+{\footnotesize\ttfamily \label{namespacelaunch__toy__example_a3af9f1e4e8263ae01507f390a3bd36b4} 
+launch\+\_\+toy\+\_\+example.\+True}
+

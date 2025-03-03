@@ -1,0 +1,47 @@
+\doxysection{impute\+\_\+missing\+\_\+data.\+h}
+\hypertarget{impute__missing__data_8h_source}{}\label{impute__missing__data_8h_source}\index{src/infer\_missing\_data/impute\_missing\_data.h@{src/infer\_missing\_data/impute\_missing\_data.h}}
+\mbox{\hyperlink{impute__missing__data_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifndef\ IMPUTE\_MISSING\_DATA\_KNN\_H}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ IMPUTE\_MISSING\_DATA\_KNN\_H}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hamming__distance_8h}{hamming\_distance.h}}"{}}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{impute__missing__data_8h_a2dd3b8d623963012c9ff35b48e05204e}{imputeMissingData}}(std::vector<int>\ \&target,\ \textcolor{keyword}{const}\ std::vector<std::vector<int>>\ \&genotypes,\ \textcolor{keywordtype}{int}\ k)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ std::vector<std::pair<int,\ int>>\ distances;\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ genotypes.size();\ ++i)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ distance\ =\ \mbox{\hyperlink{hamming__distance_8h_a1d0d2534d44a815db67d2a4304667938}{hammingDistance}}(target,\ genotypes[i]);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ distances.emplace\_back(distance,\ i);}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ }
+\DoxyCodeLine{00085\ \ \ \ \ std::sort(distances.begin(),\ distances.end());}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ target.size();\ ++i)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (target[i]\ ==\ -\/1)\ \{\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\ values;\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ k\ \&\&\ j\ <\ distances.size();\ ++j)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ neighbor\_index\ =\ distances[j].second;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (genotypes[neighbor\_index][i]\ !=\ -\/1)\ \{\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ values.push\_back(genotypes[neighbor\_index][i]);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!values.empty())\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ones\ =\ std::count(values.begin(),\ values.end(),\ 1);}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ zeros\ =\ std::count(values.begin(),\ values.end(),\ 0);}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ target[i]\ =\ (ones\ >=\ zeros)\ ?\ 1\ :\ 0;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

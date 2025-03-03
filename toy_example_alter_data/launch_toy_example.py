@@ -1,27 +1,42 @@
 """
-    File: run_alter_data.py
+@file run_alter_data.py
+@authors Ahamed TCHATAKOURA & Mawuéna AHONDO
+@date 2025-03-03
+@version 1.0
 
-    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
+@brief Compiles and executes a C++ program to modify genotype data.
 
-    Description:
-    This script compiles and runs a C++ program that modifies genotype data.
-    It first compiles the C++ source code, and if successful, it executes the compiled program to alter the genotype data.
+@details
+This script automates the compilation and execution of a C++ program (`alter_data.cpp`) that modifies genotype data.
+It first compiles the C++ source file using `g++`, and upon successful compilation, executes the compiled program with
+the required input parameters.
 
-    Key Features:
-    - Compiles the C++ source code using `g++` with the C++11 standard.
-    - Executes the compiled program with input and output files for parameters and genotypes.
-    - Handles errors during both compilation and execution, displaying appropriate error messages.
-    - Assumes that the C++ source code is located at a specified path and the necessary input/output files exist.
+The script performs the following steps:
+1. Compiles the C++ source file (`alter_data.cpp`) using `g++ -std=c++11`.
+2. Runs the compiled executable with input parameters (`parameters.txt` and `genotypes.csv`).
+3. Handles errors during compilation and execution, displaying appropriate messages.
 
-    Output:
-    - The script runs the compiled executable, modifying the `genotypes.csv` file based on the given parameters.
+@section Features Key Features
+- Compiles the C++ source code using `g++` with the C++11 standard.
+- Executes the compiled program with necessary input files (`parameters.txt` and `genotypes.csv`).
+- Handles errors gracefully, outputting messages in case of failures.
+- Assumes the C++ source file is located in `../src/` and input files exist in the expected locations.
 
-    Preconditions:
-    - The C++ source file (`alter_data.cpp`) must be correctly written and located at the specified path.
-    - The `parameters.txt` file must contain the necessary configuration for the program.
-    - The `genotypes.csv` file will be modified by the C++ program based on the execution logic.
+@section Preconditions Preconditions
+- The C++ source file (`alter_data.cpp`) must be correctly written and located in `../src/`.
+- The `parameters.txt` file must exist and contain the necessary configuration for the program.
+- The `genotypes.csv` file must exist and will be modified by the C++ program based on the execution logic.
+- The script must have execution permissions and the required dependencies installed.
+
+@section Output Output
+- If successful, the script compiles and runs the C++ program, modifying the `genotypes.csv` file accordingly.
+- If an error occurs during compilation or execution, an appropriate error message is displayed.
+
+@section Example Example Usage
+@code
+python run_alter_data.py
+@endcode
 """
-
 import os
 import sys
 import subprocess

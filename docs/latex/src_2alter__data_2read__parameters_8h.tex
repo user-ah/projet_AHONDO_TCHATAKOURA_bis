@@ -1,0 +1,69 @@
+\doxysection{src/alter\+\_\+data/read\+\_\+parameters.h File Reference}
+\hypertarget{src_2alter__data_2read__parameters_8h}{}\label{src_2alter__data_2read__parameters_8h}\index{src/alter\_data/read\_parameters.h@{src/alter\_data/read\_parameters.h}}
+
+
+Defines a function to read simulation parameters from a text file.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+Include dependency graph for read\+\_\+parameters.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{src_2alter__data_2read__parameters_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=177pt]{src_2alter__data_2read__parameters_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{src_2alter__data_2read__parameters_8h_a37c005757e514e65fd00377f6ef906a1}{read\+Parameters}} (const std\+::string \&parameters\+File, float \&percent\+Miss)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines a function to read simulation parameters from a text file. 
+
+This header file contains the declaration of a function that reads the percentage of missing data ({\ttfamily percent\+\_\+miss}) from a specified text file and assigns it to a variable.
+
+\begin{DoxyAuthor}{Authors}
+Ahamed TCHATAKOURA \& Mawuéna AHONDO
+\end{DoxyAuthor}
+The function parses a text file to find a specific parameter ({\ttfamily percent\+\_\+miss}), extracts the value associated with the parameter, converts it to a float, and assigns it to the provided variable. It also handles errors if the file cannot be opened or if the parameter is missing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameters\+File} & The path to the text file containing the simulation parameters. \\
+\hline
+{\em percent\+Miss} & A reference to a float variable where the percentage of missing data will be stored.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+The input file must include a line specifying {\ttfamily percent\+\_\+miss} in the format\+: {\ttfamily percent\+\_\+miss=\texorpdfstring{$<$}{<}value\texorpdfstring{$>$}{>}}.
+\end{DoxyPrecond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if the file cannot be opened.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The function exits the program with a failure status if the file cannot be opened. 
+\end{DoxyNote}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{src_2alter__data_2read__parameters_8h_a37c005757e514e65fd00377f6ef906a1}\index{read\_parameters.h@{read\_parameters.h}!readParameters@{readParameters}}
+\index{readParameters@{readParameters}!read\_parameters.h@{read\_parameters.h}}
+\doxysubsubsection{\texorpdfstring{readParameters()}{readParameters()}}
+{\footnotesize\ttfamily \label{src_2alter__data_2read__parameters_8h_a37c005757e514e65fd00377f6ef906a1} 
+void read\+Parameters (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{parameters\+File}{, }\item[{float \&}]{percent\+Miss}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

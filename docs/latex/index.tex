@@ -1,0 +1,111 @@
+\chapter{Projet AHONDO \& TCHATAKOURA}
+\hypertarget{index}{}\label{index}\index{Projet AHONDO \& TCHATAKOURA@{Projet AHONDO \& TCHATAKOURA}}
+\label{index_md__r_e_a_d_m_e}%
+\Hypertarget{index_md__r_e_a_d_m_e}%
+\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Introduction}{Introduction}}\label{index_autotoc_md1}
+Ce projet est réalisé dans le cadre du {\bfseries{Master de Bioinformatique}} de {\bfseries{Nantes Université}} (2024-\/2025) dans l\textquotesingle{}enseignement {\itshape Advanced Algorithmics and Programming for Biologists / Models, Methods and Algorithms for Bioinformatics} sous l\textquotesingle{}encadrement de {\bfseries{C. Sinoquet}}.
+
+L\textquotesingle{}objectif principal est d\textquotesingle{}implémenter un ensemble d\textquotesingle{}algorithmes en {\bfseries{C++}}, avec des scripts complémentaires en {\bfseries{Python}}, permettant de \+:
+\begin{DoxyItemize}
+\item Générer des données génotypiques et haplotypiques.
+\item Réaliser une {\bfseries{inférence d\textquotesingle{}haplotypes}} à partir des génotypes en utilisant l\textquotesingle{}algorithme Expectation-\/\+Maximization (EM).
+\item {\bfseries{Altérer les données}} pour simuler des valeurs manquantes.
+\item {\bfseries{Imputer les données manquantes}} via l\textquotesingle{}algorithme des k plus proches voisins ({\bfseries{KNN}}).
+\item Analyser l\textquotesingle{}impact du pourcentage de données manquantes sur la parcimonie de l\textquotesingle{}inférence d\textquotesingle{}haplotypes.
+\end{DoxyItemize}
+
+Ce projet suit des conventions strictes et est évalué sur plusieurs critères, notamment la {\bfseries{correction des algorithmes, la lisibilité et modularité du code, ainsi que la qualité des tests et résultats produits}}.\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{📂 Structure du Projet}{📂 Structure du Projet}}\label{index_autotoc_md2}
+Le projet est organisé comme suit \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{projet\_AHONDO\_TCHATAKOURA\_bis/}
+\DoxyCodeLine{│──\ data/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Contient\ les\ jeux\ de\ données}
+\DoxyCodeLine{│──\ docs/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Documentation\ générée\ par\ Doxygen}
+\DoxyCodeLine{│──\ parameters/\ \ \ \ \ \ \ \ \ \ \ \#\ Fichiers\ de\ configuration\ et\ paramètres}
+\DoxyCodeLine{│──\ script/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Scripts\ pour\ la\ génération\ de\ génotypes\ et\ haplotypes}
+\DoxyCodeLine{│\ \ \ ├──\ create\_geno\_haplo\_data.cpp}
+\DoxyCodeLine{│\ \ \ ├──\ generate\_genotypes.h}
+\DoxyCodeLine{│\ \ \ ├──\ generate\_haplotypes.h}
+\DoxyCodeLine{│\ \ \ ├──\ read\_parameters.h}
+\DoxyCodeLine{│\ \ \ ├──\ save\_csv.h}
+\DoxyCodeLine{│──\ src/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Code\ source\ principal\ en\ C++}
+\DoxyCodeLine{│\ \ \ ├──\ alter\_data/\ \ \ \ \ \ \ \#\ Code\ pour\ modifier\ les\ données\ de\ génotypes}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ alter\_data.cpp}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ introduce\_missing\_data.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ read\_genotypes.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ read\_parameters.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ write\_genotypes.h}
+\DoxyCodeLine{│\ \ \ ├──\ infer\_haplo/\ \ \ \ \ \ \#\ Code\ pour\ l'inférence\ des\ haplotypes}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ assign\_haplotypes.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ calcul\_proba\_genotypes.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ calculAverageHammingDistance.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ calculHammingDistance.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ distinct\_haplotypes.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ estimation\_esperance.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ explain\_genotype.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ generate\_haplotypes.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ genotype\_reader.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ haplotype\_reader.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ haplotype\_reordering.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ infer\_haplo\_1}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ infer\_haplo.cpp}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ initialisation\_frequences.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ log\_writer.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ maximisation.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ sort\_haplotypes.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ twoNumbersInGenotypes.h}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ vector\_hash.h}
+\DoxyCodeLine{│──\ toy\_example\_alter\_data/\ \ \ \ \ \ \#\ Exemples\ de\ test\ pour\ la\ modification\ des\ données}
+\DoxyCodeLine{│\ \ \ ├──\ launch\_toy\_example.py}
+\DoxyCodeLine{│──\ toy\_example\_create\_geno\_haplo/\ \#\ Exemples\ de\ test\ pour\ la\ création\ de\ données}
+\DoxyCodeLine{│\ \ \ ├──\ launch\_toy\_example.py}
+\DoxyCodeLine{│──\ toy\_example\_infer\_haplo/\ \ \ \ \ \#\ Exemples\ de\ test\ pour\ l'inférence\ des\ haplotypes}
+\DoxyCodeLine{│\ \ \ ├──\ launch\_toy\_example.py}
+\DoxyCodeLine{│──\ toy\_example\_infer\_missing\_data/\ \#\ Exemples\ de\ test\ pour\ l'imputation\ des\ données\ manquantes}
+\DoxyCodeLine{│\ \ \ ├──\ launch\_toy\_example.py}
+\DoxyCodeLine{│──\ Doxyfile\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Fichier\ de\ configuration\ Doxygen}
+\DoxyCodeLine{│──\ README.md\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Documentation\ du\ projet}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Installation et Utilisation}{Installation et Utilisation}}\label{index_autotoc_md3}
+\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{{\bfseries{Exécution des Scripts de Test}}}{{\bfseries{Exécution des Scripts de Test}}}}\label{index_autotoc_md4}
+Tous les tests et exécutions du projet sont automatisés à l\textquotesingle{}aide des fichiers {\ttfamily launch\+\_\+toy\+\_\+example.\+py} présents dans les sous-\/dossiers {\ttfamily toy\+\_\+example\+\_\+\texorpdfstring{$\ast$}{*}}. Pour chaque module, il suffit de lancer le script correspondant \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Génération\ des\ données\ génotypiques\ et\ haplotypiques}
+\DoxyCodeLine{python\ toy\_example\_create\_geno\_haplo/launch\_toy\_example.py}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Inférence\ des\ haplotypes}
+\DoxyCodeLine{python\ toy\_example\_infer\_haplo/launch\_toy\_example.py}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Altération\ des\ données\ (ajout\ de\ valeurs\ manquantes)}
+\DoxyCodeLine{python\ toy\_example\_alter\_data/launch\_toy\_example.py}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Imputation\ des\ données\ manquantes\ avec\ KNN}
+\DoxyCodeLine{python\ toy\_example\_infer\_missing\_data/launch\_toy\_example.py}
+
+\end{DoxyCode}
+
+
+Ces scripts lancent automatiquement les programmes C++ avec les bons paramètres et fichiers.\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{index_autotoc_md5}
+La documentation technique est générée automatiquement avec {\bfseries{Doxygen}}.\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{{\bfseries{Générer la documentation}}}{{\bfseries{Générer la documentation}}}}\label{index_autotoc_md6}
+Si elle n’est pas encore générée, exécutez \+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{doxygen\ Doxyfile}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md7}{}\doxysubsection{\texorpdfstring{{\bfseries{Accéder à la documentation}}}{{\bfseries{Accéder à la documentation}}}}\label{index_autotoc_md7}
+Ouvrez le fichier {\bfseries{index.\+html}} dans le dossier {\ttfamily docs/html/} \+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{open\ docs/html/index.html\ \ \#\ macOS}
+\DoxyCodeLine{xdg-\/open\ docs/html/index.html\ \ \#\ Linux}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md8}{}\doxysection{\texorpdfstring{👥 Auteurs}{👥 Auteurs}}\label{index_autotoc_md8}
+
+\begin{DoxyItemize}
+\item {\bfseries{Ahamed TCHATAKOURA}}
+\item {\bfseries{Mawuéna AHONDO}} 
+\end{DoxyItemize}

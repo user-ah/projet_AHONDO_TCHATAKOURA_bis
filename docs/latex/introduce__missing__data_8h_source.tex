@@ -1,0 +1,32 @@
+\doxysection{introduce\+\_\+missing\+\_\+data.\+h}
+\hypertarget{introduce__missing__data_8h_source}{}\label{introduce__missing__data_8h_source}\index{src/alter\_data/introduce\_missing\_data.h@{src/alter\_data/introduce\_missing\_data.h}}
+\mbox{\hyperlink{introduce__missing__data_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#ifndef\ INTRODUCE\_MISSING\_DATA\_H}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ INTRODUCE\_MISSING\_DATA\_H}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{introduce__missing__data_8h_ada92848fe8ee0bc16733f76d5ce49473}{introduceMissingData}}(std::vector<std::vector<int>>\&\ genotypes,\ \textcolor{keywordtype}{float}\ percentMiss)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ totalElements\ =\ genotypes.size()\ *\ genotypes[0].size();}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ missingCount\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(percentMiss\ *\ totalElements\ /\ 100);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ std::srand(std::time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{while}\ (missingCount\ >\ 0)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ std::rand()\ \%\ genotypes.size();}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ std::rand()\ \%\ genotypes[0].size();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (genotypes[i][j]\ !=\ -\/1)\ \{\ \textcolor{comment}{//\ -\/1\ indicates\ missing\ data}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ genotypes[i][j]\ =\ -\/1;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/missingCount;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,16 @@
+<map id="src/infer_haplo/initialisation_frequences.h" name="src/infer_haplo/initialisation_frequences.h">
+<area shape="rect" id="Node000001" title="Initializes the frequencies of distinct haplotypes." alt="" coords="63,5,242,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,116,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,48,88,86,84,82,128,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="122,168,180,193"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,46,154,152,149,152,150,46"/>
+<area shape="rect" id="Node000004" href="$vector__hash_8h.html" title="Custom hash function for std::vector&lt;int&gt; to be used in hash&#45;based containers." alt="" coords="192,94,295,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="177,44,220,82,216,86,173,48"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="229,122,180,160,177,156,226,118"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="204,168,282,193"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="246,120,246,152,240,152,240,120"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="306,168,351,193"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="259,118,304,156,301,160,256,122"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="376,168,444,193"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="272,118,369,159,366,164,270,123"/>
+</map>

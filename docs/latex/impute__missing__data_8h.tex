@@ -1,0 +1,82 @@
+\doxysection{src/infer\+\_\+missing\+\_\+data/impute\+\_\+missing\+\_\+data.h File Reference}
+\hypertarget{impute__missing__data_8h}{}\label{impute__missing__data_8h}\index{src/infer\_missing\_data/impute\_missing\_data.h@{src/infer\_missing\_data/impute\_missing\_data.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include "{}hamming\+\_\+distance.\+h"{}}\newline
+Include dependency graph for impute\+\_\+missing\+\_\+data.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{impute__missing__data_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{impute__missing__data_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{impute__missing__data_8h_a2dd3b8d623963012c9ff35b48e05204e}{impute\+Missing\+Data}} (std\+::vector$<$ int $>$ \&target, const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&genotypes, int k)
+\begin{DoxyCompactList}\small\item\em Imputes missing values in a genotype vector using a KNN-\/based approach. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{impute__missing__data_8h_a2dd3b8d623963012c9ff35b48e05204e}\index{impute\_missing\_data.h@{impute\_missing\_data.h}!imputeMissingData@{imputeMissingData}}
+\index{imputeMissingData@{imputeMissingData}!impute\_missing\_data.h@{impute\_missing\_data.h}}
+\doxysubsubsection{\texorpdfstring{imputeMissingData()}{imputeMissingData()}}
+{\footnotesize\ttfamily \label{impute__missing__data_8h_a2dd3b8d623963012c9ff35b48e05204e} 
+void impute\+Missing\+Data (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{target}{, }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{genotypes}{, }\item[{int}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Imputes missing values in a genotype vector using a KNN-\/based approach. 
+
+This function identifies the {\ttfamily k} nearest neighbors based on the Hamming distance between the {\ttfamily target} vector and all genotype vectors in the dataset. Missing values ({\ttfamily -\/1}) in the {\ttfamily target} vector are replaced using a majority vote from the corresponding positions in the nearest neighbors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & The genotype vector with missing values to be imputed. \\
+\hline
+{\em genotypes} & A matrix of genotype vectors to use for nearest neighbor comparison. \\
+\hline
+{\em k} & The number of nearest neighbors to consider for imputation.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If {\ttfamily target} and genotype vectors have different sizes. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & If {\ttfamily k} is not positive or exceeds the number of available genotype vectors.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+void (Modifies the {\ttfamily target} vector in-\/place).
+\end{DoxyReturn}
+\hypertarget{write__genotypes__knn_8h_Example}{}\doxysubsection{\texorpdfstring{Usage Example}{Usage Example}}\label{write__genotypes__knn_8h_Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<int>\ target\ =\ \{0,\ -\/1,\ 1,\ -\/1,\ 0\};}
+\DoxyCodeLine{std::vector<std::vector<int>>\ genotypes\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \{0,\ 1,\ 1,\ 0,\ 0\},}
+\DoxyCodeLine{\ \ \ \ \{0,\ 0,\ 1,\ 1,\ 0\},}
+\DoxyCodeLine{\ \ \ \ \{0,\ 1,\ 1,\ 1,\ 0\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ k\ =\ 2;}
+\DoxyCodeLine{imputeMissingDataKNN(target,\ genotypes,\ k);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ val\ :\ target)\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ val\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{comment}{//\ Output:\ 0\ 1\ 1\ 1\ 0\ (example\ result\ based\ on\ majority\ vote)}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{hamming__distance_8h_a1d0d2534d44a815db67d2a4304667938}{hamming\+Distance()} 
+\end{DoxySeeAlso}

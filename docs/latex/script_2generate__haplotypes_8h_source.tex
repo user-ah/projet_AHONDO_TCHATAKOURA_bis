@@ -1,0 +1,40 @@
+\doxysection{generate\+\_\+haplotypes.\+h}
+\hypertarget{script_2generate__haplotypes_8h_source}{}\label{script_2generate__haplotypes_8h_source}\index{script/generate\_haplotypes.h@{script/generate\_haplotypes.h}}
+\mbox{\hyperlink{script_2generate__haplotypes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#ifndef\ GENERATE\_HAPLOTYPES\_H}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ GENERATE\_HAPLOTYPES\_H}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{inline}\ std::vector<std::vector<int>>\ \mbox{\hyperlink{script_2generate__haplotypes_8h_a0374ce95adfcc39f8525841251921727}{generate\_haplotypes}}(\textcolor{keywordtype}{int}\ n\_ind,\ \textcolor{keywordtype}{int}\ n\_loci,\ \textcolor{keywordtype}{int}\ n\_distinct\_haplo)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ std::vector<std::vector<int>>\ distinct\_haplotypes;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n\_distinct\_haplo;\ ++i)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ std::vector<int>\ haplotype;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ n\_loci;\ ++j)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ haplotype.push\_back(rand()\ \%\ 2);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ distinct\_haplotypes.push\_back(haplotype);}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<std::vector<int>>\ haplotypes;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n\_ind;\ ++i)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ haplo1\_idx\ =\ rand()\ \%\ n\_distinct\_haplo;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ haplo2\_idx\ =\ rand()\ \%\ n\_distinct\_haplo;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ haplotypes.push\_back(distinct\_haplotypes[haplo1\_idx]);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ haplotypes.push\_back(distinct\_haplotypes[haplo2\_idx]);}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ haplotypes;}
+\DoxyCodeLine{00052\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

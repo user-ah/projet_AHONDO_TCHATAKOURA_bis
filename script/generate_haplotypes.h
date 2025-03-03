@@ -1,27 +1,24 @@
-/*
-    File: generate_haplotypes.h
-
-    Authors: Ahamed TCHATAKOURA & Mawuéna AHONDO
-
-    Description:
-    This header file defines the function `generate_haplotypes`, which generates random haplotypes 
-    for a given population of individuals. The function creates a set of distinct haplotypes, then 
-    pairs them randomly to generate haplotypes for each individual.
-
-    Key Functionality:
-    - First, the function generates `n_distinct_haplo` distinct haplotypes, each having `n_loci` loci, 
-      with each locus being randomly assigned a value of 0 or 1.
-    - Then, it randomly selects pairs of haplotypes from the distinct haplotypes and assigns them to individuals.
-
-    Parameters:
-    - `n_ind`: The number of individuals (i.e., the number of haplotype pairs to generate).
-    - `n_loci`: The number of loci (genetic markers) in each haplotype.
-    - `n_distinct_haplo`: The number of distinct haplotypes to generate.
-
-    Output:
-    - Returns a 2D vector representing the haplotypes for all individuals. Each individual has two 
-      associated haplotypes.
-*/
+/**
+ * @file generate_haplotypes.h
+ * @authors Ahamed TCHATAKOURA & Mawuéna AHONDO
+ * @brief This header file defines the function `generate_haplotypes`, which generates random haplotypes 
+ * for a given population of individuals.
+ *
+ * The function creates a set of distinct haplotypes, then pairs them randomly to generate haplotypes 
+ * for each individual.
+ *
+ * @details
+ * - First, the function generates `n_distinct_haplo` distinct haplotypes, each having `n_loci` loci, 
+ *   with each locus being randomly assigned a value of 0 or 1.
+ * - Then, it randomly selects pairs of haplotypes from the distinct haplotypes and assigns them to individuals.
+ *
+ * @param n_ind The number of individuals (i.e., the number of haplotype pairs to generate).
+ * @param n_loci The number of loci (genetic markers) in each haplotype.
+ * @param n_distinct_haplo The number of distinct haplotypes to generate.
+ *
+ * @return A 2D vector representing the haplotypes for all individuals. Each individual has two 
+ * associated haplotypes.
+ */
 
 
 #ifndef GENERATE_HAPLOTYPES_H
