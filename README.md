@@ -12,7 +12,7 @@ L'objectif principal est d'implémenter un ensemble d'algorithmes en **C++**, av
 
 Ce projet suit des conventions strictes et est évalué sur plusieurs critères, notamment la **correction des algorithmes, la lisibilité et modularité du code, ainsi que la qualité des tests et résultats produits**.
 
-## 📂 Structure du Projet
+##  Structure du Projet
 Le projet est organisé comme suit :
 
 ```
@@ -67,7 +67,20 @@ projet_AHONDO_TCHATAKOURA_bis/
 
 ##  Installation et Utilisation
 
-###  **Exécution des Scripts de Test**
+### 1️⃣ **Installation de Doxygen**
+Si Doxygen n'est pas encore installé, vous pouvez l'installer avec la commande suivante :
+```bash
+# Sous Linux (Debian/Ubuntu)
+sudo apt install doxygen
+
+# Sous macOS
+brew install doxygen
+
+# Sous Windows (via Chocolatey)
+choco install doxygen
+```
+
+### 2️⃣ **Exécution des Scripts de Test**
 Tous les tests et exécutions du projet sont automatisés à l'aide des fichiers `launch_toy_example.py` présents dans les sous-dossiers `toy_example_*`. Pour chaque module, il suffit de lancer le script correspondant :
 
 ```bash
@@ -103,7 +116,7 @@ open docs/html/index.html  # macOS
 xdg-open docs/html/index.html  # Linux
 ```
 
-## 👥 Auteurs
+##  Auteurs
 - **Ahamed TCHATAKOURA**
 - **Mawuéna AHONDO**
 
